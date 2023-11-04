@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const forCareersProfessionalsPage = () => {
+const ForCareersProfessionalsPage = () => {
     return (
         <main>
             <h1>For Careers Professionals Page</h1>
@@ -9,4 +9,4 @@ const forCareersProfessionalsPage = () => {
     )
 }
 
-export default forCareersProfessionalsPage
+export default ForCareersProfessionalsPage

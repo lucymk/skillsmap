@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const forEducatorsPage = () => {
+const ForEducatorsPage = () => {
     return (
         <main>
             <h1>For Educators</h1>
@@ -9,4 +9,4 @@ const forEducatorsPage = () => {
     )
 }
 
-export default forEducatorsPage
+export default ForEducatorsPage

@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const skillsmapSearchPage = () => {
+const SkillsmapSearchPage = () => {
     return (
         <main>
             <h1>Skillsmap Search</h1>
@@ -9,4 +9,4 @@ const skillsmapSearchPage = () => {
     )
 }
 
-export default skillsmapSearchPage
+export default SkillsmapSearchPage

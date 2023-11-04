@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const forLearnersPage = () => {
+const ForLearnersPage = () => {
     return (
         <main>
             <h1>For Learners</h1>
@@ -9,4 +9,4 @@ const forLearnersPage = () => {
     )
 }
 
-export default forLearnersPage
+export default ForLearnersPage
