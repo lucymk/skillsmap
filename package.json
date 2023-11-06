@@ -22,6 +22,11 @@
     "gatsby-plugin-prettier-eslint": "^1.0.6",
     "gatsby-plugin-sharp": "^5.12.3",
     "gatsby-plugin-sitemap": "^6.12.3",
+<<<<<<< HEAD
+=======
+    "gatsby-plugin-styled-components": "^6.12.0",
+    "gatsby-source-airtable": "^2.4.1",
+>>>>>>> c207f70b619d26c9a08cde2ce464caf9ccf60c68
     "gatsby-source-filesystem": "^5.12.1",
     "gatsby-transformer-sharp": "^5.12.3",
     "prettier": "^3.0.3",
