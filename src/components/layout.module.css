@@ -5,5 +5,5 @@
 }
 
 .fontHeadline {
-  font: var(--font-size-headline) Inter var(--line-height-headline);
+  font: var(--font-headline);
 }

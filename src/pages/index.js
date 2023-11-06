@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
 
-import * as React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import '../../global.css'
 import Layout from '../components/layout'
