@@ -1,15 +1,25 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react'
 import { Link } from 'gatsby'
 
-import * as React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
-import '../../global.css'
-import Layout from '../components/layout'
+//import { StaticImage } from 'gatsby-plugin-image'
 
-const IndexPage = () => {
+import Layout from '../components/layout'
+import {
+  Headline,
+  H1,
+  H2,
+  H3,
+  Subheadline,
+  Body,
+  Caption,
+} from '../components/shared'
+
+const IndexPage = ({ className }) => {
+  console.log('in nidex', className)
   return (
     <Layout>
-      <h1>Home Page</h1>
+      <Headline>Home Page</Headline>
       <Link to="/skillsmapSearch">Skillsmap Search</Link>
       <br />
       <Link to="/forLearners">For Learners</Link>

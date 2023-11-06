@@ -1,0 +1,29 @@
+@import '../../global.css';
+
+.headline {
+  font: var(--font-headline);
+}
+
+.h1 {
+  font: var(--font-h1);
+}
+
+.h2 {
+  font: var(--font-h2);
+}
+
+.h3 {
+  font: var(--font-h3);
+}
+
+.subheader {
+  font: var(--font-subheader);
+}
+
+.body {
+  font: var(--font-body);
+}
+
+.caption {
+  font: var(--font-caption);
+}

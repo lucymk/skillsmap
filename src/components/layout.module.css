@@ -3,7 +3,3 @@
 .container {
   border: var(--border-yellow);
 }
-
-.fontHeadline {
-  font: var(--font-size-headline) Inter var(--line-height-headline);
-}

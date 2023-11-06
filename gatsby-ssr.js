@@ -76,7 +76,7 @@ export const onRenderBody = ({ setHeadComponents }) => {
     />,
     <link
       rel="preload"
-      href="/fonts/Inter-ThinExtraLight.ttf"
+      href="/fonts/Inter-Thin.ttf"
       as="font"
       type="font/ttf"
       crossOrigin="anonymous"
