@@ -1,0 +1,128 @@
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+  font-style: normal italic;
+  src: url(/fonts/Inter.ttf) format('ttf');
+}
+
+/*
+
+    VARIABLES
+
+*/
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+:html {
+  --heading: 'Inter', -apple-system, BlinkMacSystemFont, 'avenir next', avenir,
+    helvetica, 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial,
+    sans-serif;
+  --sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'avenir next',
+    avenir, helvetica, 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial,
+    sans-serif;
+  --serif: 'Inter', georgia, serif;
+  --code: consolas, monaco, monospace;
+
+  --font-size-headline: 72px;
+  --font-size-h1: 32px;
+  --font-size-h2: 28px;
+  --font-size-h3: 20px;
+  --font-size-subheader: 18px;
+  --font-size-body: 16px;
+  --font-size-caption: 12px;
+
+  --line-height-headline: 96px;
+  --line-height-h1: 1.6;
+  --line-height-h2: 1.3;
+  --line-height-h3: 1.2;
+  --line-height-subheader: 1.1;
+  --line-height-body: 1.4;
+  --line-height-caption: 1.4;
+
+  --font-headline: var(--font-size--headline) Inter var(--line-height-headline);
+  --font-h1: Inter var(--font-size-h1) var(--line-height-h1);
+  --font-h2: Inter var(--font-size-h2) var(--line-height-h2);
+  --font-h3: Inter var(--font-size-h3) var(--line-height-h3);
+  --font-subheader: Inter var(--font-size--subheader)
+    var(--line-height-subheader);
+  --font-body: Inter var(--font-size-body) var(--line-height-body);
+  --font-caption: Inter var(--font-size-caption) var(--line-height-caption);
+
+  --spacing-none: 0;
+  --spacing-xxs: 0.313rem; /* 5px */
+  --spacing-xs: 0.625rem; /* 10px */
+  --spacing-s: 1.25rem; /* 20px */
+  --spacing-m: 1.875rem; /* 30px */
+  --spacing-l: 3.75rem; /* 60px */
+
+  --br-none: 0;
+  --br-rounded: 5px;
+  --br-pill: 50px;
+  --br-circle: 50%;
+
+  --border-w-none: 0;
+  --border-w-thin: 1px;
+  --border-w-medium: 2px;
+  --border-w-heavy: 0.4px;
+
+  --border-yellow: 4px solid var(--yellow);
+  --border-black: 1px solid var(--black);
+
+  --shadow-1: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+  /* SkillsMap Brand Colours */
+  --transparent: transparent;
+
+  --white: #fff;
+  --black: #000;
+  --background-grey: #f5f5f5;
+
+  --dark-grey: #585858;
+  --grey: #7f7f7f;
+  --light-grey: #989898;
+
+  --dark-yellow: #a59935;
+  --yellow: #eddb4c;
+  --light-yellow: #f0e26f;
+
+  --dark-purple: #5e2860;
+  --purple: #800080;
+  --light-purple: #9f61a1;
+
+  --dark-green: #74965d;
+  --green: #a6d785;
+  --light-green: #b7df9d;
+
+  --dark-blue: #5168a5;
+  --blue: #7495ed;
+  --light-blue: #8faaf0;
+
+  /* sizes - not sure yet */
+  --measure: 30em;
+  --measure-narrow: 20em;
+  --measure-wide: 34em;
+
+  --height-1: 1rem;
+  --height-2: 2rem;
+  --height-3: 4rem;
+  --height-4: 6rem;
+  --height-5: 12rem;
+
+  --width-1: 1rem;
+  --width-2: 2rem;
+  --width-3: 4rem;
+  --width-4: 6rem;
+  --width-5: 8rem;
+
+  --max-width-1: 1rem;
+  --max-width-2: 2rem;
+  --max-width-3: 4rem;
+  --max-width-4: 10rem;
+  --max-width-5: 16rem;
+  --max-width-6: 27rem;
+  --max-width-7: 48rem;
+  --max-width-8: 64rem;
+  --max-width-9: 96rem;
+}
