@@ -73,3 +73,13 @@
   border: var(--border-yellow);
   border-radius: var(--br-button);
 }
+
+.skills-map-button {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-m) var(--spacing-s) var(--spacing-s) var(--spacing-s);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-s);
+  background-color: var(--yellow);
+}

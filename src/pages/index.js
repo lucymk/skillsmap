@@ -8,6 +8,7 @@ import {
   SubjectTag,
   SubjectButton,
   ActionButton,
+  SkillsMapButton,
 } from '../components/buttons'
 import {
   Headline,
@@ -33,6 +34,7 @@ const IndexPage = ({ className }) => {
         subjectName="Art"
       ></SubjectButton>
       <ActionButton>Categories</ActionButton>
+      <SkillsMapButton>Search skills and subjects</SkillsMapButton>
       <Headline>Home Page</Headline>
       <Link to="/skillsmapSearch">Skillsmap Search</Link>
       <br />

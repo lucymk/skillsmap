@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
 import {
   button,
   skillsButton,
@@ -9,9 +10,10 @@ import {
   subjectButtonName,
   subjectButtonSelected,
   actionButton,
+  skillsMapButton,
 } from './buttons.module.css'
 import SkillIconSvg from '../assets/icons/skillIcon.svg'
-import ChevronLeftSvg from '../assets/icons/ChevronLeft.svg'
+import ChevronLeftSvg from '../assets/icons/chevronLeft.svg'
 import ChevronRightSvg from '../assets/icons/chevronRight.svg'
 
 export function SkillsButton({ children }) {
@@ -52,6 +54,15 @@ export function ActionButton({ children }) {
       <ChevronLeftSvg />
       {children}
       <ChevronRightSvg />
+    </button>
+  )
+}
+
+export function SkillsMapButton({ children }) {
+  return (
+    <button className={`${button} ${skillsMapButton}`}>
+      <StaticImage src="../assets/icons/skillsMapSimpleLogo.png" />
+      {children}
     </button>
   )
 }
