@@ -3,7 +3,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import '../../global.css'
 import Layout from '../components/layout'
-import { SkillsButton } from '../components/buttons'
+import { SkillsButton, SubjectTag } from '../components/buttons'
 import {
   Headline,
   H1,
@@ -21,6 +21,7 @@ const IndexPage = ({ className }) => {
       <SkillsButton>
         Communicate appropriately, accurately and effectively
       </SkillsButton>
+      <SubjectTag>Design and Technology</SubjectTag>
       <Headline>Home Page</Headline>
       <Link to="/skillsmapSearch">Skillsmap Search</Link>
       <br />

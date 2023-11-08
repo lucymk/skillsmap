@@ -98,8 +98,8 @@
 
   --dark-blue: #5168a5;
   --blue: #7495ed;
-  --light-blue: #8faaf0;
-
+  --light-blue: #7495ed80;
+  
   /* sizes - not sure yet */
   --measure: 30em;
   --measure-narrow: 20em;
