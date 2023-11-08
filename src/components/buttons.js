@@ -8,8 +8,10 @@ import {
   subjectButtonIcon,
   subjectButtonName,
   subjectButtonSelected,
+  actionButton,
 } from './buttons.module.css'
 import SkillIconSvg from '../assets/icons/skillIcon.svg'
+import ChevronLeftSvg from '../assets/icons/ChevronLeft.svg'
 import ChevronRightSvg from '../assets/icons/chevronRight.svg'
 
 export function SkillsButton({ children }) {
@@ -40,6 +42,16 @@ export function SubjectButton({ subjectIcon, subjectName }) {
       >
         {subjectName}
       </div>
+    </button>
+  )
+}
+
+export function ActionButton({ children }) {
+  return (
+    <button className={`${button} ${actionButton}`}>
+      <ChevronLeftSvg />
+      {children}
+      <ChevronRightSvg />
     </button>
   )
 }

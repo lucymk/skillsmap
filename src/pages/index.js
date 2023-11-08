@@ -3,7 +3,12 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import '../../global.css'
 import Layout from '../components/layout'
-import { SkillsButton, SubjectTag, SubjectButton } from '../components/buttons'
+import {
+  SkillsButton,
+  SubjectTag,
+  SubjectButton,
+  ActionButton,
+} from '../components/buttons'
 import {
   Headline,
   H1,
@@ -27,6 +32,7 @@ const IndexPage = ({ className }) => {
         subjectIcon={<SkillIconSvg />}
         subjectName="Art"
       ></SubjectButton>
+      <ActionButton>Categories</ActionButton>
       <Headline>Home Page</Headline>
       <Link to="/skillsmapSearch">Skillsmap Search</Link>
       <br />

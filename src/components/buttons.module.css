@@ -63,6 +63,13 @@
   border-top-right-radius: var(--br-button);
 }
 
-.subject-button-selected{
+.subject-button-selected {
   background-color: var(--yellow);
+}
+
+.action-button {
+  padding: var(--spacing-s) var(--spacing-m);
+  gap: var(--spacing-s);
+  border: var(--border-yellow);
+  border-radius: var(--br-button);
 }
