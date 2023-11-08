@@ -1,11 +1,20 @@
 import React from 'react'
-import { skillsButton, skillIcon, subjectTag } from './buttons.module.css'
+import { useState } from 'react'
+import {
+  button,
+  skillsButton,
+  skillIcon,
+  subjectTag,
+  subjectButtonIcon,
+  subjectButtonName,
+  subjectButtonSelected,
+} from './buttons.module.css'
 import SkillIconSvg from '../assets/icons/skillIcon.svg'
 import ChevronRightSvg from '../assets/icons/chevronRight.svg'
 
 export function SkillsButton({ children }) {
   return (
-    <button className={`${skillsButton}`}>
+    <button className={`${button} ${skillsButton}`}>
       <SkillIconSvg className={`${skillIcon}`} />
       {children}
       <ChevronRightSvg />
@@ -15,4 +24,22 @@ export function SkillsButton({ children }) {
 
 export function SubjectTag({ children }) {
   return <span className={`${subjectTag}`}>{children}</span>
+}
+
+export function SubjectButton({ subjectIcon, subjectName }) {
+  const [isSelected, toggleSelected] = useState(false)
+  return (
+    <button className={`${button}`} onClick={() => toggleSelected(!isSelected)}>
+      <div className={`${subjectButtonIcon}`}>{subjectIcon}</div>
+      <div
+        className={
+          isSelected
+            ? `${subjectButtonName} ${subjectButtonSelected}`
+            : `${subjectButtonName}`
+        }
+      >
+        {subjectName}
+      </div>
+    </button>
+  )
 }

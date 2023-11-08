@@ -3,7 +3,7 @@ import * as React from 'react'
 import { Link } from 'gatsby'
 import '../../global.css'
 import Layout from '../components/layout'
-import { SkillsButton, SubjectTag } from '../components/buttons'
+import { SkillsButton, SubjectTag, SubjectButton } from '../components/buttons'
 import {
   Headline,
   H1,
@@ -13,6 +13,7 @@ import {
   Body,
   Caption,
 } from '../components/shared'
+import SkillIconSvg from '../assets/icons/skillIcon.svg'
 
 const IndexPage = ({ className }) => {
   console.log('in nidex', className)
@@ -22,6 +23,10 @@ const IndexPage = ({ className }) => {
         Communicate appropriately, accurately and effectively
       </SkillsButton>
       <SubjectTag>Design and Technology</SubjectTag>
+      <SubjectButton
+        subjectIcon={<SkillIconSvg />}
+        subjectName="Art"
+      ></SubjectButton>
       <Headline>Home Page</Headline>
       <Link to="/skillsmapSearch">Skillsmap Search</Link>
       <br />
