@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import '../../global.css'
 import Layout from '../components/layout'
 import {
@@ -13,8 +13,11 @@ import {
   Caption,
 } from '../components/shared'
 
-const IndexPage = ({ className }) => {
-  console.log('in nidex', className)
+const IndexPage = ({
+  data: {
+    allAirtable: { nodes: dataFromAirtable },
+  },
+}) => {
   return (
     <Layout>
       <Headline>Home Page</Headline>
@@ -36,3 +39,15 @@ const IndexPage = ({ className }) => {
 export default IndexPage
 
 export const Head = () => <title>Home Page</title>
+
+export const query = graphql`
+  query {
+    allAirtable(filter: { queryName: { eq: "Skills" } }) {
+      nodes {
+        data {
+          Skill
+        }
+      }
+    }
+  }
+`
