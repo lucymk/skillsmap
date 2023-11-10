@@ -58,11 +58,11 @@ export function ActionButton({ children }) {
   )
 }
 
-export function SkillsMapButton({ children }) {
+export function SkillsMapButton() {
   return (
     <button className={`${button} ${skillsMapButton}`}>
-      <StaticImage src="../assets/icons/skillsMapSimpleLogo.png" />
-      {children}
+      <StaticImage width={100} src="../assets/icons/skillsMapSimpleLogo.png" />
+      Search skills and subjects
     </button>
   )
 }

@@ -2,7 +2,6 @@
 
 .button {
   font: var(--font-h3);
-  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,6 +16,7 @@
 .skills-button {
   padding: var(--spacing-s) var(--spacing-m);
   gap: var(--spacing-s);
+  font-weight: bold;
 }
 
 .skills-button:hover {
@@ -29,6 +29,7 @@
   flex-shrink: 0;
   border-radius: 20px;
   gap: var(--spacing-s);
+  font-weight: bold;
 }
 
 .subject-tag {
@@ -77,9 +78,9 @@
 .skills-map-button {
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-m) var(--spacing-s) var(--spacing-s) var(--spacing-s);
+  padding: var(--spacing-xs) var(--spacing-s) var(--spacing-s) var(--spacing-s);
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-s);
+  gap: 0;
   background-color: var(--yellow);
 }

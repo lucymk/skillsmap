@@ -34,7 +34,7 @@ const IndexPage = ({ className }) => {
         subjectName="Art"
       ></SubjectButton>
       <ActionButton>Categories</ActionButton>
-      <SkillsMapButton>Search skills and subjects</SkillsMapButton>
+      <SkillsMapButton />
       <Headline>Home Page</Headline>
       <Link to="/skillsmapSearch">Skillsmap Search</Link>
       <br />
