@@ -4,6 +4,13 @@ import { Link, graphql } from 'gatsby'
 import '../../global.css'
 import Layout from '../components/layout'
 import {
+  SkillsButton,
+  SubjectTag,
+  SubjectButton,
+  ActionButton,
+  SkillsMapButton,
+} from '../components/buttons'
+import {
   Headline,
   H1,
   H2,
@@ -12,6 +19,7 @@ import {
   Body,
   Caption,
 } from '../components/shared'
+import SkillIconSvg from '../assets/icons/skillIcon.svg'
 
 const IndexPage = ({
   data: {
@@ -20,6 +28,16 @@ const IndexPage = ({
 }) => {
   return (
     <Layout>
+      <SkillsButton>
+        Communicate appropriately, accurately and effectively
+      </SkillsButton>
+      <SubjectTag>Design and Technology</SubjectTag>
+      <SubjectButton
+        subjectIcon={<SkillIconSvg />}
+        subjectName="Art"
+      ></SubjectButton>
+      <ActionButton>Categories</ActionButton>
+      <SkillsMapButton />
       <Headline>Home Page</Headline>
       <Link to="/skillsmapSearch">Skillsmap Search</Link>
       <br />
