@@ -1,0 +1,20 @@
+@import '../../global.css';
+
+:root {
+  --light-purple-faint: #9f61a133;
+  --light-green-faint: #6baa391a;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--spacing-s) var(--spacing-s);
+}
+
+.cluster-category {
+  display: flex;
+  width: fit-content;
+  border-radius: var(--br-card);
+  box-shadow: var(--shadow-1);
+}
