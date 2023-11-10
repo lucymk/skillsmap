@@ -84,18 +84,23 @@ module.exports = {
         tables: [
           {
             baseId: process.env.AT_BASE_ID,
-            tableName: `MASTERSKILLSDEFWORKEX`,
+            tableName: `Skills`,
             queryName: `Skills`,
           },
           {
             baseId: process.env.AT_BASE_ID,
-            tableName: `ClusterDefs`,
+            tableName: `Clusters`,
             queryName: `Clusters`,
-        },
+          },
           {
             baseId: process.env.AT_BASE_ID,
-            tableName: `CategoryDefs`,
+            tableName: `Categories`,
             queryName: `Categories`,
+          },
+          {
+            baseId: process.env.AT_BASE_ID,
+            tableName: `Subjects`,
+            queryName: `Subjects`,
           },
         ],
       },
