@@ -1,0 +1,77 @@
+@import '../../global.css';
+
+.button {
+  font: var(--font-h3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--br-button);
+  border: var(--border-black);
+  background: var(--white);
+  box-shadow: var(--shadow-1);
+  cursor:pointer;
+  padding: 0;
+}
+
+.skills-button {
+  padding: var(--spacing-s) var(--spacing-m);
+  gap: var(--spacing-s);
+  font-weight: bold;
+}
+
+.skills-button:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.skill-icon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 20px;
+}
+
+.subject-tag {
+  font: var(--font-h3);
+  font-weight: bold;
+  display: flex;
+  padding: var(--spacing-xs) var(--spacing-s);
+  border-radius: var(--br-pill);
+  border: var(--border-black);
+  background: var(--light-blue);
+  width: fit-content;
+}
+
+.subject-button-icon {
+  padding: var(--spacing-xs) var(--spacing-xs);
+  border-right: var(--border-black);
+}
+
+.subject-button-name {
+  padding: var(--spacing-xxs) var(--spacing-xxs);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xs);
+  align-self: stretch;
+  border-radius: 0px var(--br-button) var(--br-button) 0px;
+}
+
+.subject-button-selected {
+  background-color: var(--yellow);
+}
+
+.action-button {
+  padding: var(--spacing-s) var(--spacing-m);
+  gap: var(--spacing-s);
+  border: var(--border-yellow);
+  border-radius: var(--br-button);
+}
+
+.skills-map-button {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-xs) var(--spacing-s) var(--spacing-s) var(--spacing-s);
+  justify-content: center;
+  align-items: center;
+  background-color: var(--yellow);
+}
