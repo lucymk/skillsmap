@@ -69,6 +69,7 @@
 
   --border-yellow: 4px solid var(--yellow);
   --border-black: 1px solid var(--black);
+  --border-black-thick: 4px solid var(--black);
 
   --shadow-1: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   --shadow-hover: 0px 6px 6px 0px rgba(0, 0, 0, 0.25);

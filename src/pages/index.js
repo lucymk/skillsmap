@@ -12,6 +12,7 @@ import {
 } from '../components/buttons'
 import WorkplaceExamples from '../components/workplaceExamples'
 import ClusterCategory from '../components/clusterCategory'
+import NavDrawer from '../components/navDrawer'
 import {
   Headline,
   H1,
@@ -45,6 +46,7 @@ const IndexPage = ({
         body="some text some more text"
       />
       <ClusterCategory />
+      <NavDrawer>srgraefsrgs</NavDrawer>
       <Headline>Home Page</Headline>
       <Link to="/skillsmapSearch">Skillsmap Search</Link>
       <br />
