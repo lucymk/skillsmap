@@ -132,13 +132,3 @@ const getCluster = graphql`
     }
   }
 `
-
-export {
-  getAllCategories,
-  getAllClusters,
-  getAllSkills,
-  getAllSubjects,
-  getCategory,
-  getCluster,
-  getSkill,
-}

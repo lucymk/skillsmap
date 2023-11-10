@@ -15,11 +15,17 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@babel/core": "^7.23.3",
+    "@babel/eslint-parser": "^7.23.3",
+    "@babel/preset-react": "^7.23.3",
     "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-webpack-plugin": "^4.0.1",
     "gatsby": "^5.12.4",
+    "gatsby-plugin-eslint": "^4.0.4",
     "gatsby-plugin-image": "^3.12.3",
     "gatsby-plugin-manifest": "^5.12.3",
-    "gatsby-plugin-prettier-eslint": "^1.0.6",
     "gatsby-plugin-sharp": "^5.12.3",
     "gatsby-plugin-sitemap": "^6.12.3",
     "gatsby-plugin-styled-components": "^6.12.0",
