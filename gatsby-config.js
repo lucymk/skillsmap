@@ -9,6 +9,19 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const path = require('path')
+// Get paths of Gatsby's required rules, which as of writing is located at:
+// https://github.com/gatsbyjs/gatsby/tree/fbfe3f63dec23d279a27b54b4057dd611dce74bb/packages/
+// gatsby/src/utils/eslint-rules
+const gatsbyRequiredRules = path.join(
+  process.cwd(),
+  'node_modules',
+  'gatsby',
+  'dist',
+  'utils',
+  'eslint-rules'
+)
+
 module.exports = {
   siteMetadata: {
     title: `Skillsmap`,
@@ -50,38 +63,23 @@ module.exports = {
       __key: 'assets',
     },
     {
-      resolve: 'gatsby-plugin-prettier-eslint',
+      resolve: 'gatsby-plugin-eslint',
       // this is the default configuration, override only what you need
       options: {
+        // Gatsby required rules directory
+        rulePaths: [gatsbyRequiredRules],
+        // Default settings that may be omitted or customized
+        stages: ['develop'],
         cwd: process.cwd(), // path to a directory that should be considered as the current working directory
-        watch: true, // format/lint on save
-        initialScan: true, // if true, will format/lint the whole project on Gatsby startup
-        onChangeFullScanLint: false, // if true, on file save always perform full scan lint
-        onChangeFullScanFormat: false, // if true, on file save always perform full scan format
-        prettierLast: false, // if true, will run Prettier after ESLint
-        ignorePatterns: [
-          '**/node_modules/**/*',
-          '**/.git/**/*',
-          '**/dist/**/*',
-          '.cache/**/*',
-          'public/**/*',
-        ], // string or array of paths/files/globs to ignore
-        prettier: {
-          patterns: [], // string or array of paths/files/globs to include related only to Prettier
-          ignorePatterns: [], // string or array of paths/files/globs to exclude related only to Prettier
-          customOptions: {}, // see: https://prettier.io/docs/en/options.html
-        },
-        eslint: {
-          patterns: [], // string or array of paths/files/globs to include related only to ESLint
-          ignorePatterns: ['gatsby-config.js'], // string or array of paths/files/globs to exclude related only to ESLint
-          formatter: 'stylish', // set custom or third party formatter
-          maxWarnings: undefined, // number of max warnings allowed, when exceed it will fail Gatsby build
-          emitWarning: true, // if true, will emit lint warnings
-          failOnError: false, // if true, any lint error will fail the build, you may set true only in your prod config
-          failOnWarning: false, // same as failOnError but for warnings
-          plugins: [], // an array of plugins to load for ESLint
-          customOptions: {}, // see: https://eslint.org/docs/developer-guide/nodejs-api#cliengine
-        },
+        extensions: ['js', 'jsx', 'ts', 'tsx'],
+        exclude: [
+          'node_modules',
+          'bower_components',
+          '.cache',
+          'public',
+          '.git',
+          'dist',
+        ],
       },
     },
     {
@@ -92,18 +90,23 @@ module.exports = {
         tables: [
           {
             baseId: process.env.AT_BASE_ID,
-            tableName: `MASTERSKILLSDEFWORKEX`,
+            tableName: `Skills`,
             queryName: `Skills`,
           },
           {
             baseId: process.env.AT_BASE_ID,
-            tableName: `ClusterDefs`,
+            tableName: `Clusters`,
             queryName: `Clusters`,
-        },
+          },
           {
             baseId: process.env.AT_BASE_ID,
-            tableName: `CategoryDefs`,
+            tableName: `Categories`,
             queryName: `Categories`,
+          },
+          {
+            baseId: process.env.AT_BASE_ID,
+            tableName: `Subjects`,
+            queryName: `Subjects`,
           },
         ],
       },

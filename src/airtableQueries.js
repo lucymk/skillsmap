@@ -17,7 +17,7 @@ const getAllSubjects = graphql`
 // is a skill which is used in ANY of those subjects. So for now, let's fetch all and filter in the JS
 const getAllSkills = graphql`
   query {
-    allAirtable(filter: { queryName: { eq: "Subjects" } }) {
+    allAirtable(filter: { queryName: { eq: "Skills" } }) {
       nodes {
         data {
           Subject
@@ -35,9 +35,10 @@ const getSkill = graphql`
     ) {
       nodes {
         data {
-          WorkExA
-          WorkExB
-          WorkExC
+          WorkplaceExample1
+          WorkplaceExample2
+          WorkplaceExample3
+          WorkplaceExample4
           Cluster
           Category
           SkillDefinition
