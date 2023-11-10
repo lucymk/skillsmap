@@ -9,7 +9,7 @@
   border: var(--border-black);
   background: var(--white);
   box-shadow: var(--shadow-1);
-  cursor:pointer;
+  cursor: pointer;
   padding: 0;
 }
 

@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
-import * as React from "react"
+import * as React from 'react'
 import { graphql } from 'gatsby'
 
 const ForLearnersPage = ({
-    data: {
-      allAirtable: { nodes: dataFromAirtable },
-    },
-  }) => {
-    return (
-        <main>
-            <h1>For Learners</h1>
-            <p>For Learners Text ...</p>
-        </main>
-    )
+  data: {
+    allAirtable: { nodes: dataFromAirtable },
+  },
+}) => {
+  return (
+    <main>
+      <h1>For Learners</h1>
+      <p>For Learners Text ...</p>
+    </main>
+  )
 }
 
 export default ForLearnersPage
