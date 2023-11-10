@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import * as React from "react"
 import { Link } from "gatsby"
+import { graphql } from 'gatsby'
 
 const pageStyles = {
   color: "#232129",
@@ -23,7 +25,11 @@ const codeStyles = {
   borderRadius: 4,
 }
 
-const NotFoundPage = () => {
+const NotFoundPage = ({
+  data: {
+    allAirtable: { nodes: dataFromAirtable },
+  },
+}) => {
   return (
     <main style={pageStyles}>
       <h1 style={headingStyles}>Page not found</h1>
@@ -47,3 +53,17 @@ const NotFoundPage = () => {
 export default NotFoundPage
 
 export const Head = () => <title>Not found</title>
+
+// queryName filters by table, see gatsby-config
+
+export const query = graphql`
+  query {
+    allAirtable(filter: { queryName: { eq: "PageContent" } }) {
+      nodes {
+        data {
+          Skill
+        }
+      }
+    }
+  }
+`

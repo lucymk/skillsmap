@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import '../../global.css'
 import Layout from '../components/layout'
 import {
@@ -21,8 +21,11 @@ import {
 } from '../components/shared'
 import SkillIconSvg from '../assets/icons/skillIcon.svg'
 
-const IndexPage = ({ className }) => {
-  console.log('in nidex', className)
+const IndexPage = ({
+  data: {
+    allAirtable: { nodes: dataFromAirtable },
+  },
+}) => {
   return (
     <Layout>
       <SkillsButton>
@@ -54,3 +57,15 @@ const IndexPage = ({ className }) => {
 export default IndexPage
 
 export const Head = () => <title>Home Page</title>
+
+export const query = graphql`
+  query {
+    allAirtable(filter: { queryName: { eq: "Skills" } }) {
+      nodes {
+        data {
+          Skill
+        }
+      }
+    }
+  }
+`

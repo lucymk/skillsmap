@@ -2,7 +2,13 @@
 
 /**
  * @type {import('gatsby').GatsbyConfig}
+ *
+ *
  */
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Skillsmap`,
@@ -76,6 +82,30 @@ module.exports = {
           plugins: [], // an array of plugins to load for ESLint
           customOptions: {}, // see: https://eslint.org/docs/developer-guide/nodejs-api#cliengine
         },
+      },
+    },
+    {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: process.env.AT_PERSONAL_ACCESS_KEY, // may instead specify via env, see below
+        concurrency: 5, // default, see using markdown and attachments for more information
+        tables: [
+          {
+            baseId: process.env.AT_BASE_ID,
+            tableName: `MASTERSKILLSDEFWORKEX`,
+            queryName: `Skills`,
+          },
+          {
+            baseId: process.env.AT_BASE_ID,
+            tableName: `ClusterDefs`,
+            queryName: `Clusters`,
+        },
+          {
+            baseId: process.env.AT_BASE_ID,
+            tableName: `CategoryDefs`,
+            queryName: `Categories`,
+          },
+        ],
       },
     },
   ],
