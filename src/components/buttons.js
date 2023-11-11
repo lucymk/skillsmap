@@ -34,19 +34,22 @@ export function SubjectButton({
   subjectIcon,
   subjectName,
   setSelectedSubjects,
+  selectedSubjects,
 }) {
-  const [isSelected, toggleSelected] = useState(false)
   return (
     <button
       className={`${button}`}
       onClick={() => {
-        toggleSelected(!isSelected)
+        setSelectedSubjects({
+          ...selectedSubjects,
+          [subjectName]: !selectedSubjects[subjectName],
+        })
       }}
     >
       <img src={subjectIcon} className={`${subjectButtonIcon}`} />
       <div
         className={
-          isSelected
+          selectedSubjects[subjectName]
             ? `${subjectButtonName} ${subjectButtonSelected}`
             : `${subjectButtonName}`
         }

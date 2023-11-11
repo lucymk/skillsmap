@@ -3,7 +3,6 @@ import * as React from 'react'
 import { useState } from 'react'
 import { Link, graphql } from 'gatsby'
 import { SubjectButton } from '../components/buttons'
-import SkillIcon from '../assets/icons/skillIcon.svg'
 
 const SkillsmapSearchPage = ({
   data: {
@@ -11,13 +10,9 @@ const SkillsmapSearchPage = ({
   },
 }) => {
   function createInitialSubjectList() {
-    const subjectList = []
+    let subjectList = {}
     subjects.map(({ data: { Subject: subject } }) => {
-      console.log('in map', subject)
-      return subjectList.push({
-        subject,
-        selected: false,
-      })
+      subjectList = { ...subjectList, [subject]: false }
     })
     return subjectList
   }
@@ -25,6 +20,8 @@ const SkillsmapSearchPage = ({
   const [selectedSubjects, setSelectedSubjects] = useState(
     createInitialSubjectList
   )
+
+  console.log('list', selectedSubjects)
 
   return (
     <main>
@@ -41,6 +38,7 @@ const SkillsmapSearchPage = ({
           }) => {
             return (
               <SubjectButton
+                selectedSubjects={selectedSubjects}
                 setSelectedSubjects={setSelectedSubjects}
                 key={subject}
                 subjectIcon={url}
