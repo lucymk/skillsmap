@@ -32,10 +32,7 @@ const IndexPage = ({
         Communicate appropriately, accurately and effectively
       </SkillsButton>
       <SubjectTag>Design and Technology</SubjectTag>
-      <SubjectButton
-        subjectIcon={<SkillIconSvg />}
-        subjectName="Art"
-      ></SubjectButton>
+
       <ActionButton>Categories</ActionButton>
       <SkillsMapButton />
       <Headline>Home Page</Headline>
