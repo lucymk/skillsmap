@@ -4,7 +4,8 @@ import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import {
   navDrawer,
-  navDrawerContents,
+  navDrawerContentsOuter,
+  navDrawerContentsInner,
   navDrawerButton,
   menuItems,
   hiddenMenuItems,
@@ -43,8 +44,8 @@ export default function NavDrawer({ style }) {
         style
       )}
     >
-      <div className={`${navDrawerContents}`} style={{ gap: '157px' }}>
-        <div className={`${navDrawerContents}`} style={{ gap: '60px' }}>
+      <div className={`${navDrawerContentsOuter}`}>
+        <div className={`${navDrawerContentsInner}`}>
           <button
             className={`${navDrawerButton}`}
             onClick={() => toggleSelected(!isSelected)}
@@ -57,7 +58,6 @@ export default function NavDrawer({ style }) {
           </button>
           <MenuItems visible={isSelected} />
         </div>
-
         <StaticImage src="../assets/icons/skillsMapLogo.png" />
       </div>
     </div>

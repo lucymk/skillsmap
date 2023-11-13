@@ -5,14 +5,14 @@ import {
 } from './workplaceExamples.module.css'
 import WorkplaceExamplesIconSvg from '../assets/icons/workplaceExamplesIcon.svg'
 
-export default function WorkplaceExamples({ title, body }) {
+export default function WorkplaceExamples({ examples }) {
   return (
     <div className={`${workplaceExamples}`}>
       <div className={`${workplaceExamplesHeader}`}>
         <WorkplaceExamplesIconSvg />
-        {title}
+        Workplace Examples
       </div>
-      {body}
+      {examples}
     </div>
   )
 }
