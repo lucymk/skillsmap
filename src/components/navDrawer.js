@@ -2,7 +2,12 @@ import React from 'react'
 import { useState } from 'react'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
-import { navDrawer, menuItems } from './navDrawer.module.css'
+import {
+  navDrawer,
+  navDrawerContents,
+  navDrawerButton,
+  menuItems,
+} from './navDrawer.module.css'
 import MenuBurgerSvg from '../assets/icons/menuBurger.svg'
 import MenuCloseSvg from '../assets/icons/menuClose.svg'
 
@@ -24,15 +29,31 @@ export default function NavDrawer({ children }) {
   const [isSelected, toggleSelected] = useState(false)
 
   return (
-    <div className={`${navDrawer}`}>
-      <button
-        onClick={() => toggleSelected(!isSelected)}
-        style={{ border: 'none', background: 'none' }}
-      >
-        {isSelected ? <MenuBurgerSvg /> : <MenuCloseSvg />}
-      </button>
-      <MenuItems />
-      <StaticImage src="../assets/icons/skillsMapLogo.png" />
+    <div
+      className={`${navDrawer}`}
+      style={{
+        backgroundColor: isSelected
+          ? 'var(--background-grey)'
+          : 'var(--light-blue)',
+      }}
+    >
+      <div className={`${navDrawerContents}`} style={{ gap: '157px' }}>
+        <div className={`${navDrawerContents}`} style={{ gap: '60px' }}>
+          <button
+            className={`${navDrawerButton}`}
+            onClick={() => toggleSelected(!isSelected)}
+          >
+            {isSelected ? (
+              <MenuCloseSvg fill="var(--dark-grey)" />
+            ) : (
+              <MenuBurgerSvg />
+            )}
+          </button>
+          <MenuItems />
+        </div>
+
+        <StaticImage src="../assets/icons/skillsMapLogo.png" />
+      </div>
     </div>
   )
 }
