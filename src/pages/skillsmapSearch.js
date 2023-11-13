@@ -33,10 +33,18 @@ const SkillsmapSearchPage = ({
     setSelectedSubjectCount(count)
   }, [selectedSubjects])
 
-  const getImageLink = () => {
-    return selectedSubjectCount > 0
-      ? '../assets/icons/skillsMapNextActive.png'
-      : '../assets/icons/skillsMapNextDisbled.png'
+  const getSelectedSubjects = (returnArray) => {
+    let subjectNames = []
+
+    Object.entries(selectedSubjects).map(([subject, selected]) => {
+      if (selected) subjectNames.push(subject)
+    })
+
+    if (returnArray) {
+      return subjectNames
+    } else {
+      return subjectNames.join().toLowerCase().replace(/\s+/g, '+')
+    }
   }
 
   return (
@@ -65,7 +73,10 @@ const SkillsmapSearchPage = ({
         )}
       </div>
       {selectedSubjectCount > 0 ? (
-        <Link state={{ selectedSubjects }}>
+        <Link
+          state={{ selected: getSelectedSubjects(true) }}
+          to={`/searchResults/?subjects=${getSelectedSubjects(false)}`}
+        >
           <StaticImage
             src="../assets/icons/skillsMapNextActive.png"
             width={300}
