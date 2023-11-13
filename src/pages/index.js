@@ -19,7 +19,6 @@ import {
   Body,
   Caption,
 } from '../components/shared'
-import SkillIconSvg from '../assets/icons/skillIcon.svg'
 
 const IndexPage = ({
   data: {

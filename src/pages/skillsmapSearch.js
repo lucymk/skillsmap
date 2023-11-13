@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
 import { SubjectButton } from '../components/buttons'
+import { StaticImage } from 'gatsby-plugin-image'
 
 const SkillsmapSearchPage = ({
   data: {
-    allAirtable: { nodes: subjects },
+    subjects: { nodes: subjects },
   },
 }) => {
   function createInitialSubjectList() {
@@ -21,7 +22,22 @@ const SkillsmapSearchPage = ({
     createInitialSubjectList
   )
 
-  console.log('list', selectedSubjects)
+  const [selectedSubjectCount, setSelectedSubjectCount] = useState(0)
+
+  useEffect(() => {
+    let count = 0
+    Object.values(selectedSubjects).map((selected) => {
+      if (selected) count++
+    })
+
+    setSelectedSubjectCount(count)
+  }, [selectedSubjects])
+
+  const getImageLink = () => {
+    return selectedSubjectCount > 0
+      ? '../assets/icons/skillsMapNextActive.png'
+      : '../assets/icons/skillsMapNextDisbled.png'
+  }
 
   return (
     <main>
@@ -48,6 +64,19 @@ const SkillsmapSearchPage = ({
           }
         )}
       </div>
+      {selectedSubjectCount > 0 ? (
+        <Link state={{ selectedSubjects }}>
+          <StaticImage
+            src="../assets/icons/skillsMapNextActive.png"
+            width={300}
+          />
+        </Link>
+      ) : (
+        <StaticImage
+          src="../assets/icons/skillsMapNextDisabled.png"
+          width={300}
+        />
+      )}
     </main>
   )
 }
@@ -57,7 +86,7 @@ export default SkillsmapSearchPage
 // queryName filters by table, see gatsby-config
 export const query = graphql`
   query {
-    allAirtable(filter: { queryName: { eq: "Subjects" } }) {
+    subjects: allAirtable(filter: { queryName: { eq: "Subjects" } }) {
       nodes {
         data {
           Subject
