@@ -46,7 +46,6 @@ const IndexPage = ({
         body="some text some more text"
       />
       <ClusterCategory />
-      <NavDrawer>srgraefsrgs</NavDrawer>
       <Headline>Home Page</Headline>
       <Link to="/skillsmapSearch">Skillsmap Search</Link>
       <br />

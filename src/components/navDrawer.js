@@ -28,17 +28,20 @@ function MenuItems({ visible }) {
   )
 }
 
-export default function NavDrawer({ children }) {
+export default function NavDrawer({ style }) {
   const [isSelected, toggleSelected] = useState(false)
 
   return (
     <div
       className={`${navDrawer}`}
-      style={{
-        backgroundColor: isSelected
-          ? 'var(--background-grey)'
-          : 'var(--light-blue)',
-      }}
+      style={Object.assign(
+        {
+          backgroundColor: isSelected
+            ? 'var(--background-grey)'
+            : 'var(--light-blue)',
+        },
+        style
+      )}
     >
       <div className={`${navDrawerContents}`} style={{ gap: '157px' }}>
         <div className={`${navDrawerContents}`} style={{ gap: '60px' }}>
