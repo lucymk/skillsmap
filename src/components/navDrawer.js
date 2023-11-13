@@ -7,13 +7,16 @@ import {
   navDrawerContents,
   navDrawerButton,
   menuItems,
+  hiddenMenuItems,
 } from './navDrawer.module.css'
 import MenuBurgerSvg from '../assets/icons/menuBurger.svg'
 import MenuCloseSvg from '../assets/icons/menuClose.svg'
 
-function MenuItems({ items }) {
+function MenuItems({ visible }) {
   return (
-    <div className={`${menuItems}`}>
+    <div
+      className={visible ? `${menuItems}` : `${menuItems} ${hiddenMenuItems}`}
+    >
       <Link>Home</Link>
       <Link>Skillsmap search</Link>
       <Link>For learners</Link>
@@ -49,7 +52,7 @@ export default function NavDrawer({ children }) {
               <MenuBurgerSvg />
             )}
           </button>
-          <MenuItems />
+          <MenuItems visible={isSelected} />
         </div>
 
         <StaticImage src="../assets/icons/skillsMapLogo.png" />

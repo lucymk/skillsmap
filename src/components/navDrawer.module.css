@@ -30,3 +30,8 @@
   font: var(--font-h3);
   font-weight: bold;
 }
+
+.hidden-menu-items {
+  visibility: hidden;
+  pointer-events: none;
+}
