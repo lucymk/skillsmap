@@ -1,5 +1,13 @@
 @import '../../global.css';
 
-.container {
-  border: var(--border-yellow);
+.layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+.contents-style {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--spacing-l)
 }

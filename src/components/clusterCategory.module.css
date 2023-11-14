@@ -1,0 +1,51 @@
+@import '../../global.css';
+
+:root {
+  --light-purple-faint: #9f61a133;
+  --light-green-faint: #6baa391a;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--spacing-s) var(--spacing-s);
+  gap: 10px;
+}
+
+.panel-title {
+  display: flex;
+  height: 35px;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.panel-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  align-self: stretch;
+}
+
+.what-does-this-mean-link {
+  display: flex;
+  text-decoration: underline;
+  font: var(--font-caption);
+}
+
+.more-skills-link {
+  display: flex;
+  text-decoration: underline;
+  font-weight: bold;
+  margin-top: var(--spacing-l);
+}
+
+.cluster-category {
+  display: flex;
+  width: fit-content;
+  border-radius: var(--br-card);
+  box-shadow: var(--shadow-1);
+}

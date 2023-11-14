@@ -10,6 +10,9 @@ import {
   ActionButton,
   SkillsMapButton,
 } from '../components/buttons'
+import WorkplaceExamples from '../components/workplaceExamples'
+import ClusterCategory from '../components/clusterCategory'
+import NavDrawer from '../components/navDrawer'
 import {
   Headline,
   H1,
@@ -38,6 +41,11 @@ const IndexPage = ({
       ></SubjectButton>
       <ActionButton>Categories</ActionButton>
       <SkillsMapButton />
+      <WorkplaceExamples
+        title="Workplace Examples"
+        body="some text some more text"
+      />
+      <ClusterCategory />
       <Headline>Home Page</Headline>
       <Link to="/skillsmapSearch">Skillsmap Search</Link>
       <br />
