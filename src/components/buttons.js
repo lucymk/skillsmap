@@ -30,14 +30,26 @@ export function SubjectTag({ children }) {
   return <span className={`${subjectTag}`}>{children}</span>
 }
 
-export function SubjectButton({ subjectIcon, subjectName }) {
-  const [isSelected, toggleSelected] = useState(false)
+export function SubjectButton({
+  subjectIcon,
+  subjectName,
+  setSelectedSubjects,
+  selectedSubjects,
+}) {
   return (
-    <button className={`${button}`} onClick={() => toggleSelected(!isSelected)}>
-      <div className={`${subjectButtonIcon}`}>{subjectIcon}</div>
+    <button
+      className={`${button}`}
+      onClick={() => {
+        setSelectedSubjects({
+          ...selectedSubjects,
+          [subjectName]: !selectedSubjects[subjectName],
+        })
+      }}
+    >
+      <img src={subjectIcon} className={`${subjectButtonIcon}`} />
       <div
         className={
-          isSelected
+          selectedSubjects[subjectName]
             ? `${subjectButtonName} ${subjectButtonSelected}`
             : `${subjectButtonName}`
         }

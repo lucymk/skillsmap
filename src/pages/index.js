@@ -22,7 +22,6 @@ import {
   Body,
   Caption,
 } from '../components/shared'
-import SkillIconSvg from '../assets/icons/skillIcon.svg'
 
 const IndexPage = ({
   data: {
@@ -35,10 +34,7 @@ const IndexPage = ({
         Communicate appropriately, accurately and effectively
       </SkillsButton>
       <SubjectTag>Design and Technology</SubjectTag>
-      <SubjectButton
-        subjectIcon={<SkillIconSvg />}
-        subjectName="Art"
-      ></SubjectButton>
+
       <ActionButton>Categories</ActionButton>
       <SkillsMapButton />
       <WorkplaceExamples
