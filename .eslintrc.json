@@ -25,6 +25,10 @@
     "no-anonymous-exports-page-templates": "warn",
     "limited-exports-page-templates": "warn",
     "prettier/prettier": "error",
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
     "no-unused-vars": "warn",
     "react/prop-types": "off"
   },
