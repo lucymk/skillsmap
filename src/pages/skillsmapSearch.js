@@ -30,17 +30,14 @@ const SkillsmapSearchPage = ({
     )
   }, [selectedSubjects])
 
-  const getSelectedSubjectsArray = () => {
+  const getSelectedSubjectsQueryString = () => {
     let subjectNames = []
 
     Object.entries(selectedSubjects).map(([subject, selected]) => {
       if (selected) subjectNames = [...subjectNames, subject]
     })
-    return subjectNames
+    return subjectNames.join().replace(/\s/g, '+')
   }
-
-  const getSelectedSubjectsQueryString = () =>
-    getSelectedSubjectsArray().join().replace(/\s/g, '+')
 
   return (
     <main>
@@ -69,7 +66,6 @@ const SkillsmapSearchPage = ({
       </div>
       {selectedSubjectCount > 0 ? (
         <Link
-          state={{ selected: getSelectedSubjectsArray() }}
           to={`/searchResults/?subjects=${getSelectedSubjectsQueryString()}`}
         >
           <StaticImage

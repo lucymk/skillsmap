@@ -3,16 +3,19 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { SubjectTag, SkillsButton } from '../../components/buttons'
 
-const GetSelectedSubjectsArrayFromSearchQuery = ({ search }) =>
+const getSelectedSubjectsArrayFromSearchQuery = ({ search }) =>
   search
     .substring(search.indexOf('=') + 1)
     .replace(/\+/g, ' ')
     .split(',')
 
-const GetSkillsFromSelectedSubjects = ({ selectedSubjects, skills }) =>
+const getSkillsFromSelectedSubjects = ({ selectedSubjects, skills }) =>
   skills.filter(
-    ({ data: { Subjects } }) =>
-      Subjects != null && selectedSubjects.every((r) => Subjects.includes(r))
+    ({ data: { Subjects: subjects } }) =>
+      subjects != null &&
+      selectedSubjects.every((selectedSubject) =>
+        subjects.includes(selectedSubject)
+      )
   )
 
 const SkillsMapSearchResults = ({
@@ -21,8 +24,8 @@ const SkillsMapSearchResults = ({
   },
   location: { search },
 }) => {
-  const selectedSubjects = GetSelectedSubjectsArrayFromSearchQuery({ search })
-  const relevantSkills = GetSkillsFromSelectedSubjects({
+  const selectedSubjects = getSelectedSubjectsArrayFromSearchQuery({ search })
+  const relevantSkills = getSkillsFromSelectedSubjects({
     selectedSubjects,
     skills,
   })
