@@ -7,8 +7,9 @@ import {
   h2,
   h3,
   subheader,
-  body,
+  copy,
   caption,
+  list,
 } from './shared.module.css'
 
 export function Headline({ children }) {
@@ -32,8 +33,13 @@ export function Subheader({ children }) {
 }
 
 export function Copy({ children }) {
-  return <p className={`${body}`}>{children}</p>
+  return <p className={`${copy}`}>{children}</p>
 }
+
 export function Caption({ children }) {
   return <p className={`${caption}`}>{children}</p>
+}
+
+export function BulletList({ children }) {
+  return <ul className={`${list}`}>{children}</ul>
 }
