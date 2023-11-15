@@ -10,6 +10,7 @@ import {
   ActionButton,
   SkillsMapButton,
 } from '../components/buttons'
+import Breadcrumbs from '../components/breadcrumbs'
 import WorkplaceExamples from '../components/workplaceExamples'
 import ClusterCategory from '../components/clusterCategory'
 import NavDrawer from '../components/navDrawer'
@@ -30,6 +31,7 @@ const IndexPage = ({
 }) => {
   return (
     <Layout>
+      <Breadcrumbs breadcrumbTexts={['Wfwd', 'Awdwadawd', 'Dawcaw']} />
       <SkillsButton>
         Communicate appropriately, accurately and effectively
       </SkillsButton>
