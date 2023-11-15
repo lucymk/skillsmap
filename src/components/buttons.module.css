@@ -50,14 +50,13 @@
 }
 
 .subject-button-name {
-  padding: var(--spacing-xxs) var(--spacing-xxs);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--spacing-xs);
-  align-self: stretch;
   width: fill-available;
-  border-radius: 0px var(--br-button) var(--br-button) 0px;
+  height: 100%;
+  border-radius: 0px 4px 4px 0px;
 }
 
 .subject-button-selected {

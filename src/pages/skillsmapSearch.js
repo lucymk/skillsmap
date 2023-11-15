@@ -50,8 +50,10 @@ const SkillsmapSearchPage = ({
       />
       <div
         style={{
+          width: '100%',
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 0fr)',
+          gridTemplateColumns:
+            'repeat(auto-fill, minmax(var(--skills-button-width), var(--skills-button-width)))',
           gridGap: 'var(--spacing-m)',
           paddingTop: 'var(--spacing-m)',
           paddingBottom: 'var(--spacing-m)',
