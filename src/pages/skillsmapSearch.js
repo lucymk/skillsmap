@@ -5,7 +5,6 @@ import { Link, graphql } from 'gatsby'
 import { SubjectButton } from '../components/buttons'
 import { StaticImage } from 'gatsby-plugin-image'
 import Layout from '../components/layout'
-import { components } from '../../.cache/_this_is_virtual_fs_path_/$virtual/async-requires'
 import { H1WithSubheader } from '../components/shared'
 
 const SkillsmapSearchPage = ({
@@ -80,10 +79,11 @@ const SkillsmapSearchPage = ({
       {selectedSubjectCount > 0 ? (
         <Link
           to={`/searchResults/?subjects=${getSelectedSubjectsQueryString()}`}
+          style={{ alignSelf: 'flex-end', marginTop: 'var(--spacing-m)' }}
         >
           <StaticImage
             src="../assets/icons/skillsMapNextActive.png"
-            width={300}
+            width={400}
           />
         </Link>
       ) : (
