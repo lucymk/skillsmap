@@ -7,7 +7,10 @@
 .h1 {
   font: var(--font-h1);
   font-weight: bold;
+<<<<<<< Updated upstream
   margin: 0;
+=======
+>>>>>>> Stashed changes
 }
 
 .h2 {
@@ -34,8 +37,8 @@
 
 .list {
   font-weight: bold;
+}
 
-  > li {
-    margin-bottom: var(--spacing-s);
-  }
+.li {
+  margin-bottom: var(--spacing-s);
 }

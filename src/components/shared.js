@@ -42,4 +42,16 @@ export function Caption({ children }) {
 
 export function BulletList({ children }) {
   return <ul className={`${list}`}>{children}</ul>
+
+export function H1WithSubheader({ headerText, subheaderText }) {
+  return (
+    <div>
+      <h1 className={`${h1}`} style={{ margin: '0' }}>
+        {headerText}
+      </h1>
+      <h4 className={`${subheader}`} style={{ margin: '0' }}>
+        {subheaderText}
+      </h4>
+    </div>
+  )
 }

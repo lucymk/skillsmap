@@ -39,6 +39,10 @@ export function SubjectButton({
   return (
     <button
       className={`${button}`}
+      style={{
+        justifyContent: 'left',
+        width: '100%',
+      }}
       onClick={() => {
         setSelectedSubjects({
           ...selectedSubjects,

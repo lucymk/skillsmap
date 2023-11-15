@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
 import { SubjectButton } from '../components/buttons'
 import { StaticImage } from 'gatsby-plugin-image'
+import Layout from '../components/layout'
+import { components } from '../../.cache/_this_is_virtual_fs_path_/$virtual/async-requires'
+import { H1WithSubheader } from '../components/shared'
 
 const SkillsmapSearchPage = ({
   data: {
@@ -40,11 +43,21 @@ const SkillsmapSearchPage = ({
   }
 
   return (
-    <main>
-      <h1>Skillsmap Search</h1>
-      <p>Skillsmap Search Text ...</p>
-
-      <div>
+    <Layout>
+      <H1WithSubheader
+        headerText="Choose your subjects"
+        subheaderText="Choose a subject to see the skills you are building in it. Choose up to
+        3 subjects to see the overlap of skills between them."
+      />
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 0fr)',
+          gridGap: 'var(--spacing-m)',
+          paddingTop: 'var(--spacing-m)',
+          paddingBottom: 'var(--spacing-m)',
+        }}
+      >
         {subjects.map(
           ({
             data: {
@@ -76,10 +89,11 @@ const SkillsmapSearchPage = ({
       ) : (
         <StaticImage
           src="../assets/icons/skillsMapNextDisabled.png"
-          width={300}
+          width={400}
+          style={{ alignSelf: 'flex-end', marginTop: 'var(--spacing-m)' }}
         />
       )}
-    </main>
+    </Layout>
   )
 }
 
