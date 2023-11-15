@@ -13,6 +13,9 @@
 
 * {
   font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -o-font-smoothing: antialiased;
 }
 
 :root {
@@ -41,13 +44,16 @@
   --line-height-body: 1.4;
   --line-height-caption: 1.4;
 
-  --font-headline: var(--font-size-headline) / var(--line-height-headline) var(--heading);
+  --font-headline: var(--font-size-headline) / var(--line-height-headline)
+    var(--heading);
   --font-h1: var(--font-size-h1) / var(--line-height-h1) var(--heading);
   --font-h2: var(--font-size-h2) / var(--line-height-h2) var(--heading);
   --font-h3: var(--font-size-h3) / var(--line-height-h3) var(--heading);
-  --font-subheader: var(--font-size-subheader) / var(--line-height-subheader) var(--heading);
+  --font-subheader: var(--font-size-subheader) / var(--line-height-subheader)
+    var(--heading);
   --font-body: var(--font-size-body) / var(--line-height-body) var(--heading);
-  --font-caption: var(--font-size-caption) / var(--line-height-caption) var(--heading);
+  --font-caption: var(--font-size-caption) / var(--line-height-caption)
+    var(--heading);
 
   --spacing-none: 0;
   --spacing-xxs: 0.313rem; /* 5px */
@@ -100,7 +106,7 @@
   --dark-blue: #5168a5;
   --blue: #7495ed;
   --light-blue: #7495ed80;
-  
+
   /* sizes - not sure yet */
   --measure: 30em;
   --measure-narrow: 20em;
@@ -131,4 +137,9 @@
 
 body {
   margin: 0px;
+}
+
+a {
+  font-weight: bold;
+  cursor: pointer;
 }

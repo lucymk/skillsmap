@@ -8,6 +8,8 @@
 .contents-style {
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   align-items: flex-start;
-  padding: var(--spacing-l)
+  padding: var(--spacing-l);
+  min-height: 100vh;
 }
