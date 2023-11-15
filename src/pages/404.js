@@ -1,69 +1,31 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-import { Link } from 'gatsby'
-import { graphql } from 'gatsby'
+import Layout from '../components/layout'
+import { H1, Copy } from '../components/shared'
+import { StaticImage } from 'gatsby-plugin-image'
 
-const pageStyles = {
-  color: '#232129',
-  padding: '96px',
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: '#8A6534',
-  padding: 4,
-  backgroundColor: '#FFF4DB',
-  fontSize: '1.25rem',
-  borderRadius: 4,
-}
-
-const NotFoundPage = ({
-  data: {
-    allAirtable: { nodes: dataFromAirtable },
-  },
-}) => {
+const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === 'development' ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
+    <Layout>
+      <H1>Page Not Found</H1>
+      <StaticImage
+        style={{
+          margin: 'var(--spacing-m) 0',
+          height: '400px',
+          maxWidth: '700px',
+        }}
+        src="../assets/media/404.png"
+      />
+      <Copy>
+        Sorry, we couldn&apos;t find what you were looking for. Try using the
+        navigation menu on the left to get to the page you want.
+      </Copy>
+    </Layout>
   )
 }
 
 export default NotFoundPage
 
-export const Head = () => <title>Not found</title>
+// export const Head = () => <title>Not found</title>
 
 // queryName filters by table, see gatsby-config
-
-export const query = graphql`
-  query {
-    allAirtable(filter: { queryName: { eq: "PageContent" } }) {
-      nodes {
-        data {
-          Skill
-        }
-      }
-    }
-  }
-`
