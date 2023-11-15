@@ -6,6 +6,8 @@
 
 .h1 {
   font: var(--font-h1);
+  font-weight: bold;
+  margin: 0;
 }
 
 .h2 {
@@ -20,10 +22,20 @@
   font: var(--font-subheader);
 }
 
-.body {
+.copy {
   font: var(--font-body);
+  max-width: 700px;
+  display: inline-block;
 }
 
 .caption {
   font: var(--font-caption);
+}
+
+.list {
+  font-weight: bold;
+
+  > li {
+    margin-bottom: var(--spacing-s);
+  }
 }

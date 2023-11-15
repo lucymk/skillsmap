@@ -5,8 +5,9 @@
   flex-direction: column;
   align-items: flex-start;
   padding: var(--spacing-l);
-  border: var(--border-black-thick);
-  width: fit-content;
+  border-right: var(--border-black-thick);
+  width: 25vw;
+  min-width: 275px;
   height: 100vh;
   box-sizing: border-box;
 }
@@ -30,7 +31,7 @@
 .nav-drawer-button {
   border: none;
   background: none;
-  padding: 0px; 
+  padding: 0px;
 }
 
 .menu-items {
@@ -41,6 +42,7 @@
   color: var(--black);
   font: var(--font-h3);
   font-weight: bold;
+  text-wrap: wrap;
 }
 
 .hidden-menu-items {
