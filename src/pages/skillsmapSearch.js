@@ -25,26 +25,18 @@ const SkillsmapSearchPage = ({
   const [selectedSubjectCount, setSelectedSubjectCount] = useState(0)
 
   useEffect(() => {
-    let count = 0
-    Object.values(selectedSubjects).map((selected) => {
-      if (selected) count++
-    })
-
-    setSelectedSubjectCount(count)
+    setSelectedSubjectCount(
+      Object.values(selectedSubjects).filter(Boolean).length
+    )
   }, [selectedSubjects])
 
-  const getSelectedSubjects = (returnArray) => {
+  const getSelectedSubjectsQueryString = () => {
     let subjectNames = []
 
     Object.entries(selectedSubjects).map(([subject, selected]) => {
-      if (selected) subjectNames.push(subject)
+      if (selected) subjectNames = [...subjectNames, subject]
     })
-
-    if (returnArray) {
-      return subjectNames
-    } else {
-      return subjectNames.join().toLowerCase().replace(/\s+/g, '+')
-    }
+    return subjectNames.join().replace(/\s/g, '+')
   }
 
   return (
@@ -74,8 +66,7 @@ const SkillsmapSearchPage = ({
       </div>
       {selectedSubjectCount > 0 ? (
         <Link
-          state={{ selected: getSelectedSubjects(true) }}
-          to={`/searchResults/?subjects=${getSelectedSubjects(false)}`}
+          to={`/searchResults/?subjects=${getSelectedSubjectsQueryString()}`}
         >
           <StaticImage
             src="../assets/icons/skillsMapNextActive.png"
