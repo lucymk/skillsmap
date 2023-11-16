@@ -39,6 +39,10 @@ export function SubjectButton({
   return (
     <button
       className={`${button}`}
+      style={{
+        justifyContent: 'left',
+        width: 'var(--skills-button-width)',
+      }}
       onClick={() => {
         setSelectedSubjects({
           ...selectedSubjects,

@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
 import { SubjectButton } from '../components/buttons'
 import { StaticImage } from 'gatsby-plugin-image'
+import Layout from '../components/layout'
+import { H1WithSubheader } from '../components/shared'
 
 const SkillsmapSearchPage = ({
   data: {
@@ -39,12 +41,29 @@ const SkillsmapSearchPage = ({
     return subjectNames.join().replace(/\s/g, '+')
   }
 
-  return (
-    <main>
-      <h1>Skillsmap Search</h1>
-      <p>Skillsmap Search Text ...</p>
+  const SubjectGrid = ({ children }) => (
+    <div
+      style={{
+        width: '100%',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, var(--skills-button-width))',
+        gridGap: 'var(--spacing-m)',
+        paddingTop: 'var(--spacing-m)',
+        paddingBottom: 'var(--spacing-m)',
+      }}
+    >
+      {children}
+    </div>
+  )
 
-      <div>
+  return (
+    <Layout>
+      <H1WithSubheader
+        headerText="Choose your subjects"
+        subheaderText="Choose a subject to see the skills you are building in it. Choose up to
+        3 subjects to see the overlap of skills between them."
+      />
+      <SubjectGrid>
         {subjects.map(
           ({
             data: {
@@ -63,23 +82,25 @@ const SkillsmapSearchPage = ({
             )
           }
         )}
-      </div>
+      </SubjectGrid>
       {selectedSubjectCount > 0 ? (
         <Link
           to={`/searchResults/?subjects=${getSelectedSubjectsQueryString()}`}
+          style={{ alignSelf: 'flex-end', marginTop: 'var(--spacing-m)' }}
         >
           <StaticImage
             src="../assets/icons/skillsMapNextActive.png"
-            width={300}
+            width={400}
           />
         </Link>
       ) : (
         <StaticImage
           src="../assets/icons/skillsMapNextDisabled.png"
-          width={300}
+          width={400}
+          style={{ alignSelf: 'flex-end', marginTop: 'var(--spacing-m)' }}
         />
       )}
-    </main>
+    </Layout>
   )
 }
 
