@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 
 import React from 'react'
+import { Link } from 'gatsby'
+
 import {
   headline,
   h1,
@@ -10,6 +12,7 @@ import {
   copy,
   caption,
   list,
+  link,
 } from './shared.module.css'
 
 export function Headline({ children }) {
@@ -42,4 +45,44 @@ export function Caption({ children }) {
 
 export function BulletList({ children }) {
   return <ul className={`${list}`}>{children}</ul>
+}
+
+export function ExternalLink({ src, children }) {
+  return (
+    <a target="_blank" className={`${link}`} rel="noreferrer" src={src}>
+      {children}
+    </a>
+  )
+}
+
+export function InternalLink({ to, children }) {
+  return (
+    <Link className={`${link}`} to={to}>
+      {children}
+    </Link>
+  )
+}
+
+export function Contact() {
+  return (
+    <>
+      <H3>Contact</H3>
+      <p>For enquiries about:</p>
+      <ul>
+        <li>the taxonomy and research behind SkillsMap®</li>
+        <li>
+          INSET days on transferable skills development in curriculum or through
+          careers education
+        </li>
+        <li>training and development on careers education</li>
+        <li>designing careers and employability strategy</li>
+      </ul>
+      <p>
+        Please visit Kate’s website at{' '}
+        <ExternalLink src="https://katedaubneycareers.com">
+          katedaubneycareers.com
+        </ExternalLink>
+      </p>
+    </>
+  )
 }

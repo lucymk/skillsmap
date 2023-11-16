@@ -32,6 +32,7 @@
   border: none;
   background: none;
   padding: 0px;
+  cursor: pointer;
 }
 
 .menu-items {
@@ -48,4 +49,18 @@
 .hidden-menu-items {
   visibility: hidden;
   pointer-events: none;
+}
+
+.nav-link {
+  color: var(--black);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.active-nav-link {
+  color: var(--blue);
 }

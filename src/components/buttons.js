@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import {
   button,
@@ -60,12 +59,12 @@ export function SubjectButton({
   )
 }
 
-export function ActionButton({ children }) {
+export function ActionButton({ leftActive, rightActive, children }) {
   return (
     <button className={`${button} ${actionButton}`}>
-      <ChevronLeftSvg />
+      {leftActive && <ChevronLeftSvg height="20px" />}
       {children}
-      <ChevronRightSvg />
+      {rightActive && <ChevronRightSvg height="20px" />}
     </button>
   )
 }

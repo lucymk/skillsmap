@@ -9,22 +9,40 @@ import {
   navDrawerButton,
   menuItems,
   hiddenMenuItems,
+  navLink,
+  activeNavLink,
 } from './navDrawer.module.css'
 import MenuBurgerSvg from '../assets/icons/menuBurger.svg'
 import MenuCloseSvg from '../assets/icons/menuClose.svg'
 
 function MenuItems({ visible }) {
+  const NavLink = ({ children, to }) => (
+    <Link
+      activeClassName={`${activeNavLink}`}
+      className={`${navLink}`}
+      to={to}
+      partiallyActive={true}
+    >
+      {children}
+    </Link>
+  )
+
   return (
     <div
       className={visible ? `${menuItems}` : `${menuItems} ${hiddenMenuItems}`}
     >
-      <Link>Home</Link>
-      <Link>Skillsmap search</Link>
-      <Link>For learners</Link>
-      <Link>For educators</Link>
-      <Link>For careers professionals</Link>
-      <Link>About</Link>
-      <Link>Resources</Link>
+      <Link
+        activeClassName={`${activeNavLink}`}
+        className={`${navLink}`}
+        to="/"
+      >
+        Home
+      </Link>
+      <NavLink to="/skillsmapSearch">Skillsmap search</NavLink>
+      <NavLink to="/forLearners">For learners</NavLink>
+      <NavLink to="/forEducators">For educators</NavLink>
+      <NavLink to="/forCareersProfessionals">For careers professionals</NavLink>
+      <NavLink to="/about">About</NavLink>
     </div>
   )
 }
