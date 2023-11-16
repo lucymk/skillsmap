@@ -9,6 +9,13 @@ const getSelectedSubjectsArrayFromSearchQuery = ({ search }) =>
     .replace(/\+/g, ' ')
     .split(',')
 
+const isSelectedSubjectsValid = ({ selectedSubjects, allSubjects }) =>
+  selectedSubjects.every((selectedSubject) =>
+    allSubjects
+      .map(({ data: { Subject } }) => Subject)
+      .includes(selectedSubject)
+  )
+
 const getSkillsFromSelectedSubjects = ({ selectedSubjects, skills }) =>
   skills.filter(
     ({ data: { Subjects: subjects } }) =>
@@ -21,6 +28,7 @@ const getSkillsFromSelectedSubjects = ({ selectedSubjects, skills }) =>
 const SkillsMapSearchResults = ({
   data: {
     skills: { nodes: skills },
+    allSubjects: { nodes: allSubjects },
   },
   location: { search },
 }) => {
@@ -29,6 +37,15 @@ const SkillsMapSearchResults = ({
     selectedSubjects,
     skills,
   })
+
+  if (
+    !isSelectedSubjectsValid({
+      selectedSubjects,
+      allSubjects,
+    })
+  ) {
+    typeof window !== 'undefined' && window.location.replace('/404/')
+  }
 
   return (
     <main>
@@ -58,6 +75,13 @@ export const query = graphql`
         data {
           Subjects
           Skill
+        }
+      }
+    }
+    allSubjects: allAirtable(filter: { queryName: { eq: "Subjects" } }) {
+      nodes {
+        data {
+          Subject
         }
       }
     }

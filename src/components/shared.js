@@ -116,3 +116,15 @@ export function FurtherLinks({ links }) {
 export function Details({ children }) {
   return <details className={`${details}`}>{children}</details>
 }
+export function H1WithSubheader({ headerText, subheaderText }) {
+  return (
+    <div>
+      <h1 className={`${h1}`} style={{ margin: '0' }}>
+        {headerText}
+      </h1>
+      <h4 className={`${subheader}`} style={{ margin: '0' }}>
+        {subheaderText}
+      </h4>
+    </div>
+  )
+}

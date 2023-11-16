@@ -7,7 +7,6 @@
 .h1 {
   font: var(--font-h1);
   font-weight: bold;
-  margin: 0;
 }
 
 .h2 {
@@ -56,4 +55,5 @@
     padding: var(--spacing-xxs) 0;
     font-weight: bold;
   }
+  font-weight: bold;
 }

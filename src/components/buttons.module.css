@@ -44,19 +44,19 @@
 .subject-button-icon {
   padding: var(--spacing-xs) var(--spacing-xs);
   border-right: var(--border-black);
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
   flex-shrink: 0;
 }
 
 .subject-button-name {
-  padding: var(--spacing-xxs) var(--spacing-xxs);
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--spacing-xs);
-  align-self: stretch;
-  border-radius: 0px var(--br-button) var(--br-button) 0px;
+  width: fill-available;
+  height: 100%;
+  border-radius: 0px 4px 4px 0px;
 }
 
 .subject-button-selected {
