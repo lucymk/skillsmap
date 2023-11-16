@@ -1,10 +1,9 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-import { Link } from 'gatsby'
 import '../../global.css'
 import Layout from '../components/layout'
 import { SkillsMapButton } from '../components/buttons'
-import { H1, Copy, BulletList } from '../components/shared'
+import { H1, Copy, BulletList, InternalLink } from '../components/shared'
 
 const IndexPage = () => {
   return (
@@ -38,15 +37,9 @@ const IndexPage = () => {
       <SkillsMapButton />
       <Copy>
         If you want to learn more about SkillsMap first, visit{' '}
-        <Link style={{ color: 'var(--blue)' }} to="/forLearners">
-          For learners
-        </Link>
-        . If you are an educator, you can find out more about using SkillsMap on
-        our{' '}
-        <Link style={{ color: 'var(--blue)' }} to="forEducators">
-          For Educators
-        </Link>{' '}
-        page.
+        <InternalLink to="../forLearners">For learners</InternalLink>. If you
+        are an educator, you can find out more about using SkillsMap on our{' '}
+        <InternalLink to="../forEducators">For Educators</InternalLink> page.
       </Copy>
     </Layout>
   )

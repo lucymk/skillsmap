@@ -1,6 +1,10 @@
 /* eslint-disable react/prop-types */
 
 import React from 'react'
+import { Link } from 'gatsby'
+
+import { ActionButton } from './buttons'
+
 import {
   headline,
   h1,
@@ -10,6 +14,8 @@ import {
   copy,
   caption,
   list,
+  link,
+  details,
 } from './shared.module.css'
 
 export function Headline({ children }) {
@@ -44,6 +50,72 @@ export function BulletList({ children }) {
   return <ul className={`${list}`}>{children}</ul>
 }
 
+export function ExternalLink({ src, children }) {
+  return (
+    <a target="_blank" className={`${link}`} rel="noreferrer" src={src}>
+      {children}
+    </a>
+  )
+}
+
+export function InternalLink({ to, children }) {
+  return (
+    <Link className={`${link}`} to={to}>
+      {children}
+    </Link>
+  )
+}
+
+export function Contact() {
+  return (
+    <>
+      <H3>Contact</H3>
+      <p>For enquiries about:</p>
+      <ul>
+        <li>the taxonomy and research behind SkillsMap®</li>
+        <li>
+          INSET days on transferable skills development in curriculum or through
+          careers education
+        </li>
+        <li>training and development on careers education</li>
+        <li>designing careers and employability strategy</li>
+      </ul>
+      <p>
+        Please visit Kate’s website at{' '}
+        <ExternalLink src="https://katedaubneycareers.com">
+          katedaubneycareers.com
+        </ExternalLink>
+      </p>
+    </>
+  )
+}
+
+export function FurtherLinks({ links }) {
+  return (
+    <>
+      <H3>Further Information</H3>
+      <p>You might be interested in browsing the following pages:</p>
+      <div
+        style={{
+          display: 'flex',
+          gap: 'var(--spacing-s)',
+          maxWidth: '700px',
+          flexWrap: 'wrap',
+        }}
+      >
+        {links.map(({ link, text }) => (
+          <Link key={text} to={link}>
+            <ActionButton rightActive={true}>{text} </ActionButton>
+          </Link>
+        ))}
+      </div>
+    </>
+  )
+}
+
+export function Details({ children }) {
+  return <details className={`${details}`}>{children}</details>
+}
 export function H1WithSubheader({ headerText, subheaderText }) {
   return (
     <div>

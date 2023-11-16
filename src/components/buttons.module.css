@@ -64,10 +64,17 @@
 }
 
 .action-button {
-  padding: var(--spacing-s) var(--spacing-m);
+  padding: var(--spacing-xs) var(--spacing-s);
   gap: var(--spacing-s);
   border: var(--border-yellow);
   border-radius: var(--br-button);
+  font: var(--font-body);
+  text-wrap: nowrap;
+  text-decoration: none;
+}
+
+.action-button:hover {
+  box-shadow: var(--shadow-hover);
 }
 
 .skills-map-button {
