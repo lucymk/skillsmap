@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
 import Layout from '../../components/layout'
+import Breadcrumbs from '../../components/breadcrumbs'
 import {
   H1,
   H3,
@@ -14,6 +15,9 @@ import {
 const WhatsInSkillsmap = () => {
   return (
     <Layout>
+      <Breadcrumbs
+        breadcrumbTexts={['For Careers Professionals', "What's in SkillsMap"]}
+      />
       <H1>What&apos;s in SkillsMap®?</H1>
       <Copy>
         <p>When you explore SkillsMap® you will find:</p>

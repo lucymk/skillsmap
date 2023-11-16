@@ -153,10 +153,14 @@ const ForCareersProfessionals = () => {
       </Copy>
       <FurtherLinks
         links={[
-          { link: '../about/whySkillsmap', text: 'Why was SkillsMap created?' },
+          { link: './whatsInSkillsmap', text: "What's in SkillsMap?" },
           {
-            link: './usingSkillsmapWithLearners',
+            link: '../forEducators/usingSkillsmapWithLearners',
             text: 'How can I use SkillsMap with my learners?',
+          },
+          {
+            link: './skillsmapAndCareersEducation',
+            text: 'SkillsMap and Careers Education',
           },
         ]}
       />
