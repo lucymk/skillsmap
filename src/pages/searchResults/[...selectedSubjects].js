@@ -44,7 +44,7 @@ const SkillsMapSearchResults = ({
       allSubjects,
     })
   ) {
-    window.location = '/404/'
+    typeof window !== 'undefined' && window.location.replace('/404/')
   }
 
   return (
