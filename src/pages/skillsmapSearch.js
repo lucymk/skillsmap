@@ -41,6 +41,21 @@ const SkillsmapSearchPage = ({
     return subjectNames.join().replace(/\s/g, '+')
   }
 
+  const SubjectGrid = ({ children }) => (
+    <div
+      style={{
+        width: '100%',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, var(--skills-button-width))',
+        gridGap: 'var(--spacing-m)',
+        paddingTop: 'var(--spacing-m)',
+        paddingBottom: 'var(--spacing-m)',
+      }}
+    >
+      {children}
+    </div>
+  )
+
   return (
     <Layout>
       <H1WithSubheader
@@ -48,17 +63,7 @@ const SkillsmapSearchPage = ({
         subheaderText="Choose a subject to see the skills you are building in it. Choose up to
         3 subjects to see the overlap of skills between them."
       />
-      <div
-        style={{
-          width: '100%',
-          display: 'grid',
-          gridTemplateColumns:
-            'repeat(auto-fill, minmax(var(--skills-button-width), var(--skills-button-width)))',
-          gridGap: 'var(--spacing-m)',
-          paddingTop: 'var(--spacing-m)',
-          paddingBottom: 'var(--spacing-m)',
-        }}
-      >
+      <SubjectGrid>
         {subjects.map(
           ({
             data: {
@@ -77,7 +82,7 @@ const SkillsmapSearchPage = ({
             )
           }
         )}
-      </div>
+      </SubjectGrid>
       {selectedSubjectCount > 0 ? (
         <Link
           to={`/searchResults/?subjects=${getSelectedSubjectsQueryString()}`}
