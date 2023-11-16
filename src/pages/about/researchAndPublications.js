@@ -1,10 +1,8 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-import { Link } from 'gatsby'
 import Layout from '../../components/layout'
 import Breadcrumbs from '../../components/breadcrumbs'
-import { H1, H3, Copy, ExternalLink } from '../../components/shared'
-import { ActionButton } from '../../components/buttons'
+import { H1, Copy, ExternalLink, FurtherLinks } from '../../components/shared'
 
 const ResearchAndPublications = () => {
   return (
@@ -73,26 +71,18 @@ const ResearchAndPublications = () => {
             katedaubneycareers.com
           </ExternalLink>
         </p>
-        <H3>Further Information</H3>
-        <p>You might be interested in browsing the following pages:</p>
-        <div
-          style={{
-            display: 'flex',
-            gap: 'var(--spacing-s)',
-            maxWidth: '700px',
-            flexWrap: 'wrap',
-          }}
-        >
-          <Link to="../resources">
-            {' '}
-            <ActionButton rightActive={true}>Resources</ActionButton>
-          </Link>
-          <Link to="../websiteAndBookVariations">
-            <ActionButton rightActive={true}>
-              SkillsMap®: Website and Book variations
-            </ActionButton>
-          </Link>
-        </div>
+        <FurtherLinks
+          links={[
+            {
+              link: '../websiteAndBookVariations',
+              text: 'Website and Book Variations',
+            },
+            {
+              link: '../resources',
+              text: 'Resources',
+            },
+          ]}
+        />
       </Copy>
     </Layout>
   )

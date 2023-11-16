@@ -3,6 +3,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import { ActionButton } from './buttons'
+
 import {
   headline,
   h1,
@@ -13,6 +15,7 @@ import {
   caption,
   list,
   link,
+  details,
 } from './shared.module.css'
 
 export function Headline({ children }) {
@@ -85,4 +88,31 @@ export function Contact() {
       </p>
     </>
   )
+}
+
+export function FurtherLinks({ links }) {
+  return (
+    <>
+      <H3>Further Information</H3>
+      <p>You might be interested in browsing the following pages:</p>
+      <div
+        style={{
+          display: 'flex',
+          gap: 'var(--spacing-s)',
+          maxWidth: '700px',
+          flexWrap: 'wrap',
+        }}
+      >
+        {links.map(({ link, text }) => (
+          <Link key={text} to={link}>
+            <ActionButton rightActive={true}>{text} </ActionButton>
+          </Link>
+        ))}
+      </div>
+    </>
+  )
+}
+
+export function Details({ children }) {
+  return <details className={`${details}`}>{children}</details>
 }

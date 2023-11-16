@@ -1,31 +1,31 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import Layout from '../components/layout'
+import { H1, H3, Copy, FurtherLinks } from '../components/shared'
+import { SkillsMapButton } from '../components/buttons'
 
-const ForLearnersPage = ({
-  data: {
-    allAirtable: { nodes: dataFromAirtable },
-  },
-}) => {
+const forLearners = () => {
   return (
-    <main>
-      <h1>For Learners</h1>
-      <p>For Learners Text ...</p>
-    </main>
+    <Layout>
+      <H1>For learners</H1>
+      <Copy>
+        <p>
+          Watch this video to find out more about what the subjects you study at
+          school have to do with work and your future career.
+        </p>
+        <video style={{ width: '100%', border: 'var(--border-black)' }} />
+      </Copy>
+      <SkillsMapButton />
+      <FurtherLinks
+        links={[
+          {
+            link: '../about/understandingTransferableSkills',
+            text: 'Understanding Transferable Skills',
+          },
+        ]}
+      />
+    </Layout>
   )
 }
 
-export default ForLearnersPage
-
-// queryName filters by table, see gatsby-config
-export const query = graphql`
-  query {
-    allAirtable(filter: { queryName: { eq: "PageContent" } }) {
-      nodes {
-        data {
-          Skill
-        }
-      }
-    }
-  }
-`
+export default forLearners

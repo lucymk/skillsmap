@@ -35,11 +35,11 @@
 }
 
 .list {
-  font-weight: bold;
-
   > li {
-    margin-bottom: var(--spacing-s);
+    padding: var(--spacing-xxs) 0;
+    font-weight: lighter;
   }
+  margin-bottom: var(--spacing-m);
 }
 
 .link {
@@ -49,4 +49,11 @@
   font-weight: bold;
 }
 
+.details {
+  margin-top: var(--spacing-xs);
 
+  > summary {
+    padding: var(--spacing-xxs) 0;
+    font-weight: bold;
+  }
+}
