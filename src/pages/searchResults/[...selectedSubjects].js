@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { SubjectTag, SkillsButton } from '../../components/buttons'
 import Breadcrumbs from '../../components/breadcrumbs'
 import Layout from '../../components/layout'
@@ -93,7 +93,9 @@ const SkillsMapSearchResults = ({
           return <SkillsButton key={Skill}>{Skill}</SkillsButton>
         })}
       </SkillsButtons>
-      <NextActiveSvg height="106px" style={{ transform: 'rotate(180deg)' }} />
+      <Link to={'/skillsmapSearch/'}>
+        <NextActiveSvg height="106px" style={{ transform: 'rotate(180deg)' }} />
+      </Link>
     </Layout>
   )
 }
