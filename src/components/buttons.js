@@ -81,3 +81,36 @@ export function SkillsMapButton() {
     </button>
   )
 }
+
+export function SubjectTags({ subjectsArray }) {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        gap: 'var(--spacing-m)',
+        paddingBottom: 'var(--spacing-s)',
+      }}
+    >
+      {subjectsArray.map((subject) => {
+        return <SubjectTag key={subject}>{subject}</SubjectTag>
+      })}
+    </div>
+  )
+}
+
+export function SkillsButtons({ skillsArray }) {
+  return (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--spacing-s)',
+        paddingBottom: 'var(--spacing-l)',
+      }}
+    >
+      {skillsArray.map((skill) => {
+        return <SkillsButton key={skill}>{skill}</SkillsButton>
+      })}
+    </div>
+  )
+}
