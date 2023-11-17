@@ -7,6 +7,7 @@
 
 .panel {
   display: flex;
+  width: 50%;
   flex-direction: column;
   align-items: flex-start;
   padding: var(--spacing-s) var(--spacing-s);
@@ -28,6 +29,10 @@
   align-items: flex-start;
   gap: var(--spacing-xs);
   align-self: stretch;
+
+  > span {
+    display: contents;
+  }
 }
 
 .what-does-this-mean-link {
@@ -38,14 +43,17 @@
 
 .more-skills-link {
   display: flex;
+  height: 100%;
+  flex-direction: column;
   text-decoration: underline;
   font-weight: bold;
-  margin-top: var(--spacing-l);
+  justify-content: flex-end;
 }
 
 .cluster-category {
   display: flex;
-  width: fit-content;
+  width: 100%;
   border-radius: var(--br-card);
   box-shadow: var(--shadow-1);
+  margin: var(--spacing-m) 0;
 }

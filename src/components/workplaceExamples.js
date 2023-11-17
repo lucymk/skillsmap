@@ -2,6 +2,7 @@ import React from 'react'
 import {
   workplaceExamples,
   workplaceExamplesHeader,
+  workplaceExampleList,
 } from './workplaceExamples.module.css'
 import WorkplaceExamplesIconSvg from '../assets/icons/workplaceExamplesIcon.svg'
 
@@ -12,7 +13,11 @@ export default function WorkplaceExamples({ examples }) {
         <WorkplaceExamplesIconSvg />
         Workplace Examples
       </div>
-      {examples}
+      <ul className={`${workplaceExampleList}`}>
+        {examples.map((example) => (
+          <li key={example}>{example}</li>
+        ))}
+      </ul>
     </div>
   )
 }

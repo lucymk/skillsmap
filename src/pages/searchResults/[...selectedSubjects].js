@@ -52,7 +52,11 @@ const SkillsButtons = ({ skillsArray }) => (
     }}
   >
     {skillsArray.map((skill) => {
-      return <SkillsButton key={skill}>{skill}</SkillsButton>
+      return (
+        <Link key={skill} to={`../skills/${skill.replace(/\s/g, '+')}`}>
+          <SkillsButton>{skill}</SkillsButton>
+        </Link>
+      )
     })}
   </div>
 )
@@ -90,7 +94,7 @@ const SkillsMapSearchResults = ({
       </h3>
       <SkillsButtons skillsArray={relevantSkills} />
       <Link to={'/skillsmapSearch/'}>
-        <NextActiveSvg height="106px" style={{ transform: 'rotate(180deg)' }} />
+        <NextActiveSvg style={{ transform: 'rotate(180deg)' }} />
       </Link>
     </Layout>
   )

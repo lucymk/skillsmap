@@ -13,7 +13,7 @@ import ChevronRightSvg from '../assets/icons/chevronRight.svg'
 import ClusterIconSvg from '../assets/icons/clusterIcon.svg'
 import CategoryIconSvg from '../assets/icons/categoryIcon.svg'
 
-function Panel({ icon, title, body, style }) {
+function Panel({ icon, title, clusterOrCategory, style }) {
   return (
     <div className={`${panel}`} style={style}>
       <div className={`${panelTitle}`}>
@@ -21,7 +21,11 @@ function Panel({ icon, title, body, style }) {
         {title}
       </div>
       <div className={`${panelText}`}>
-        {body}
+        This skill is in the{' '}
+        <span style={{ fontWeight: 'bold' }}>
+          {clusterOrCategory.toLowerCase()}
+        </span>{' '}
+        {title.toLowerCase()}.
         <Link className={`${whatDoesThisMeanLink}`}>
           What does this mean?
           <OpenInNewTabSvg
@@ -29,33 +33,37 @@ function Panel({ icon, title, body, style }) {
           />
         </Link>
       </div>
-      <Link className={`${moreSkillsLink}`} style={{ color: style.panelColor }}>
-        More skills in this {title.toLowerCase()} &gt;
-      </Link>
+      <div className={`${moreSkillsLink}`}>
+        <Link
+          style={{ color: style.panelColor, marginTop: 'var(--spacing-m)' }}
+        >
+          More skills in this {title.toLowerCase()} &gt;
+        </Link>
+      </div>
     </div>
   )
 }
 
-export default function ClusterCategory() {
+export default function ClusterCategory({ cluster, category }) {
   return (
     <div className={`${clusterCategory}`}>
       <Panel
         icon={<ClusterIconSvg />}
         title="Cluster"
-        body="Some text for cluster"
+        clusterOrCategory={cluster}
         style={{
           borderLeft: 'var(--border-black)',
           borderTop: 'var(--border-black)',
           borderBottom: 'var(--border-black)',
           borderRadius: 'var(--br-card) 0 0 var(--br-card)',
           backgroundColor: 'var(--light-green-faint)',
-          panelColor: 'var(--light-green)',
+          panelColor: 'var(--dark-green)',
         }}
       />
       <Panel
         icon={<CategoryIconSvg />}
         title="Category"
-        body="Some different text for category"
+        clusterOrCategory={category}
         style={{
           border: 'var(--border-black)',
           borderRadius: '0 var(--br-card) var(--br-card) 0',
