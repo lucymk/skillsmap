@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
-import { SubjectTag, SkillsButton } from '../../components/buttons'
+import { SubjectTags, SkillsButtons } from '../../components/buttons'
 import Breadcrumbs from '../../components/breadcrumbs'
 import Layout from '../../components/layout'
 import NextActiveSvg from '../../assets/icons/nextActive.svg'
@@ -27,39 +27,6 @@ const getSkillsFromSelectedSubjects = ({ selectedSubjects, skills }) =>
         subjects.includes(selectedSubject)
       )
   )
-
-const SubjectTags = ({ subjectsArray }) => (
-  <div
-    style={{
-      display: 'flex',
-      gap: 'var(--spacing-m)',
-      paddingBottom: 'var(--spacing-s)',
-    }}
-  >
-    {subjectsArray.map((subject) => {
-      return <SubjectTag key={subject}>{subject}</SubjectTag>
-    })}
-  </div>
-)
-
-const SkillsButtons = ({ skillsArray }) => (
-  <div
-    style={{
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 'var(--spacing-s)',
-      paddingBottom: 'var(--spacing-l)',
-    }}
-  >
-    {skillsArray.map((skill) => {
-      return (
-        <Link key={skill} to={`../skills/${skill.replace(/\s/g, '+')}`}>
-          <SkillsButton>{skill}</SkillsButton>
-        </Link>
-      )
-    })}
-  </div>
-)
 
 const SkillsMapSearchResults = ({
   data: {
