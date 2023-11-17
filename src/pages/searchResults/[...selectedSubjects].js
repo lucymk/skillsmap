@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import { SubjectTag, SkillsButton } from '../../components/buttons'
+import Breadcrumbs from '../../components/breadcrumbs'
+import Layout from '../../components/layout'
+import NextActiveSvg from '../../assets/icons/nextActive.svg'
 
 const getSelectedSubjectsArrayFromSearchQuery = ({ search }) =>
   search
@@ -25,6 +28,35 @@ const getSkillsFromSelectedSubjects = ({ selectedSubjects, skills }) =>
       )
   )
 
+const SubjectTags = ({ subjectsArray }) => (
+  <div
+    style={{
+      display: 'flex',
+      gap: 'var(--spacing-m)',
+      paddingBottom: 'var(--spacing-s)',
+    }}
+  >
+    {subjectsArray.map((subject) => {
+      return <SubjectTag key={subject}>{subject}</SubjectTag>
+    })}
+  </div>
+)
+
+const SkillsButtons = ({ skillsArray }) => (
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 'var(--spacing-s)',
+      paddingBottom: 'var(--spacing-l)',
+    }}
+  >
+    {skillsArray.map((skill) => {
+      return <SkillsButton key={skill}>{skill}</SkillsButton>
+    })}
+  </div>
+)
+
 const SkillsMapSearchResults = ({
   data: {
     skills: { nodes: skills },
@@ -36,7 +68,7 @@ const SkillsMapSearchResults = ({
   const relevantSkills = getSkillsFromSelectedSubjects({
     selectedSubjects,
     skills,
-  })
+  }).map(({ data: { Skill } }) => Skill)
 
   if (
     !isSelectedSubjectsValid({
@@ -45,23 +77,22 @@ const SkillsMapSearchResults = ({
     })
   ) {
     typeof window !== 'undefined' && window.location.replace('/404/')
+    return <main />
   }
 
   return (
-    <main>
+    <Layout>
+      <Breadcrumbs breadcrumbTexts={['Subjects', 'Skills']} />
       <h1>See your transferrable skills</h1>
-      <div>
-        {selectedSubjects.map((subject) => {
-          return <SubjectTag key={subject}>{subject}</SubjectTag>
-        })}
-      </div>
-      <div>
-        {relevantSkills.map(({ data: { Skill } }) => {
-          return <SkillsButton key={Skill}>{Skill}</SkillsButton>
-        })}
-      </div>
-      Transferable skills you are building in these subjects:
-    </main>
+      <SubjectTags subjectsArray={selectedSubjects} />
+      <h3 style={{ fontWeight: 'normal' }}>
+        Transferable skills you are building in these subjects:
+      </h3>
+      <SkillsButtons skillsArray={relevantSkills} />
+      <Link to={'/skillsmapSearch/'}>
+        <NextActiveSvg height="106px" style={{ transform: 'rotate(180deg)' }} />
+      </Link>
+    </Layout>
   )
 }
 
