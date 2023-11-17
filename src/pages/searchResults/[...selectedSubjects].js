@@ -28,7 +28,7 @@ const getSkillsFromSelectedSubjects = ({ selectedSubjects, skills }) =>
       )
   )
 
-const SubjectTags = ({ children }) => (
+const SubjectTags = ({ subjectsArray }) => (
   <div
     style={{
       display: 'flex',
@@ -36,11 +36,13 @@ const SubjectTags = ({ children }) => (
       paddingBottom: 'var(--spacing-s)',
     }}
   >
-    {children}
+    {subjectsArray.map((subject) => {
+      return <SubjectTag key={subject}>{subject}</SubjectTag>
+    })}
   </div>
 )
 
-const SkillsButtons = ({ children }) => (
+const SkillsButtons = ({ skillsArray }) => (
   <div
     style={{
       display: 'flex',
@@ -49,7 +51,9 @@ const SkillsButtons = ({ children }) => (
       paddingBottom: 'var(--spacing-l)',
     }}
   >
-    {children}
+    {skillsArray.map((skill) => {
+      return <SkillsButton key={skill}>{skill}</SkillsButton>
+    })}
   </div>
 )
 
@@ -64,7 +68,7 @@ const SkillsMapSearchResults = ({
   const relevantSkills = getSkillsFromSelectedSubjects({
     selectedSubjects,
     skills,
-  })
+  }).map(({ data: { Skill } }) => Skill)
 
   if (
     !isSelectedSubjectsValid({
@@ -80,19 +84,11 @@ const SkillsMapSearchResults = ({
     <Layout>
       <Breadcrumbs breadcrumbTexts={['Subjects', 'Skills']} />
       <h1>See your transferrable skills</h1>
-      <SubjectTags>
-        {selectedSubjects.map((subject) => {
-          return <SubjectTag key={subject}>{subject}</SubjectTag>
-        })}
-      </SubjectTags>
+      <SubjectTags subjectsArray={selectedSubjects} />
       <h3 style={{ fontWeight: 'normal' }}>
         Transferable skills you are building in these subjects:
       </h3>
-      <SkillsButtons>
-        {relevantSkills.map(({ data: { Skill } }) => {
-          return <SkillsButton key={Skill}>{Skill}</SkillsButton>
-        })}
-      </SkillsButtons>
+      <SkillsButtons skillsArray={relevantSkills} />
       <Link to={'/skillsmapSearch/'}>
         <NextActiveSvg height="106px" style={{ transform: 'rotate(180deg)' }} />
       </Link>
