@@ -7,7 +7,15 @@ import { H1, Copy, ExternalLink, FurtherLinks } from '../../components/shared'
 const ResearchAndPublications = () => {
   return (
     <Layout>
-      <Breadcrumbs breadcrumbTexts={['About', 'Research and Publications']} />
+      <Breadcrumbs
+        crumbs={[
+          {
+            label: 'About',
+            path: '/about/',
+          },
+          { label: 'Research and Publications' },
+        ]}
+      />
       <H1>Research and Publications</H1>
       <Copy>
         <p>

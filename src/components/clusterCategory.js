@@ -35,6 +35,10 @@ function Panel({ icon, title, clusterOrCategory, style }) {
       </div>
       <div className={`${moreSkillsLink}`}>
         <Link
+          to={`../../${title.toLowerCase()}/?=${clusterOrCategory.replace(
+            /\s/g,
+            '+'
+          )}`}
           style={{ color: style.panelColor, marginTop: 'var(--spacing-m)' }}
         >
           More skills in this {title.toLowerCase()} &gt;

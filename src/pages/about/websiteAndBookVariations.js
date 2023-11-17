@@ -7,7 +7,12 @@ import { H1, Copy, Contact, FurtherLinks } from '../../components/shared'
 const WebsiteAndBookVariations = () => {
   return (
     <Layout>
-      <Breadcrumbs breadcrumbTexts={['About', 'Website and Book Variations']} />
+      <Breadcrumbs
+        crumbs={[
+          { label: 'About', path: '/about/' },
+          { label: 'Website and Book Variations' },
+        ]}
+      />
       <H1>SkillsMap®: Website and Book Variations</H1>
       <Copy>
         <p>

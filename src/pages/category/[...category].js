@@ -36,7 +36,12 @@ const CategoryPage = ({
 
   return (
     <Layout>
-      <Breadcrumbs breadcrumbTexts={['Categories', `${categoryMatch}`]} />
+      <Breadcrumbs
+        crumbs={[
+          { label: 'Categories', path: 'FIX LINK' },
+          { label: `${categoryMatch}` },
+        ]}
+      />
       <h1>{categoryMatch}</h1>
       <h3 style={{ fontWeight: 'normal', paddingBottom: 'var(--spacing-m)' }}>
         {categoryDefinition}

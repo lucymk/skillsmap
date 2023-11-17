@@ -8,7 +8,10 @@ const UsingSkillsmapWithLearners = () => {
   return (
     <Layout>
       <Breadcrumbs
-        breadcrumbTexts={['For educators', 'Using SkillsMap® with learners']}
+        crumbs={[
+          { label: 'For educators', path: '/forEducators/' },
+          { label: 'Using SkillsMap® with learners' },
+        ]}
       />
       <H1>Using SkillsMap® with your learners</H1>
       <Copy>

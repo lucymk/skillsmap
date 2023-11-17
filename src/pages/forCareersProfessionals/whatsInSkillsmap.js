@@ -16,7 +16,13 @@ const WhatsInSkillsmap = () => {
   return (
     <Layout>
       <Breadcrumbs
-        breadcrumbTexts={['For Careers Professionals', "What's in SkillsMap"]}
+        crumbs={[
+          {
+            label: 'For Careers Professionals',
+            path: '/forCareersProfessionals/',
+          },
+          { label: "What's in SkillsMap" },
+        ]}
       />
       <H1>What&apos;s in SkillsMap®?</H1>
       <Copy>

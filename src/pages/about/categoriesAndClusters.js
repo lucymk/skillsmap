@@ -8,7 +8,15 @@ import { StaticImage } from 'gatsby-plugin-image'
 const CategoriesAndClusters = () => {
   return (
     <Layout>
-      <Breadcrumbs breadcrumbTexts={['About', 'Categories and Clusters']} />
+      <Breadcrumbs
+        crumbs={[
+          {
+            label: 'About',
+            path: '/about/',
+          },
+          { label: 'Categories and Clusters' },
+        ]}
+      />
       <H1>Categories and Clusters</H1>
       <Copy>
         <p>

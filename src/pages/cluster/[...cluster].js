@@ -36,7 +36,15 @@ const ClusterPage = ({
 
   return (
     <Layout>
-      <Breadcrumbs breadcrumbTexts={['Clusters', `${clusterMatch}`]} />
+      <Breadcrumbs
+        crumbs={[
+          {
+            label: 'Clusters',
+            path: 'FIX LINK',
+          },
+          { label: `${clusterMatch}` },
+        ]}
+      />
       <h1>{clusterMatch}</h1>
       <h3 style={{ fontWeight: 'normal', paddingBottom: 'var(--spacing-m)' }}>
         {clusterDefinition}

@@ -7,7 +7,12 @@ import Breadcrumbs from '../../components/breadcrumbs'
 const whySkillsmap = () => {
   return (
     <Layout>
-      <Breadcrumbs breadcrumbTexts={['About', 'Why SkillsMap®']} />
+      <Breadcrumbs
+        crumbs={[
+          { label: 'About', path: '/about/' },
+          { label: 'Why SkillsMap®' },
+        ]}
+      />
       <H1>Why was SkillsMap® created?</H1>
       <Copy>
         <p>

@@ -1,21 +1,23 @@
 import React from 'react'
-import { breadcrumbs, chevron } from './breadcrumbs.module.css'
+import { breadcrumbs, chevron, links } from './breadcrumbs.module.css'
+import { Link } from 'gatsby'
 import ChevronRightSvg from '../assets/icons/chevronRight.svg'
 
-export default function Breadcrumbs({ breadcrumbTexts }) {
-  const lastBreadcrumb = breadcrumbTexts.pop()
+export default function Breadcrumbs({ crumbs }) {
+  const lastBreadcrumb = crumbs.pop()
   return (
     <div className={`${breadcrumbs}`}>
-      {breadcrumbTexts.map((breadcrumbText, i, row) => {
-        console.log(breadcrumbText)
+      {crumbs.map(({ label, path }) => {
         return (
-          <div key={breadcrumbText}>
-            {breadcrumbText}
+          <div key={label}>
+            <Link className={`${links}`} to={path}>
+              {label}
+            </Link>
             <ChevronRightSvg className={`${chevron}`} />
           </div>
         )
       })}
-      <div>{lastBreadcrumb}</div>
+      {lastBreadcrumb.label}
     </div>
   )
 }

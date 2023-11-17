@@ -15,9 +15,12 @@ const SkillsmapAndCareersEducation = () => {
   return (
     <Layout>
       <Breadcrumbs
-        breadcrumbTexts={[
-          'For Careers Professionals',
-          'SkillsMap and Careers Education',
+        crumbs={[
+          {
+            label: 'For Careers Professionals',
+            path: '/forCareersProfessionals/',
+          },
+          { label: 'SkillsMap and Careers Education' },
         ]}
       />
       <H1>SkillsMap® and Careers Education</H1>
@@ -376,9 +379,12 @@ const SkillsmapAndCareersEducation = () => {
       </Copy>
       <FurtherLinks
         links={[
-          { link: '../about/whySkillsmap', text: 'Why was SkillsMap created?' },
           {
-            link: './usingSkillsmapWithLearners',
+            link: '../../about/whySkillsmap',
+            text: 'Why was SkillsMap created?',
+          },
+          {
+            link: '../../forEducators/usingSkillsmapWithLearners',
             text: 'How can I use SkillsMap with my learners?',
           },
         ]}

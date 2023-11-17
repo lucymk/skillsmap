@@ -45,7 +45,12 @@ const SkillOverviewPage = ({
   return (
     Skill && (
       <Layout>
-        <Breadcrumbs breadcrumbTexts={['Skills', `${Skill}`]} />
+        <Breadcrumbs
+          crumbs={[
+            { label: 'Skills', path: 'FIX LINK' },
+            { label: `${Skill}` },
+          ]}
+        />
         <H1>{Skill}</H1>
         <Copy>
           <p>
