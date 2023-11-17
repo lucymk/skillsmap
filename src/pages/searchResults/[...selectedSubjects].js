@@ -61,7 +61,7 @@ const SkillsMapSearchResults = ({
       </h3>
       <SkillsButtons skillsArray={relevantSkills} />
       <Link to={'/skillsmapSearch/'}>
-        <NextActiveSvg height="106px" style={{ transform: 'rotate(180deg)' }} />
+        <NextActiveSvg style={{ transform: 'rotate(180deg)' }} />
       </Link>
     </Layout>
   )

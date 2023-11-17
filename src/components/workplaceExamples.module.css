@@ -10,7 +10,20 @@
   border: var(--border-black);
   background: var(--white);
   box-shadow: var(--shadow-1);
-  width: fit-content;
+  margin: var(--spacing-m) 0;
+}
+
+.workplace-example-list {
+  margin: 0;
+  padding-inline-start: 15px;
+
+  > li:not(:first-child) {
+    padding-top: var(--spacing-xxs);
+  }
+
+  > li:not(:last-child) {
+    padding-bottom: var(--spacing-xxs);
+  }
 }
 
 .workplace-examples-header {

@@ -8,6 +8,7 @@
   font: var(--font-h1);
   font-weight: bold;
   margin: 0;
+  max-width: 700px;
 }
 
 .h2 {
