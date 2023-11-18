@@ -16,15 +16,16 @@ import SkillIconSvg from '../assets/icons/skillIcon.svg'
 import ChevronLeftSvg from '../assets/icons/chevronLeft.svg'
 import ChevronRightSvg from '../assets/icons/chevronRight.svg'
 
-export function SkillsButton({ skill }) {
+export function SkillsButton({ skill, originPath }) {
   return (
     <Link
       to={`../skills/${skill.replace(/\s/g, '+')}`}
+      state={{ originPath: originPath }}
       className={`${button} ${skillsButton}`}
     >
       <SkillIconSvg className={`${skillIcon}`} />
       {skill}
-      <ChevronRightSvg />
+      <ChevronRightSvg height="20px" />
     </Link>
   )
 }
@@ -79,10 +80,15 @@ export function ActionButton({ leftActive, rightActive, children }) {
 
 export function SkillsMapButton() {
   return (
-    <button className={`${button} ${skillsMapButton}`}>
-      <StaticImage width={100} src="../assets/icons/skillsMapSimpleLogo.png" />
-      Search skills and subjects
-    </button>
+    <Link to="/skillsmapTool">
+      <button className={`${button} ${skillsMapButton}`}>
+        <StaticImage
+          width={100}
+          src="../assets/icons/skillsMapSimpleLogo.png"
+        />
+        Search skills and subjects
+      </button>
+    </Link>
   )
 }
 
@@ -102,7 +108,7 @@ export function SubjectTags({ subjectsArray }) {
   )
 }
 
-export function SkillsButtons({ skillsArray }) {
+export function SkillsButtons({ skillsArray, originPath }) {
   return (
     <div
       style={{
@@ -113,7 +119,9 @@ export function SkillsButtons({ skillsArray }) {
       }}
     >
       {skillsArray.map((skill) => {
-        return <SkillsButton key={skill} skill={skill} />
+        return (
+          <SkillsButton originPath={originPath} key={skill} skill={skill} />
+        )
       })}
     </div>
   )

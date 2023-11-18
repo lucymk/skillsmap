@@ -12,6 +12,7 @@
   box-shadow: var(--shadow-1);
   margin: var(--spacing-m) 0;
   max-width: 700px;
+  box-sizing: border-box;
 }
 
 .workplace-example-list {

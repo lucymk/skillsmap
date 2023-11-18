@@ -1,14 +1,13 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-import { Link, graphql } from 'gatsby'
-import { SubjectTags, SkillsButtons } from '../../components/buttons'
-import Breadcrumbs from '../../components/breadcrumbs'
-import Layout from '../../components/layout'
-import NextActiveSvg from '../../assets/icons/nextActive.svg'
+import { graphql } from 'gatsby'
+import { SubjectTags, SkillsButtons } from '../../../components/buttons'
+import Breadcrumbs from '../../../components/breadcrumbs'
+import Layout from '../../../components/layout'
 
-const getSelectedSubjectsArrayFromSearchQuery = ({ search }) =>
-  search
-    .substring(search.indexOf('=') + 1)
+const getSelectedSubjectsArrayFromSearchQuery = ({ href }) =>
+  href
+    .substring(href.indexOf('=') + 1)
     .replace(/\+/g, ' ')
     .split(',')
 
@@ -33,9 +32,9 @@ const SkillsMapSearchResults = ({
     skills: { nodes: skills },
     allSubjects: { nodes: allSubjects },
   },
-  location: { search },
+  location: { href },
 }) => {
-  const selectedSubjects = getSelectedSubjectsArrayFromSearchQuery({ search })
+  const selectedSubjects = getSelectedSubjectsArrayFromSearchQuery({ href })
   const relevantSkills = getSkillsFromSelectedSubjects({
     selectedSubjects,
     skills,
@@ -55,8 +54,8 @@ const SkillsMapSearchResults = ({
     <Layout>
       <Breadcrumbs
         crumbs={[
-          { label: 'Subjects', path: '/skillsmapSearch/' },
-          { label: 'Skills' },
+          { label: 'SkillsMap Tool', path: '/skillsmapTool/' },
+          { label: 'Search results' },
         ]}
       />
       <h1>See your transferrable skills</h1>
@@ -64,10 +63,7 @@ const SkillsMapSearchResults = ({
       <h3 style={{ fontWeight: 'normal' }}>
         Transferable skills you are building in these subjects:
       </h3>
-      <SkillsButtons skillsArray={relevantSkills} />
-      <Link to={'/skillsmapSearch/'}>
-        <NextActiveSvg style={{ transform: 'rotate(180deg)' }} />
-      </Link>
+      <SkillsButtons originPath={href} skillsArray={relevantSkills} />
     </Layout>
   )
 }

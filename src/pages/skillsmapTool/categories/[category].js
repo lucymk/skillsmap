@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { SkillsButtons } from '../../components/buttons'
-import Breadcrumbs from '../../components/breadcrumbs'
-import Layout from '../../components/layout'
+import { SkillsButtons } from '../../../components/buttons'
+import Breadcrumbs from '../../../components/breadcrumbs'
+import Layout from '../../../components/layout'
+import { Copy, H1 } from '../../../components/shared'
+import { ClusterCategoryDefinitionCard } from '../../../components/clusterCategory'
 
 const getCategoryFromSearchQuery = ({ search }) =>
   search.substring(search.indexOf('=') + 1).replace(/\+/g, ' ')
@@ -38,18 +40,28 @@ const CategoryPage = ({
     <Layout>
       <Breadcrumbs
         crumbs={[
-          { label: 'Categories', path: 'FIX LINK' },
+          { label: 'SkillsMap Tool', path: '/skillsmapTool' },
+          { label: 'Categories', path: './categories' },
           { label: `${categoryMatch}` },
         ]}
       />
-      <h1>{categoryMatch}</h1>
-      <h3 style={{ fontWeight: 'normal', paddingBottom: 'var(--spacing-m)' }}>
-        {categoryDefinition}
-        <br />
-        <br />
-        Transferable skills within this category:
-      </h3>
-      <SkillsButtons skillsArray={associatedSkills} />
+      <H1>{categoryMatch}</H1>
+      <Copy>
+        <ClusterCategoryDefinitionCard
+          cluster={false}
+          category={true}
+          definition={categoryDefinition}
+          style={{ backgroundColor: 'var(--light-purple-faint)' }}
+        />
+        <h3>
+          Skills in the{' '}
+          <span style={{ backgroundColor: 'var(--light-purple-faint)' }}>
+            {category}
+          </span>{' '}
+          cluster:
+        </h3>
+        <SkillsButtons fromSearch={false} skillsArray={associatedSkills} />
+      </Copy>
     </Layout>
   )
 }

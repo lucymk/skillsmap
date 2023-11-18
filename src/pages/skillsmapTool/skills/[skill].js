@@ -2,19 +2,21 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../../components/layout'
-import Breadcrumbs from '../../components/breadcrumbs'
-import WorkplaceExamples from '../../components/workplaceExamples'
-import { H1, Copy } from '../../components/shared'
-import ClusterCategory from '../../components/clusterCategory'
-import NextActiveSvg from '../../assets/icons/nextActive.svg'
+import Layout from '../../../components/layout'
+import Breadcrumbs from '../../../components/breadcrumbs'
+import WorkplaceExamples from '../../../components/workplaceExamples'
+import { H1, Copy } from '../../../components/shared'
+import ClusterCategory from '../../../components/clusterCategory'
 import { navigate } from 'gatsby'
 
 const SkillOverviewPage = ({
   data: {
     allAirtable: { nodes: allSkills },
   },
-  location: { pathname },
+  location: {
+    pathname,
+    state: { originPath },
+  },
 }) => {
   const [
     [
@@ -48,7 +50,9 @@ const SkillOverviewPage = ({
   ])
 
   useEffect(() => {
-    const selected = pathname.replace('/skills/', '').replace('/', '')
+    const selected = pathname
+      .replace('/skillsmapTool/skills/', '')
+      .replace('/', '')
 
     const singleSkill = allSkills.filter(({ data: { Skill: skill } }) => {
       return skill.replace(/\s/g, '+') == selected
@@ -62,19 +66,20 @@ const SkillOverviewPage = ({
       <Layout>
         <Breadcrumbs
           crumbs={[
-            { label: 'Skills', path: 'FIX LINK' },
+            { label: 'SkillsMap Tool', path: '/skillsmapTool' },
+            { label: 'Skills', path: './skills' },
             { label: `${Skill}` },
           ]}
         />
         <H1>{Skill}</H1>
         <Copy>
-          <p>
+          <h3 style={{ fontWeight: 'normal' }}>
             I use this skill when I{' '}
             <b style={{ backgroundColor: 'var(--yellow)' }}>
               {SkillDefinition.toLowerCase()}
             </b>
             .
-          </p>
+          </h3>
         </Copy>
         <WorkplaceExamples
           examples={[
@@ -85,11 +90,14 @@ const SkillOverviewPage = ({
           ]}
         />
         <ClusterCategory cluster={Cluster} category={Category} />
-        <NextActiveSvg
-          style={{ cursor: 'pointer' }}
-          onClick={() => navigate(-1)}
-          transform="rotate(180)"
-        />
+        {originPath.includes('skillsmapTool') && (
+          <p
+            style={{ cursor: 'pointer', textDecoration: 'underline' }}
+            onClick={() => navigate(-1)}
+          >
+            &lt; Back to search results
+          </p>
+        )}
       </Layout>
     )
   )
