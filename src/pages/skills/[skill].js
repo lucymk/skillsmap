@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
+import { useState } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import Breadcrumbs from '../../components/breadcrumbs'
@@ -14,8 +15,6 @@ const getSelectedSkill = (allSkills, pathname) => {
 
   if (allSkills) {
     return allSkills.filter(({ data: { Skill: skill } }) => {
-      console.log('compare', skill.replace(/\s/g, '+'), selectedSkill)
-
       return skill.replace(/\s/g, '+') == selectedSkill
     })
   }
@@ -28,55 +27,53 @@ const SkillOverviewPage = ({
   location: { pathname },
 }) => {
   const [
-    {
-      data: {
-        Skill,
-        SkillDefinition,
-        WorkplaceExample1,
-        WorkplaceExample2,
-        WorkplaceExample3,
-        WorkplaceExample4,
-        Category,
-        Cluster,
+    [
+      {
+        data: {
+          Skill,
+          WorkplaceExample1,
+          WorkplaceExample2,
+          WorkplaceExample3,
+          WorkplaceExample4,
+          SkillDefinition,
+          Category,
+          Cluster,
+        },
       },
-    },
-  ] = getSelectedSkill(allSkills, pathname)
+    ],
+    setSelectedSkill,
+  ] = useState(getSelectedSkill(allSkills, pathname))
 
   return (
-    Skill && (
-      <Layout>
-        <Breadcrumbs
-          crumbs={[
-            { label: 'Skills', path: 'FIX LINK' },
-            { label: `${Skill}` },
+    <Layout>
+      <Breadcrumbs
+        crumbs={[{ label: 'Skills', path: 'FIX LINK' }, { label: `${Skill}` }]}
+      />
+      <H1>{Skill}</H1>
+      <Copy>
+        <p>
+          I use this skill when I{' '}
+          <b style={{ backgroundColor: 'var(--yellow)' }}>
+            {SkillDefinition.toLowerCase()}
+          </b>
+          .
+        </p>
+        <WorkplaceExamples
+          examples={[
+            WorkplaceExample1,
+            WorkplaceExample2,
+            WorkplaceExample3,
+            WorkplaceExample4,
           ]}
         />
-        <H1>{Skill}</H1>
-        <Copy>
-          <p>
-            I use this skill when I{' '}
-            <b style={{ backgroundColor: 'var(--yellow)' }}>
-              {SkillDefinition.toLowerCase()}
-            </b>
-            .
-          </p>
-          <WorkplaceExamples
-            examples={[
-              WorkplaceExample1,
-              WorkplaceExample2,
-              WorkplaceExample3,
-              WorkplaceExample4,
-            ]}
-          />
-          <ClusterCategory cluster={Cluster} category={Category} />
-        </Copy>
-        <NextActiveSvg
-          style={{ cursor: 'pointer' }}
-          onClick={() => navigate(-1)}
-          transform="rotate(180)"
-        />
-      </Layout>
-    )
+        <ClusterCategory cluster={Cluster} category={Category} />
+      </Copy>
+      <NextActiveSvg
+        style={{ cursor: 'pointer' }}
+        onClick={() => navigate(-1)}
+        transform="rotate(180)"
+      />
+    </Layout>
   )
 }
 
