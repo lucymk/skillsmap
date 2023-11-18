@@ -6,6 +6,15 @@
   font: var(--font-body);
 }
 
+.links {
+  font: var(--font-body);
+  color: var(--black);
+}
+
+.links:hover {
+  text-decoration: underline
+}
+
 .chevron {
   width: 8px;
   height: 8px;

@@ -53,7 +53,12 @@ const SkillsMapSearchResults = ({
 
   return (
     <Layout>
-      <Breadcrumbs breadcrumbTexts={['Subjects', 'Skills']} />
+      <Breadcrumbs
+        crumbs={[
+          { label: 'Subjects', path: '/skillsmapSearch/' },
+          { label: 'Skills' },
+        ]}
+      />
       <h1>See your transferrable skills</h1>
       <SubjectTags subjectsArray={selectedSubjects} />
       <h3 style={{ fontWeight: 'normal' }}>

@@ -14,7 +14,9 @@ import {
 const Resources = () => {
   return (
     <Layout>
-      <Breadcrumbs breadcrumbTexts={['About', 'Resources']} />
+      <Breadcrumbs
+        crumbs={[{ label: 'About', path: '/about/' }, { label: 'Resources' }]}
+      />
       <H1>Resources</H1>
       <Copy>
         <h3 style={{ fontSize: '20px', margin: '0 0 0 0' }}>

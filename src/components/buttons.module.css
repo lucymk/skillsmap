@@ -18,6 +18,7 @@
   padding: var(--spacing-s) var(--spacing-m);
   gap: var(--spacing-s);
   font-weight: bold;
+  color: var(--black);
 }
 
 .skills-button:hover {

@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
+import { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import Breadcrumbs from '../../components/breadcrumbs'
@@ -7,19 +8,7 @@ import WorkplaceExamples from '../../components/workplaceExamples'
 import { H1, Copy } from '../../components/shared'
 import ClusterCategory from '../../components/clusterCategory'
 import NextActiveSvg from '../../assets/icons/nextActive.svg'
-import { Link, navigate } from 'gatsby'
-
-const getSelectedSkill = (allSkills, pathname) => {
-  const selectedSkill = pathname.replace('/skills/', '').replace('/', '')
-
-  if (allSkills) {
-    return allSkills.filter(({ data: { Skill: skill } }) => {
-      console.log('compare', skill.replace(/\s/g, '+'), selectedSkill)
-
-      return skill.replace(/\s/g, '+') == selectedSkill
-    })
-  }
-}
+import { navigate } from 'gatsby'
 
 const SkillOverviewPage = ({
   data: {
@@ -28,24 +17,55 @@ const SkillOverviewPage = ({
   location: { pathname },
 }) => {
   const [
+    [
+      {
+        data: {
+          Skill,
+          WorkplaceExample1,
+          WorkplaceExample2,
+          WorkplaceExample3,
+          WorkplaceExample4,
+          SkillDefinition,
+          Category,
+          Cluster,
+        },
+      },
+    ],
+    setSelectedSkill,
+  ] = useState([
     {
       data: {
-        Skill,
-        SkillDefinition,
-        WorkplaceExample1,
-        WorkplaceExample2,
-        WorkplaceExample3,
-        WorkplaceExample4,
-        Category,
-        Cluster,
+        Skill: '',
+        WorkplaceExample1: '',
+        WorkplaceExample2: '',
+        WorkplaceExample3: '',
+        WorkplaceExample4: '',
+        SkillDefinition: '',
+        Category: '',
+        Cluster: '',
       },
     },
-  ] = getSelectedSkill(allSkills, pathname)
+  ])
+
+  useEffect(() => {
+    const selected = pathname.replace('/skills/', '').replace('/', '')
+
+    const singleSkill = allSkills.filter(({ data: { Skill: skill } }) => {
+      return skill.replace(/\s/g, '+') == selected
+    })
+
+    setSelectedSkill(singleSkill)
+  }, [])
 
   return (
     Skill && (
       <Layout>
-        <Breadcrumbs breadcrumbTexts={['Skills', `${Skill}`]} />
+        <Breadcrumbs
+          crumbs={[
+            { label: 'Skills', path: 'FIX LINK' },
+            { label: `${Skill}` },
+          ]}
+        />
         <H1>{Skill}</H1>
         <Copy>
           <p>
@@ -55,16 +75,16 @@ const SkillOverviewPage = ({
             </b>
             .
           </p>
-          <WorkplaceExamples
-            examples={[
-              WorkplaceExample1,
-              WorkplaceExample2,
-              WorkplaceExample3,
-              WorkplaceExample4,
-            ]}
-          />
-          <ClusterCategory cluster={Cluster} category={Category} />
         </Copy>
+        <WorkplaceExamples
+          examples={[
+            WorkplaceExample1,
+            WorkplaceExample2,
+            WorkplaceExample3,
+            WorkplaceExample4,
+          ]}
+        />
+        <ClusterCategory cluster={Cluster} category={Category} />
         <NextActiveSvg
           style={{ cursor: 'pointer' }}
           onClick={() => navigate(-1)}
