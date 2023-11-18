@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import Breadcrumbs from '../../components/breadcrumbs'
@@ -8,17 +8,7 @@ import WorkplaceExamples from '../../components/workplaceExamples'
 import { H1, Copy } from '../../components/shared'
 import ClusterCategory from '../../components/clusterCategory'
 import NextActiveSvg from '../../assets/icons/nextActive.svg'
-import { Link, navigate } from 'gatsby'
-
-const getSelectedSkill = (allSkills, pathname) => {
-  const selectedSkill = pathname.replace('/skills/', '').replace('/', '')
-
-  if (allSkills) {
-    return allSkills.filter(({ data: { Skill: skill } }) => {
-      return skill.replace(/\s/g, '+') == selectedSkill
-    })
-  }
-}
+import { navigate } from 'gatsby'
 
 const SkillOverviewPage = ({
   data: {
@@ -42,22 +32,50 @@ const SkillOverviewPage = ({
       },
     ],
     setSelectedSkill,
-  ] = useState(getSelectedSkill(allSkills, pathname))
+  ] = useState([
+    {
+      data: {
+        Skill: '',
+        WorkplaceExample1: '',
+        WorkplaceExample2: '',
+        WorkplaceExample3: '',
+        WorkplaceExample4: '',
+        SkillDefinition: '',
+        Category: '',
+        Cluster: '',
+      },
+    },
+  ])
+
+  useEffect(() => {
+    const selected = pathname.replace('/skills/', '').replace('/', '')
+
+    const singleSkill = allSkills.filter(({ data: { Skill: skill } }) => {
+      return skill.replace(/\s/g, '+') == selected
+    })
+
+    setSelectedSkill(singleSkill)
+  }, [])
 
   return (
-    <Layout>
-      <Breadcrumbs
-        crumbs={[{ label: 'Skills', path: 'FIX LINK' }, { label: `${Skill}` }]}
-      />
-      <H1>{Skill}</H1>
-      <Copy>
-        <p>
-          I use this skill when I{' '}
-          <b style={{ backgroundColor: 'var(--yellow)' }}>
-            {SkillDefinition.toLowerCase()}
-          </b>
-          .
-        </p>
+    Skill && (
+      <Layout>
+        <Breadcrumbs
+          crumbs={[
+            { label: 'Skills', path: 'FIX LINK' },
+            { label: `${Skill}` },
+          ]}
+        />
+        <H1>{Skill}</H1>
+        <Copy>
+          <p>
+            I use this skill when I{' '}
+            <b style={{ backgroundColor: 'var(--yellow)' }}>
+              {SkillDefinition.toLowerCase()}
+            </b>
+            .
+          </p>
+        </Copy>
         <WorkplaceExamples
           examples={[
             WorkplaceExample1,
@@ -67,13 +85,13 @@ const SkillOverviewPage = ({
           ]}
         />
         <ClusterCategory cluster={Cluster} category={Category} />
-      </Copy>
-      <NextActiveSvg
-        style={{ cursor: 'pointer' }}
-        onClick={() => navigate(-1)}
-        transform="rotate(180)"
-      />
-    </Layout>
+        <NextActiveSvg
+          style={{ cursor: 'pointer' }}
+          onClick={() => navigate(-1)}
+          transform="rotate(180)"
+        />
+      </Layout>
+    )
   )
 }
 
