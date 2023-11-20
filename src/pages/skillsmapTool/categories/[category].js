@@ -7,7 +7,7 @@ import { Copy, H1 } from '../../../components/shared'
 import { ClusterCategoryDefinitionCard } from '../../../components/clusterCategory'
 
 const getCategoryFromSearchQuery = ({ href }) =>
-  href.replaceAll('/', '').split('categories')[1]
+  href && href.replaceAll('/', '').split('categories')[1]
 
 const CategoryPage = ({
   data: {

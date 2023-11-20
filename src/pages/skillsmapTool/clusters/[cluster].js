@@ -6,9 +6,8 @@ import { ClusterCategoryDefinitionCard } from '../../../components/clusterCatego
 import Layout from '../../../components/layout'
 import { H1, Copy } from '../../../components/shared'
 
-const getClusterFromSearchQuery = ({ href }) => {
-  return href.replaceAll('/', '').split('clusters')[1]
-}
+const getClusterFromSearchQuery = ({ href }) =>
+  href && href.replaceAll('/', '').split('clusters')[1]
 
 const ClusterPage = ({
   data: {
