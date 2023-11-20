@@ -13,10 +13,7 @@ const SkillOverviewPage = ({
   data: {
     allAirtable: { nodes: allSkills },
   },
-  location: {
-    pathname,
-    state: { originPath },
-  },
+  location: { pathname, state },
 }) => {
   const [
     [
@@ -90,7 +87,7 @@ const SkillOverviewPage = ({
           ]}
         />
         <ClusterCategory cluster={Cluster} category={Category} />
-        {originPath && originPath.includes('skillsmapTool') && (
+        {state.originPath && state.originPath.includes('skillsmapTool') && (
           <p
             style={{ cursor: 'pointer', textDecoration: 'underline' }}
             onClick={() => navigate(-1)}
