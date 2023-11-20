@@ -2,10 +2,11 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
-import { SubjectButton } from '../components/buttons'
-import { StaticImage } from 'gatsby-plugin-image'
-import Layout from '../components/layout'
-import { H1WithSubheader } from '../components/shared'
+import { SubjectButton } from '../../components/buttons'
+import Layout from '../../components/layout'
+import { H1, Copy } from '../../components/shared'
+import NextIconSvg from '../../assets/icons/nextActive.svg'
+import NextIconDisabledSvg from '../../assets/icons/nextDisabled.svg'
 
 const SkillsmapSearchPage = ({
   data: {
@@ -50,6 +51,7 @@ const SkillsmapSearchPage = ({
         gridGap: 'var(--spacing-m)',
         paddingTop: 'var(--spacing-m)',
         paddingBottom: 'var(--spacing-m)',
+        maxWidth: '800px',
       }}
     >
       {children}
@@ -58,48 +60,42 @@ const SkillsmapSearchPage = ({
 
   return (
     <Layout>
-      <H1WithSubheader
-        headerText="Choose your subjects"
-        subheaderText="Choose a subject to see the skills you are building in it. Choose up to
-        3 subjects to see the overlap of skills between them."
-      />
-      <SubjectGrid>
-        {subjects.map(
-          ({
-            data: {
-              Subject: subject,
-              Icon: [{ url }],
-            },
-          }) => {
-            return (
-              <SubjectButton
-                selectedSubjects={selectedSubjects}
-                setSelectedSubjects={setSelectedSubjects}
-                key={subject}
-                subjectIcon={url}
-                subjectName={subject}
-              />
-            )
-          }
-        )}
-      </SubjectGrid>
-      {selectedSubjectCount > 0 ? (
-        <Link
-          to={`/searchResults/?subjects=${getSelectedSubjectsQueryString()}`}
-          style={{ alignSelf: 'flex-end', marginTop: 'var(--spacing-m)' }}
-        >
-          <StaticImage
-            src="../assets/icons/skillsMapNextActive.png"
-            width={400}
-          />
-        </Link>
-      ) : (
-        <StaticImage
-          src="../assets/icons/skillsMapNextDisabled.png"
-          width={400}
-          style={{ alignSelf: 'flex-end', marginTop: 'var(--spacing-m)' }}
-        />
-      )}
+      <H1>Choose your subjects</H1>
+      <Copy>
+        <p>
+          Choose a subject to see the skills you are building in it. Choose up
+          to 3 subjects to see the overlap of skills between them.
+        </p>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <SubjectGrid>
+            {subjects.map(
+              ({
+                data: {
+                  Subject: subject,
+                  Icon: [{ url }],
+                },
+              }) => {
+                return (
+                  <SubjectButton
+                    selectedSubjects={selectedSubjects}
+                    setSelectedSubjects={setSelectedSubjects}
+                    key={subject}
+                    subjectIcon={url}
+                    subjectName={subject}
+                  />
+                )
+              }
+            )}
+          </SubjectGrid>
+          {selectedSubjectCount > 0 ? (
+            <Link to={`./search/?subjects=${getSelectedSubjectsQueryString()}`}>
+              <NextIconSvg />
+            </Link>
+          ) : (
+            <NextIconDisabledSvg />
+          )}
+        </div>
+      </Copy>
     </Layout>
   )
 }

@@ -36,9 +36,8 @@
 }
 
 .what-does-this-mean-link {
-  display: flex;
-  text-decoration: underline;
   font: var(--font-caption);
+  text-decoration: underline;
 }
 
 .more-skills-link {
@@ -56,4 +55,16 @@
   border-radius: var(--br-card);
   box-shadow: var(--shadow-1);
   margin: var(--spacing-m) 0;
+  max-width: 700px;
+}
+
+.cluster-category-definition-card {
+  display: flex;
+  gap: var(--spacing-xs);
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--br-card);
+  padding: var(--spacing-s);
+  margin: var(--spacing-m) 0 var(--spacing-l) 0;
+  max-width: 700px;
 }

@@ -28,22 +28,32 @@ const IndexPage = () => {
           If you have ever asked yourself any of these questions, then
           SkillsMap&#174; is here to help you.
         </p>
-        SkillsMap&#174; shows you a selection of the transferable skills
-        developed in each of 35 different academic subjects typically taught in
-        pre-18 education. These are the skills that employers are looking for.
-        You can also find the skills that different subjects have in common. Try
-        searching your favourite subjects and see what skills you are building.
-      </Copy>
-      <SkillsMapButton />
-      <Copy>
-        If you want to learn more about SkillsMap first, visit{' '}
-        <InternalLink to="../forLearners">For learners</InternalLink>. If you
-        are an educator, you can find out more about using SkillsMap on our{' '}
-        <InternalLink to="../forEducators">For Educators</InternalLink> page.
+        <p>
+          {' '}
+          SkillsMap&#174; shows you a selection of the transferable skills
+          developed in each of 35 different academic subjects typically taught
+          in pre-18 education. These are the skills that employers are looking
+          for. You can also find the skills that different subjects have in
+          common. Try searching your favourite subjects and see what skills you
+          are building.
+        </p>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            maxWidth: '700px',
+          }}
+        >
+          <SkillsMapButton />
+        </div>
+        <p>
+          If you want to learn more about SkillsMap first, visit{' '}
+          <InternalLink to="../forLearners">For learners</InternalLink>. If you
+          are an educator, you can find out more about using SkillsMap on our{' '}
+          <InternalLink to="../forEducators">For Educators</InternalLink> page.
+        </p>
       </Copy>
     </Layout>
   )
 }
 export default IndexPage
-
-// export const Head = () => <title>Home Page</title>

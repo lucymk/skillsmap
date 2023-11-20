@@ -39,7 +39,7 @@ export function Subheader({ children }) {
 }
 
 export function Copy({ children }) {
-  return <p className={`${copy}`}>{children}</p>
+  return <div className={`${copy}`}>{children}</div>
 }
 
 export function Caption({ children }) {
@@ -122,7 +122,10 @@ export function H1WithSubheader({ headerText, subheaderText }) {
       <h1 className={`${h1}`} style={{ margin: '0' }}>
         {headerText}
       </h1>
-      <h4 className={`${subheader}`} style={{ margin: '0' }}>
+      <h4
+        className={`${subheader}`}
+        style={{ margin: 'var(--spacing-s) 0 var(--spacing-m) 0' }}
+      >
         {subheaderText}
       </h4>
     </div>

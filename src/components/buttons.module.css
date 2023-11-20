@@ -1,7 +1,7 @@
 @import '../../global.css';
 
 .button {
-  font: var(--font-h3);
+  font: var(--font-body);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,6 +19,7 @@
   gap: var(--spacing-s);
   font-weight: bold;
   color: var(--black);
+  max-width: 700px;
 }
 
 .skills-button:hover {

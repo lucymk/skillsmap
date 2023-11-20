@@ -77,5 +77,3 @@ const whySkillsmap = () => {
   )
 }
 export default whySkillsmap
-
-// export const Head = () => <title>Home Page</title>

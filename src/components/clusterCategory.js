@@ -7,9 +7,9 @@ import {
   whatDoesThisMeanLink,
   moreSkillsLink,
   clusterCategory,
+  clusterCategoryDefinitionCard,
 } from './clusterCategory.module.css'
 import OpenInNewTabSvg from '../assets/icons/openInNewTab.svg'
-import ChevronRightSvg from '../assets/icons/chevronRight.svg'
 import ClusterIconSvg from '../assets/icons/clusterIcon.svg'
 import CategoryIconSvg from '../assets/icons/categoryIcon.svg'
 
@@ -35,15 +35,34 @@ function Panel({ icon, title, clusterOrCategory, style }) {
       </div>
       <div className={`${moreSkillsLink}`}>
         <Link
-          to={`../../${title.toLowerCase()}/?=${clusterOrCategory.replace(
-            /\s/g,
-            '+'
-          )}`}
-          style={{ color: style.panelColor, marginTop: 'var(--spacing-m)' }}
+          to={`../../${
+            title === 'Cluster' ? 'clusters' : 'categories'
+          }/${clusterOrCategory.replace(/\s/g, '+')}`}
+          style={{
+            color: style.panelColor,
+            textDecoration: 'underline',
+            textDecorationColour: style.panelColor,
+            marginTop: 'var(--spacing-m)',
+          }}
         >
           More skills in this {title.toLowerCase()} &gt;
         </Link>
       </div>
+    </div>
+  )
+}
+
+export function ClusterCategoryDefinitionCard({
+  cluster,
+  category,
+  definition,
+  style,
+}) {
+  return (
+    <div className={`${clusterCategoryDefinitionCard}`} style={style}>
+      {cluster && <ClusterIconSvg />}
+      {category && <CategoryIconSvg />}
+      {definition}
     </div>
   )
 }

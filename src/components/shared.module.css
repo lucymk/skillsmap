@@ -27,8 +27,22 @@
 
 .copy {
   font: var(--font-body);
-  max-width: 700px;
   display: inline-block;
+
+  width: 100%;
+
+  > p {
+    max-width: 700px;
+  }
+
+  > h3 {
+    max-width: 700px;
+  }
+
+  > ul {
+    max-width: 700px;
+    box-sizing: border-box;
+  }
 }
 
 .caption {
@@ -57,5 +71,4 @@
     padding: var(--spacing-xxs) 0;
     font-weight: bold;
   }
-  font-weight: bold;
 }
