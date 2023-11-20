@@ -42,13 +42,16 @@ const SkillsMapSearchResults = ({
 
   useEffect(() => {
     setSelectedSubjects(getSelectedSubjectsArrayFromSearchQuery({ href }))
+  }, [])
+
+  useEffect(() => {
     setRelevantSkills(
       getSkillsFromSelectedSubjects({
         selectedSubjects,
         skills,
       }).map(({ data: { Skill } }) => Skill)
     )
-  }, [])
+  }, [selectedSubjects])
 
   if (
     !isSelectedSubjectsValid({
