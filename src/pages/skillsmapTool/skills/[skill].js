@@ -67,7 +67,7 @@ const SkillOverviewPage = ({
         <Breadcrumbs
           crumbs={[
             { label: 'SkillsMap Tool', path: '/skillsmapTool' },
-            { label: 'Skills', path: './skills' },
+            { label: 'Skills' },
             { label: `${Skill}` },
           ]}
         />
@@ -90,7 +90,7 @@ const SkillOverviewPage = ({
           ]}
         />
         <ClusterCategory cluster={Cluster} category={Category} />
-        {originPath.includes('skillsmapTool') && (
+        {originPath && originPath.includes('skillsmapTool') && (
           <p
             style={{ cursor: 'pointer', textDecoration: 'underline' }}
             onClick={() => navigate(-1)}

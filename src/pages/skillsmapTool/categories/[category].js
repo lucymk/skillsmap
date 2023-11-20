@@ -6,20 +6,21 @@ import Layout from '../../../components/layout'
 import { Copy, H1 } from '../../../components/shared'
 import { ClusterCategoryDefinitionCard } from '../../../components/clusterCategory'
 
-const getCategoryFromSearchQuery = ({ search }) =>
-  search.substring(search.indexOf('=') + 1).replace(/\+/g, ' ')
+const getCategoryFromSearchQuery = ({ href }) =>
+  href.replaceAll('/', '').split('categories')[1]
 
 const CategoryPage = ({
   data: {
     category: { nodes: categoriesData },
     skills: { nodes: skills },
   },
-  location: { search },
+  location: { href },
 }) => {
-  const category = getCategoryFromSearchQuery({ search })
-  const categoryMatches = categoriesData.filter(({ data: { Category } }) => {
-    return Category.toLowerCase() === category.toLowerCase()
-  })
+  const category = getCategoryFromSearchQuery({ href })
+
+  const categoryMatches = categoriesData.filter(
+    ({ data: { Category } }) => Category.replaceAll(' ', '+') === category
+  )
 
   if (categoryMatches.length === 0) {
     typeof window !== 'undefined' && window.location.replace('/404/')
@@ -41,7 +42,7 @@ const CategoryPage = ({
       <Breadcrumbs
         crumbs={[
           { label: 'SkillsMap Tool', path: '/skillsmapTool' },
-          { label: 'Categories', path: './categories' },
+          { label: 'Categories' },
           { label: `${categoryMatch}` },
         ]}
       />
@@ -56,9 +57,9 @@ const CategoryPage = ({
         <h3>
           Skills in the{' '}
           <span style={{ backgroundColor: 'var(--light-purple-faint)' }}>
-            {category}
+            {categoryMatch}
           </span>{' '}
-          cluster:
+          category:
         </h3>
         <SkillsButtons fromSearch={false} skillsArray={associatedSkills} />
       </Copy>

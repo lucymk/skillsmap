@@ -19,7 +19,11 @@ import ChevronRightSvg from '../assets/icons/chevronRight.svg'
 export function SkillsButton({ skill, originPath }) {
   return (
     <Link
-      to={`../skills/${skill.replace(/\s/g, '+')}`}
+      to={
+        originPath && originPath.includes('skillsmapTool')
+          ? `../skills/${skill.replace(/\s/g, '+')}`
+          : `../../skills/${skill.replace(/\s/g, '+')}`
+      }
       state={{ originPath: originPath }}
       className={`${button} ${skillsButton}`}
     >

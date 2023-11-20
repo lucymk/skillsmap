@@ -6,8 +6,9 @@ import { ClusterCategoryDefinitionCard } from '../../../components/clusterCatego
 import Layout from '../../../components/layout'
 import { H1, Copy } from '../../../components/shared'
 
-const getClusterFromSearchQuery = ({ href }) =>
-  href.substring(href.indexOf('=') + 1).replace(/\+/g, ' ')
+const getClusterFromSearchQuery = ({ href }) => {
+  return href.replaceAll('/', '').split('clusters')[1]
+}
 
 const ClusterPage = ({
   data: {
@@ -18,11 +19,9 @@ const ClusterPage = ({
 }) => {
   const cluster = getClusterFromSearchQuery({ href })
 
-  console.log({ cluster })
-
-  const clusterMatches = clustersData.filter(({ data: { Cluster } }) => {
-    return Cluster.toLowerCase() === cluster.toLowerCase()
-  })
+  const clusterMatches = clustersData.filter(
+    ({ data: { Cluster } }) => Cluster.replaceAll(' ', '+') === cluster
+  )
 
   if (clusterMatches.length === 0) {
     typeof window !== 'undefined' && window.location.replace('/404/')
@@ -46,7 +45,6 @@ const ClusterPage = ({
           { label: 'SkillsMap Tool', path: '/skillsmapTool' },
           {
             label: 'Clusters',
-            path: './clusters',
           },
           { label: `${clusterMatch}` },
         ]}
@@ -62,7 +60,7 @@ const ClusterPage = ({
         <h3>
           Skills in the{' '}
           <span style={{ backgroundColor: 'var(--light-green-faint)' }}>
-            {cluster}
+            {clusterMatch}
           </span>{' '}
           cluster:
         </h3>

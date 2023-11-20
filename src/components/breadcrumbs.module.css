@@ -4,15 +4,24 @@
   display: flex;
   align-items: center;
   font: var(--font-body);
+  margin-bottom: var(--spacing-xs);
+  max-width: 700px;
+
+  > div {
+    display: contents;
+    max-width: 100%;
+  }
 }
 
 .links {
   font: var(--font-body);
   color: var(--black);
+  text-wrap: nowrap;
+  text-overflow: clip;
 }
 
 .links:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
 .chevron {
