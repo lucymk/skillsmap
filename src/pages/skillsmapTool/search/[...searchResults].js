@@ -20,6 +20,7 @@ const isSelectedSubjectsValid = ({ selectedSubjects, allSubjects }) =>
   )
 
 const getSkillsFromSelectedSubjects = ({ selectedSubjects, skills }) =>
+  selectedSubjects &&
   skills.filter(
     ({ data: { Subjects: subjects } }) =>
       subjects != null &&
