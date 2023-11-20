@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
+import { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import { SubjectTags, SkillsButtons } from '../../../components/buttons'
 import Breadcrumbs from '../../../components/breadcrumbs'
@@ -36,11 +37,18 @@ const SkillsMapSearchResults = ({
   },
   location: { href },
 }) => {
-  const selectedSubjects = getSelectedSubjectsArrayFromSearchQuery({ href })
-  const relevantSkills = getSkillsFromSelectedSubjects({
-    selectedSubjects,
-    skills,
-  }).map(({ data: { Skill } }) => Skill)
+  const [selectedSubjects, setSelectedSubjects] = useState([])
+  const [relevantSkills, setRelevantSkills] = useState([])
+
+  useEffect(() => {
+    setSelectedSubjects(getSelectedSubjectsArrayFromSearchQuery({ href }))
+    setRelevantSkills(
+      getSkillsFromSelectedSubjects({
+        selectedSubjects,
+        skills,
+      }).map(({ data: { Skill } }) => Skill)
+    )
+  }, [])
 
   if (
     !isSelectedSubjectsValid({
