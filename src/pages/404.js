@@ -25,7 +25,3 @@ const NotFoundPage = () => {
 }
 
 export default NotFoundPage
-
-// export const Head = () => <title>Not found</title>
-
-// queryName filters by table, see gatsby-config

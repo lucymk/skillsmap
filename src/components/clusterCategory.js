@@ -68,7 +68,6 @@ export function ClusterCategoryDefinitionCard({
 }
 
 export default function ClusterCategory({ cluster, category }) {
-  console.log('in clusterCategory', cluster, category)
   return (
     <div className={`${clusterCategory}`}>
       <Panel

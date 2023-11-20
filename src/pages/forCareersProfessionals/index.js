@@ -168,5 +168,3 @@ const ForCareersProfessionals = () => {
   )
 }
 export default ForCareersProfessionals
-
-// export const Head = () => <title>Home Page</title>

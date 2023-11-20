@@ -31,5 +31,3 @@ const CategoriesAndClusters = () => {
 }
 
 export default CategoriesAndClusters
-
-// export const Head = () => <title>Home Page</title>

@@ -16,8 +16,6 @@
 .links {
   font: var(--font-body);
   color: var(--black);
-  text-wrap: nowrap;
-  text-overflow: clip;
 }
 
 .links:hover {

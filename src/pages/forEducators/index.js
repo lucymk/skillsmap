@@ -86,5 +86,3 @@ const ForEducators = () => {
   )
 }
 export default ForEducators
-
-// export const Head = () => <title>Home Page</title>
