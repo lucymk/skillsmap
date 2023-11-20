@@ -6,6 +6,7 @@ import Breadcrumbs from '../../../components/breadcrumbs'
 import Layout from '../../../components/layout'
 
 const getSelectedSubjectsArrayFromSearchQuery = ({ href }) =>
+  href &&
   href
     .substring(href.indexOf('=') + 1)
     .replace(/\+/g, ' ')
