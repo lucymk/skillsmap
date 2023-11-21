@@ -38,7 +38,7 @@ function MenuItems({ visible }) {
       >
         Home
       </Link>
-      <NavLink to="/skillsmapTool">SkillsMap Tool</NavLink>
+      <NavLink to="/skillsmapTool">SkillsMap® Tool</NavLink>
       <NavLink to="/forLearners">For learners</NavLink>
       <NavLink to="/forEducators">For educators</NavLink>
       <NavLink to="/forCareersProfessionals">For careers professionals</NavLink>
@@ -76,7 +76,10 @@ export default function NavDrawer({ style }) {
           </button>
           <MenuItems visible={isSelected} />
         </div>
-        <StaticImage src="../assets/icons/skillsMapLogo.png" />
+        <StaticImage
+          placeholder="none"
+          src="../assets/icons/skillsMapLogo.png"
+        />
       </div>
     </div>
   )

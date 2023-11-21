@@ -63,8 +63,9 @@ const SkillsmapSearchPage = ({
       <H1>Choose your subjects</H1>
       <Copy>
         <p>
-          Choose a subject to see the skills you are building in it. Choose up
-          to 3 subjects to see the overlap of skills between them.
+          Pick 1, 2 or 3 subjects that you are already studying, or would like
+          to study, to see the skills you build in them. If you choose more than
+          1 subject you will be shown the overlapping skills between them.
         </p>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <SubjectGrid>
@@ -82,6 +83,7 @@ const SkillsmapSearchPage = ({
                     key={subject}
                     subjectIcon={url}
                     subjectName={subject}
+                    selectedSubjectCount={selectedSubjectCount}
                   />
                 )
               }

@@ -8,7 +8,7 @@ import { H1, Copy, BulletList, InternalLink } from '../components/shared'
 const IndexPage = () => {
   return (
     <Layout>
-      <H1>Welcome to SkillsMap</H1>
+      <H1>Welcome to SkillsMap®</H1>
       <Copy>
         <BulletList>
           <li>
@@ -47,9 +47,9 @@ const IndexPage = () => {
           <SkillsMapButton />
         </div>
         <p>
-          If you want to learn more about SkillsMap first, visit{' '}
+          If you want to learn more about SkillsMap® first, visit{' '}
           <InternalLink to="../forLearners">For learners</InternalLink>. If you
-          are an educator, you can find out more about using SkillsMap on our{' '}
+          are an educator, you can find out more about using SkillsMap® on our{' '}
           <InternalLink to="../forEducators">For Educators</InternalLink> page.
         </p>
       </Copy>

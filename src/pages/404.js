@@ -15,6 +15,7 @@ const NotFoundPage = () => {
           maxWidth: '700px',
         }}
         src="../assets/media/404.png"
+        placeholder="none"
       />
       <Copy>
         Sorry, we couldn&apos;t find what you were looking for. Try using the

@@ -1,8 +1,8 @@
 {
-  "name": "skillsmap",
+  "name": "SkillsMap",
   "version": "1.0.0",
   "private": true,
-  "description": "skillsmap",
+  "description": "SkillsMap®",
   "author": "lucymk",
   "keywords": [
     "gatsby"

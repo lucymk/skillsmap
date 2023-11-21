@@ -20,7 +20,7 @@ const SkillsmapAndCareersEducation = () => {
             label: 'For Careers Professionals',
             path: '/forCareersProfessionals/',
           },
-          { label: 'SkillsMap and Careers Education' },
+          { label: 'SkillsMap® and Careers Education' },
         ]}
       />
       <H1>SkillsMap® and Careers Education</H1>
@@ -381,11 +381,11 @@ const SkillsmapAndCareersEducation = () => {
         links={[
           {
             link: '../../about/whySkillsmap',
-            text: 'Why was SkillsMap created?',
+            text: 'Why was SkillsMap® created?',
           },
           {
             link: '../../forEducators/usingSkillsmapWithLearners',
-            text: 'How can I use SkillsMap with my learners?',
+            text: 'How can I use SkillsMap® with my learners?',
           },
         ]}
       />

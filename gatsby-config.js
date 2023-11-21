@@ -24,7 +24,7 @@ const gatsbyRequiredRules = path.join(
 
 module.exports = {
   siteMetadata: {
-    title: `Skillsmap`,
+    title: `SkillsMap®`,
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
@@ -41,8 +41,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `SkillsMap`,
-        short_name: `SkillsMap`,
+        name: `SkillsMap®`,
+        short_name: `SkillsMap®`,
         description: `This application helps you discover the transferable skills you are building and using in your studies.`,
         lang: `en`,
         display: `standalone`,

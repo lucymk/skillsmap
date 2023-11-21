@@ -41,7 +41,7 @@ const CategoryPage = ({
     <Layout>
       <Breadcrumbs
         crumbs={[
-          { label: 'SkillsMap Tool', path: '/skillsmapTool' },
+          { label: 'SkillsMap® Tool', path: '/skillsmapTool' },
           { label: 'Categories' },
           { label: `${categoryMatch}` },
         ]}

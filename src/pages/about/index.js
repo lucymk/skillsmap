@@ -6,7 +6,7 @@ import { H1, Copy, Contact, FurtherLinks } from '../../components/shared'
 const AboutPage = () => {
   return (
     <Layout>
-      <H1>About Skillsmap</H1>
+      <H1>About SkillsMap®</H1>
       <Copy>
         <p>
           SkillsMap® is the trademarked, copyright-protected database of over

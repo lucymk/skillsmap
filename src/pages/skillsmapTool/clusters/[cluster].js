@@ -41,7 +41,7 @@ const ClusterPage = ({
     <Layout>
       <Breadcrumbs
         crumbs={[
-          { label: 'SkillsMap Tool', path: '/skillsmapTool' },
+          { label: 'SkillsMap® Tool', path: '/skillsmapTool' },
           {
             label: 'Clusters',
           },

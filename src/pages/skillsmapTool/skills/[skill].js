@@ -63,7 +63,7 @@ const SkillOverviewPage = ({
       <Layout>
         <Breadcrumbs
           crumbs={[
-            { label: 'SkillsMap Tool', path: '/skillsmapTool' },
+            { label: 'SkillsMap® Tool', path: '/skillsmapTool' },
             { label: 'Skills' },
             { label: `${Skill}` },
           ]}
