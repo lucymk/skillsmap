@@ -11,6 +11,7 @@ import {
   subjectButtonSelected,
   actionButton,
   skillsMapButton,
+  subjectButton,
 } from './buttons.module.css'
 import SkillIconSvg from '../assets/icons/skillIcon.svg'
 import ChevronLeftSvg from '../assets/icons/chevronLeft.svg'
@@ -43,19 +44,33 @@ export function SubjectButton({
   subjectName,
   setSelectedSubjects,
   selectedSubjects,
+  selectedSubjectCount,
 }) {
+  const subjectButtonOnClick = () => {
+    if (selectedSubjectCount < 3) {
+      setSelectedSubjects({
+        ...selectedSubjects,
+        [subjectName]: !selectedSubjects[subjectName],
+      })
+    } else if (selectedSubjectCount == 3 && selectedSubjects[subjectName]) {
+      setSelectedSubjects({
+        ...selectedSubjects,
+        [subjectName]: !selectedSubjects[subjectName],
+      })
+    } else return
+  }
   return (
     <button
-      className={`${button}`}
+      className={`${subjectButton}`}
       style={{
-        justifyContent: 'left',
-        width: 'var(--skills-button-width)',
+        cursor:
+          selectedSubjectCount < 3 ||
+          (selectedSubjectCount == 3 && selectedSubjects[subjectName])
+            ? `pointer`
+            : '',
       }}
       onClick={() => {
-        setSelectedSubjects({
-          ...selectedSubjects,
-          [subjectName]: !selectedSubjects[subjectName],
-        })
+        subjectButtonOnClick()
       }}
     >
       <img src={subjectIcon} className={`${subjectButtonIcon}`} />
