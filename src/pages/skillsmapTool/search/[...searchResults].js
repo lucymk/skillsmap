@@ -2,7 +2,11 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
-import { SubjectTags, SkillsButtons } from '../../../components/buttons'
+import {
+  SubjectTags,
+  SkillsButtons,
+  SkillsMapButton,
+} from '../../../components/buttons'
 import Breadcrumbs from '../../../components/breadcrumbs'
 import Layout from '../../../components/layout'
 import { H1, Copy } from '../../../components/shared'
@@ -83,14 +87,18 @@ const SkillsMapSearchResults = ({
               different transferable skills. So although your search today has
               not produced any skills in common between your chosen subjects, if
               we did a more detailed search of a bigger list of skills, you
-              would find some skills your chosen subjects have in common. When
-              subjects have skills in common then that can help you understand
-              why you might enjoy or be good at different subjects. But remember
-              too that if you study very different subjects, you are developing
-              an even broader range of skills across those subjects, which will
-              be really helpful in preparing you to use those skills in the
-              workplace later on.
+              would find some skills your chosen subjects have in common.
             </p>
+            <p>
+              When subjects have skills in common then that can help you
+              understand why you might enjoy or be good at different subjects.
+              But remember too that if you study very different subjects, you
+              are developing an even broader range of skills across those
+              subjects, which will be really helpful in preparing you to use
+              those skills in the workplace later on.
+            </p>
+            <p>Why not try searching again by clicking below?</p>
+            <SkillsMapButton />
           </>
         ) : (
           <>
