@@ -21,7 +21,7 @@ const WhatsInSkillsmap = () => {
             label: 'For Careers Professionals',
             path: '/forCareersProfessionals/',
           },
-          { label: "What's in SkillsMap" },
+          { label: "What's in SkillsMap®" },
         ]}
       />
       <H1>What&apos;s in SkillsMap®?</H1>
@@ -142,10 +142,13 @@ const WhatsInSkillsmap = () => {
       </Copy>
       <FurtherLinks
         links={[
-          { link: '../about/whySkillsmap', text: 'Why was SkillsMap created?' },
+          {
+            link: '../about/whySkillsmap',
+            text: 'Why was SkillsMap® created?',
+          },
           {
             link: './usingSkillsmapWithLearners',
-            text: 'How can I use SkillsMap with my learners?',
+            text: 'How can I use SkillsMap® with my learners?',
           },
         ]}
       />
