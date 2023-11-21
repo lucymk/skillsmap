@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import { SubjectTags, SkillsButtons } from '../../../components/buttons'
 import Breadcrumbs from '../../../components/breadcrumbs'
 import Layout from '../../../components/layout'
+import { H1, Copy } from '../../../components/shared'
 
 const getSelectedSubjectsArrayFromSearchQuery = ({ href }) =>
   href &&
@@ -71,12 +72,35 @@ const SkillsMapSearchResults = ({
           { label: 'Search results' },
         ]}
       />
-      <h1>See your transferrable skills</h1>
-      <SubjectTags subjectsArray={selectedSubjects} />
-      <h3 style={{ fontWeight: 'normal' }}>
-        Transferable skills you are building in these subjects:
-      </h3>
-      <SkillsButtons originPath={href} skillsArray={relevantSkills} />
+      <H1>See your transferrable skills</H1>
+      <Copy>
+        <SubjectTags subjectsArray={selectedSubjects} />
+        {relevantSkills.length == 0 ? (
+          <>
+            <h3>No overlapping skills in these subjects</h3>
+            <p>
+              SkillsMap&#174; has been built using a sample of about 80
+              different transferable skills. So although your search today has
+              not produced any skills in common between your chosen subjects, if
+              we did a more detailed search of a bigger list of skills, you
+              would find some skills your chosen subjects have in common. When
+              subjects have skills in common then that can help you understand
+              why you might enjoy or be good at different subjects. But remember
+              too that if you study very different subjects, you are developing
+              an even broader range of skills across those subjects, which will
+              be really helpful in preparing you to use those skills in the
+              workplace later on.
+            </p>
+          </>
+        ) : (
+          <>
+            <h3 style={{ fontWeight: 'normal' }}>
+              Transferable skills you are building in these subjects:
+            </h3>
+            <SkillsButtons originPath={href} skillsArray={relevantSkills} />
+          </>
+        )}
+      </Copy>
     </Layout>
   )
 }

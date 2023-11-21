@@ -117,7 +117,7 @@ export function SubjectTags({ subjectsArray }) {
       style={{
         display: 'flex',
         gap: 'var(--spacing-m)',
-        paddingBottom: 'var(--spacing-s)',
+        padding: 'var(--spacing-s) 0',
       }}
     >
       {subjectsArray.map((subject) => {
