@@ -102,6 +102,7 @@ export function SkillsMapButton() {
     <Link to="/skillsmapTool">
       <button className={`${button} ${skillsMapButton}`}>
         <StaticImage
+          placeholder="none"
           width={100}
           src="../assets/icons/skillsMapSimpleLogo.png"
         />

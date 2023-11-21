@@ -24,7 +24,10 @@ const CategoriesAndClusters = () => {
           them for. Click on the graphic below to explore Categories and
           Clusters of skills, and how you might use them in the workplace.
         </p>
-        <StaticImage src="../../assets/media/categoriesAndClusters.jpg" />
+        <StaticImage
+          placeholder="none"
+          src="../../assets/media/categoriesAndClusters.jpg"
+        />
       </Copy>
     </Layout>
   )

@@ -76,7 +76,10 @@ export default function NavDrawer({ style }) {
           </button>
           <MenuItems visible={isSelected} />
         </div>
-        <StaticImage src="../assets/icons/skillsMapLogo.png" />
+        <StaticImage
+          placeholder="none"
+          src="../assets/icons/skillsMapLogo.png"
+        />
       </div>
     </div>
   )
