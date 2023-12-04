@@ -18,8 +18,8 @@ const WhatsInSkillsmap = () => {
       <Breadcrumbs
         crumbs={[
           {
-            label: 'For Careers Professionals',
-            path: '/forCareersProfessionals/',
+            label: 'About',
+            path: '/about/',
           },
           { label: "What's in SkillsMap®" },
         ]}
@@ -143,11 +143,11 @@ const WhatsInSkillsmap = () => {
       <FurtherLinks
         links={[
           {
-            link: '../about/whySkillsmap',
+            link: '../whySkillsmap',
             text: 'Why was SkillsMap® created?',
           },
           {
-            link: './usingSkillsmapWithLearners',
+            link: '../../forEducators/usingSkillsmapWithLearners',
             text: 'How can I use SkillsMap® with my learners?',
           },
         ]}
