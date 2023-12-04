@@ -5,11 +5,11 @@ import {
   H1,
   H3,
   Copy,
-  BulletList,
   FurtherLinks,
   InternalLink,
   Details,
 } from '../../components/shared'
+import { SkillsMapButton } from '../../components/buttons'
 
 const ForCareersProfessionals = () => {
   return (
@@ -33,30 +33,18 @@ const ForCareersProfessionals = () => {
           however, new in pre-18 education.
         </p>
         <p>
-          So the <InternalLink to="./">questions we ask Learners</InternalLink>{' '}
-          also apply to you as an Educator:
+          You can use this video with your learners to introduce them to
+          SkillsMap®
         </p>
-        <BulletList>
-          <li>
-            Have you ever wondered what the subjects they study at school or
-            college have to do with work and their career?
-          </li>
-          <li>
-            Have you ever tried to explain how a subject a learner really loves
-            at school or college will have (a) future use in the workplace?
-          </li>
-          <li>
-            Have you tried to explain to learners what value their
-            qualifications have to employers?
-          </li>
-        </BulletList>
-        <p>
-          We answer those questions in more detail in the SkillsMap® and
-          Careers Education page and you might also find it helpful to read the{' '}
-          <InternalLink to="../forEducators">Educators section</InternalLink> to
-          support the teachers in your school or college in their work with
-          learners on transferable skills.
-        </p>
+        <iframe
+          src="https://player.vimeo.com/video/887947787?h=d0cf4d85bf"
+          width="700"
+          height="450"
+          frameBorder="0"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+        ></iframe>
+        <SkillsMapButton />
         <H3>FAQs</H3>
         <Details>
           <summary>What’s the employer point of view?</summary>
@@ -153,11 +141,7 @@ const ForCareersProfessionals = () => {
       </Copy>
       <FurtherLinks
         links={[
-          { link: './whatsInSkillsmap', text: "What's in SkillsMap®?" },
-          {
-            link: '../forEducators/usingSkillsmapWithLearners',
-            text: 'How can I use SkillsMap® with my learners?',
-          },
+          { link: './about', text: 'About SkillsMap®' },
           {
             link: './skillsmapAndCareersEducation',
             text: 'SkillsMap® and Careers Education',
