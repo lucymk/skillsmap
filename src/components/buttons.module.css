@@ -88,6 +88,7 @@
   font: var(--font-body);
   text-wrap: nowrap;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .action-button:hover {
@@ -103,4 +104,5 @@
   background-color: var(--yellow);
   align-self: center;
   margin: var(--spacing-m) 0;
+  cursor: pointer;
 }
