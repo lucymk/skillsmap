@@ -13,7 +13,14 @@ const forLearners = () => {
           Watch this video to find out more about what the subjects you study at
           school have to do with work and your future career.
         </p>
-        <video style={{ width: '100%', border: 'var(--border-black)' }} />
+        <iframe
+          src="https://player.vimeo.com/video/887947787?h=d0cf4d85bf"
+          width="700"
+          height="450"
+          frameBorder="0"
+          allow="autoplay; fullscreen"
+          allowfullscreen
+        ></iframe>
       </Copy>
       <SkillsMapButton />
       <H3>FAQs</H3>
