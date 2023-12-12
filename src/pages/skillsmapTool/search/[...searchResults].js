@@ -88,7 +88,7 @@ const renderRelevantSkills = (
         </>
       )
     case selectedSubjects.length === 1 ||
-      Object.values(inactivatedSubjects).filter((value) => value === true)
+      Object.values(inactivatedSubjects).filter((value) => value === false)
         .length === 1:
       return (
         <>
