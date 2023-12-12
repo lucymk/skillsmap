@@ -25,15 +25,90 @@ const isSelectedSubjectsValid = ({ selectedSubjects, allSubjects }) =>
       .includes(selectedSubject)
   )
 
-const getSkillsFromSelectedSubjects = ({ selectedSubjects, skills }) =>
-  selectedSubjects &&
-  skills.filter(
-    ({ data: { Subjects: subjects } }) =>
-      subjects != null &&
-      selectedSubjects.every((selectedSubject) =>
-        subjects.includes(selectedSubject)
-      )
+const getSkillsFromSelectedSubjects = ({
+  selectedSubjects,
+  inactivatedSubjects,
+  skills,
+}) => {
+  const subjectsToFilterBy = selectedSubjects.filter(
+    (subject) => !inactivatedSubjects[subject]
   )
+
+  return (
+    selectedSubjects &&
+    skills.filter(
+      ({ data: { Subjects: subjects } }) =>
+        subjects != null &&
+        subjectsToFilterBy.every((subjectToFilterBy) =>
+          subjects.includes(subjectToFilterBy)
+        )
+    )
+  )
+}
+
+const renderRelevantSkills = (
+  selectedSubjects,
+  inactivatedSubjects,
+  relevantSkills,
+  href
+) => {
+  console.log('alltrue', !Object.values(inactivatedSubjects))
+
+  switch (true) {
+    case relevantSkills.length === 0:
+      return (
+        <>
+          <h3>No overlapping skills in these subjects</h3>
+          <p>
+            SkillsMap&#174; has been built using a sample of about 80 different
+            transferable skills. So although your search today has not produced
+            any skills in common between your chosen subjects, if we did a more
+            detailed search of a bigger list of skills, you would find some
+            skills your chosen subjects have in common.
+          </p>
+          <p>
+            When subjects have skills in common then that can help you
+            understand why you might enjoy or be good at different subjects. But
+            remember too that if you study very different subjects, you are
+            developing an even broader range of skills across those subjects,
+            which will be really helpful in preparing you to use those skills in
+            the workplace later on.
+          </p>
+          <p>Why not try searching again by clicking below?</p>
+          <SkillsMapButton />
+        </>
+      )
+
+    case Object.values(inactivatedSubjects).every((value) => value === true):
+      return (
+        <>
+          <h3>No subjects selected</h3>
+          <p>Why not try searching again by clicking below?</p>
+          <SkillsMapButton />
+        </>
+      )
+    case selectedSubjects.length === 1 ||
+      Object.values(inactivatedSubjects).filter((value) => value === true)
+        .length === 1:
+      return (
+        <>
+          <h3 style={{ fontWeight: 'normal' }}>
+            Transferable skills you are developing in this subject:
+          </h3>
+          <SkillsButtons originPath={href} skillsArray={relevantSkills} />
+        </>
+      )
+    default:
+      return (
+        <>
+          <h3 style={{ fontWeight: 'normal' }}>
+            And these are the skills that these subjects have in common:
+          </h3>
+          <SkillsButtons originPath={href} skillsArray={relevantSkills} />
+        </>
+      )
+  }
+}
 
 const SkillsMapSearchResults = ({
   data: {
@@ -44,6 +119,7 @@ const SkillsMapSearchResults = ({
 }) => {
   const [selectedSubjects, setSelectedSubjects] = useState([])
   const [relevantSkills, setRelevantSkills] = useState([])
+  const [inactivatedSubjects, setInactivatedSubjects] = useState({})
 
   useEffect(() => {
     setSelectedSubjects(getSelectedSubjectsArrayFromSearchQuery({ href }))
@@ -53,10 +129,20 @@ const SkillsMapSearchResults = ({
     setRelevantSkills(
       getSkillsFromSelectedSubjects({
         selectedSubjects,
+        inactivatedSubjects,
         skills,
       }).map(({ data: { Skill } }) => Skill)
     )
-  }, [selectedSubjects])
+  }, [selectedSubjects, inactivatedSubjects])
+
+  useEffect(() => {
+    let arrayOfSubjects = getSelectedSubjectsArrayFromSearchQuery({ href })
+    const obj = {}
+    arrayOfSubjects.forEach((subject) => {
+      obj[subject] = false
+    })
+    setInactivatedSubjects(obj)
+  }, [])
 
   if (
     !isSelectedSubjectsValid({
@@ -77,37 +163,18 @@ const SkillsMapSearchResults = ({
             { label: 'Search results' },
           ]}
         />
-        <H1>See your transferrable skills</H1>
+        <H1>See your transferable skills</H1>
         <Copy>
-          <SubjectTags subjectsArray={selectedSubjects} />
-          {relevantSkills.length == 0 ? (
-            <>
-              <h3>No overlapping skills in these subjects</h3>
-              <p>
-                SkillsMap&#174; has been built using a sample of about 80
-                different transferable skills. So although your search today has
-                not produced any skills in common between your chosen subjects,
-                if we did a more detailed search of a bigger list of skills, you
-                would find some skills your chosen subjects have in common.
-              </p>
-              <p>
-                When subjects have skills in common then that can help you
-                understand why you might enjoy or be good at different subjects.
-                But remember too that if you study very different subjects, you
-                are developing an even broader range of skills across those
-                subjects, which will be really helpful in preparing you to use
-                those skills in the workplace later on.
-              </p>
-              <p>Why not try searching again by clicking below?</p>
-              <SkillsMapButton />
-            </>
-          ) : (
-            <>
-              <h3 style={{ fontWeight: 'normal' }}>
-                Transferable skills you are building in these subjects:
-              </h3>
-              <SkillsButtons originPath={href} skillsArray={relevantSkills} />
-            </>
+          <SubjectTags
+            setInactivatedSubjects={setInactivatedSubjects}
+            inactivatedSubjects={inactivatedSubjects}
+            subjectsArray={selectedSubjects}
+          />
+          {renderRelevantSkills(
+            selectedSubjects,
+            inactivatedSubjects,
+            relevantSkills,
+            href
           )}
         </Copy>
       </Layout>

@@ -5,16 +5,16 @@ import {
   H1,
   H3,
   Copy,
-  BulletList,
   FurtherLinks,
   InternalLink,
   Details,
 } from '../../components/shared'
+import { SkillsMapButton } from '../../components/buttons'
 
 const ForCareersProfessionals = () => {
   return (
     <Layout>
-      <H1>For careers professionals</H1>
+      <H1>For Careers Professionals</H1>
       <Copy>
         <p>
           The{' '}
@@ -33,31 +33,30 @@ const ForCareersProfessionals = () => {
           however, new in pre-18 education.
         </p>
         <p>
-          So the <InternalLink to="./">questions we ask Learners</InternalLink>{' '}
-          also apply to you as an Educator:
+          You can use this video with your learners to introduce them to
+          SkillsMap®
         </p>
-        <BulletList>
-          <li>
-            Have you ever wondered what the subjects they study at school or
-            college have to do with work and their career?
-          </li>
-          <li>
-            Have you ever tried to explain how a subject a learner really loves
-            at school or college will have (a) future use in the workplace?
-          </li>
-          <li>
-            Have you tried to explain to learners what value their
-            qualifications have to employers?
-          </li>
-        </BulletList>
-        <p>
-          We answer those questions in more detail in the SkillsMap® and
-          Careers Education page and you might also find it helpful to read the{' '}
-          <InternalLink to="../forEducators">Educators section</InternalLink> to
-          support the teachers in your school or college in their work with
-          learners on transferable skills.
-        </p>
-        <H3>FAQs</H3>
+        <div
+          className="video"
+          style={{ position: 'relative', width: '100%', paddingTop: '56.25%' }}
+        >
+          <iframe
+            src="https://player.vimeo.com/video/887947787?h=d0cf4d85bf"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              zIndex: '1',
+            }}
+            frameBorder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <SkillsMapButton />
+        <H3>You may also be wondering:</H3>
         <Details>
           <summary>What’s the employer point of view?</summary>
           <p>
@@ -153,15 +152,11 @@ const ForCareersProfessionals = () => {
       </Copy>
       <FurtherLinks
         links={[
-          { link: './whatsInSkillsmap', text: "What's in SkillsMap®?" },
-          {
-            link: '../forEducators/usingSkillsmapWithLearners',
-            text: 'How can I use SkillsMap® with my learners?',
-          },
           {
             link: './skillsmapAndCareersEducation',
             text: 'SkillsMap® and Careers Education',
           },
+          { link: './about', text: 'About SkillsMap®' },
         ]}
       />
     </Layout>

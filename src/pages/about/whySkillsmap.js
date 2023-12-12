@@ -1,7 +1,13 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
 import Layout from '../../components/layout'
-import { H1, Copy, BulletList, InternalLink } from '../../components/shared'
+import {
+  H1,
+  Copy,
+  BulletList,
+  InternalLink,
+  FurtherLinks,
+} from '../../components/shared'
 import Breadcrumbs from '../../components/breadcrumbs'
 
 const whySkillsmap = () => {
@@ -69,10 +75,33 @@ const whySkillsmap = () => {
           how their education prepares them for work.
         </p>
         <p>
-          You can find out about the research behind SkillsMap®{' '}
-          <InternalLink to="../researchAndPublications">here</InternalLink>.
+          You can find out about the research behind SkillsMap® on the{' '}
+          <InternalLink to="../researchAndPublications">
+            Research and Publications
+          </InternalLink>{' '}
+          page.
         </p>
       </Copy>
+      <FurtherLinks
+        links={[
+          {
+            link: '../whatsInSkillsmap',
+            text: "What's in SkillsMap®",
+          },
+          {
+            link: '../researchAndPublications',
+            text: 'Research and Publications',
+          },
+          {
+            link: '../websiteAndBookVariations',
+            text: 'Website and Book Variations',
+          },
+          {
+            link: '../resources',
+            text: 'Resources',
+          },
+        ]}
+      />
     </Layout>
   )
 }

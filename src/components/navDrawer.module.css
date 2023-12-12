@@ -1,7 +1,6 @@
 @import '../../global.css';
 
 .nav-drawer {
-  display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: var(--spacing-l);
@@ -10,6 +9,16 @@
   min-width: 275px;
   height: 100vh;
   box-sizing: border-box;
+  position: sticky;
+
+  @media screen and (max-width: 1000px) {
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    border: none;
+    padding: 100px var(--spacing-l) var(--spacing-l) var(--spacing-l);
+  }
 }
 
 .nav-drawer-contents-outer {
@@ -44,6 +53,10 @@
   font: var(--font-h3);
   font-weight: bold;
   text-wrap: wrap;
+
+  @media screen and (max-width: 1000px) {
+    font: var(--font-h2);
+  }
 }
 
 .hidden-menu-items {
@@ -62,5 +75,17 @@
 }
 
 .active-nav-link {
-  color: var(--blue);
+  color: var(--white);
+
+  @media screen and (max-width: 1000px) {
+    color: var(--blue);
+  }
+}
+
+.small-screen-menu-icon {
+  position: absolute;
+  top: 40px;
+  right: var(--spacing-m);
+  border: none;
+  padding: 0;
 }

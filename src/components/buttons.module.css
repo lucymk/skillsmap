@@ -22,9 +22,15 @@
   border: var(--border-black);
   background: var(--white);
   box-shadow: var(--shadow-1);
-  padding: 0;
+  padding: var(--spacing-xs);
   justify-content: left;
   width: var(--skills-button-width);
+
+  @media screen and (max-width: 1000px) {
+  }
+  @media screen and (max-width: 450px) {
+    width: 100%;
+  }
 }
 
 .skills-button {
@@ -54,24 +60,42 @@
   padding: var(--spacing-xs) var(--spacing-s);
   border-radius: var(--br-pill);
   border: var(--border-black);
-  background: var(--light-blue);
   width: fit-content;
+  cursor: pointer;
 }
 
-.subject-button-icon {
+.subject-tag-selected {
+  background-color: var(--light-blue);
+}
+
+.subject-tag-unselected {
+  background-color: var(--light-grey);
+  opacity: 40%;
+}
+
+.subject-tag-container {
+  display: flex;
+  column-gap: var(--spacing-m);
+  row-gap: var(--spacing-xs);
+  text-wrap: nowrap;
+  flex-wrap: wrap;
+  padding: var(--spacing-s) 0;
+}
+
+/* .subject-button-icon {
   padding: var(--spacing-xs) var(--spacing-xs);
   border-right: var(--border-black);
   width: 45px;
   height: 45px;
   flex-shrink: 0;
-}
+} */
 
 .subject-button-name {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--spacing-xs);
-  width: fill-available;
+  width: -webkit-fill-available;
   height: 100%;
   border-radius: 0px 4px 4px 0px;
 }
@@ -88,6 +112,11 @@
   font: var(--font-body);
   text-wrap: nowrap;
   text-decoration: none;
+  cursor: pointer;
+
+  @media screen and (max-width: 450px) {
+    text-wrap: balance;
+  }
 }
 
 .action-button:hover {
@@ -97,10 +126,41 @@
 .skills-map-button {
   display: flex;
   flex-direction: column;
-  padding: var(--spacing-xs) var(--spacing-s) var(--spacing-s) var(--spacing-s);
+  padding: var(--spacing-xs) var(--spacing-m) var(--spacing-xs) var(--spacing-m);
   justify-content: center;
   align-items: center;
   background-color: var(--yellow);
   align-self: center;
   margin: var(--spacing-m) 0;
+  cursor: pointer;
+}
+
+.subject-grid-and-button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-m);
+
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+    align-items: start;
+
+    > a:has(> svg) {
+      align-self: flex-end;
+    }
+  }
+}
+
+.subject-grid {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--skills-button-width));
+  grid-gap: var(--spacing-m);
+  padding-top: var(--spacing-m);
+  padding-bottom: var(--spacing-m);
+  max-width: min(100%, 800px);
+
+  @media screen and (max-width: 450px) {
+    max-width: 100%;
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
 }

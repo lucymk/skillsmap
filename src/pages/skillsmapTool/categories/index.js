@@ -13,7 +13,7 @@ const Categories = () => {
           { label: 'Categories' },
         ]}
       />
-      <H1> Categories</H1>
+      <H1>Categories</H1>
       <Copy></Copy>
     </Layout>
   )

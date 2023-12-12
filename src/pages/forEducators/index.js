@@ -1,37 +1,14 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
 import Layout from '../../components/layout'
-import {
-  H1,
-  Copy,
-  BulletList,
-  FurtherLinks,
-  InternalLink,
-} from '../../components/shared'
+import { H1, Copy, FurtherLinks } from '../../components/shared'
+import { SkillsMapButton } from '../../components/buttons'
 
 const ForEducators = () => {
   return (
     <Layout>
-      <H1>For educators</H1>
+      <H1>For Educators</H1>
       <Copy>
-        <p>
-          The <InternalLink to="./">questions we ask Learners</InternalLink>{' '}
-          also apply to you as an Educator:
-        </p>
-        <BulletList>
-          <li>
-            Have you ever wondered what the subjects they study at school or
-            college have to do with work and their career?
-          </li>
-          <li>
-            Have you ever tried to explain how a subject a learner really loves
-            at school or college will have (a) future use in the workplace?
-          </li>
-          <li>
-            Have you tried to explain to learners what value their
-            qualifications have to employers?
-          </li>
-        </BulletList>
         <p>
           SkillsMap® was created to help you answer those questions to support
           learners through pre-18 education and into work, and to recognise the
@@ -72,16 +49,41 @@ const ForEducators = () => {
           recognise those skills when they use them, and to help you get a
           conversation started about curriculum and transferable skills.
         </p>
+        <p>
+          You can use this video with your learners to introduce them to
+          SkillsMap®
+        </p>
+
+        <div
+          className="video"
+          style={{ position: 'relative', width: '100%', paddingTop: '56.25%' }}
+        >
+          <iframe
+            src="https://player.vimeo.com/video/887947787?h=d0cf4d85bf"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              zIndex: '1',
+            }}
+            frameBorder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <SkillsMapButton />
       </Copy>
       <FurtherLinks
         links={[
           {
-            link: '../about/whySkillsmap',
-            text: 'Why was SkillsMap® created?',
-          },
-          {
             link: './usingSkillsmapWithLearners',
             text: 'How can I use SkillsMap with my learners?',
+          },
+          {
+            link: '../about',
+            text: 'About SkillsMap®',
           },
         ]}
       />

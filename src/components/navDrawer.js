@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
@@ -6,11 +6,11 @@ import {
   navDrawer,
   navDrawerContentsOuter,
   navDrawerContentsInner,
-  navDrawerButton,
   menuItems,
   hiddenMenuItems,
   navLink,
   activeNavLink,
+  smallScreenMenuIcon,
 } from './navDrawer.module.css'
 import MenuBurgerSvg from '../assets/icons/menuBurger.svg'
 import MenuCloseSvg from '../assets/icons/menuClose.svg'
@@ -39,9 +39,9 @@ function MenuItems({ visible }) {
         Home
       </Link>
       <NavLink to="/skillsmapTool">SkillsMap® Tool</NavLink>
-      <NavLink to="/forLearners">For learners</NavLink>
-      <NavLink to="/forEducators">For educators</NavLink>
-      <NavLink to="/forCareersProfessionals">For careers professionals</NavLink>
+      <NavLink to="/forLearners">For Learners</NavLink>
+      <NavLink to="/forEducators">For Educators</NavLink>
+      <NavLink to="/forCareersProfessionals">For Careers Professionals</NavLink>
       <NavLink to="/about">About</NavLink>
     </div>
   )
@@ -49,38 +49,65 @@ function MenuItems({ visible }) {
 
 export default function NavDrawer({ style }) {
   const [isSelected, toggleSelected] = useState(false)
+  const [isSmallScreen, toggleIsSmallScreen] = useState(false)
+
+  useEffect(() => {
+    window.screen.width < 1024 && toggleIsSmallScreen(true)
+  }, [])
+
+  useEffect(() => {
+    if (isSelected && isSmallScreen) {
+      document.body.style.overflow = 'hidden'
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
+  }, [isSelected, isSmallScreen])
 
   return (
-    <div
-      className={`${navDrawer}`}
-      style={Object.assign(
-        {
-          backgroundColor: isSelected
-            ? 'var(--background-grey)'
-            : 'var(--light-blue)',
-        },
-        style
-      )}
-    >
-      <div className={`${navDrawerContentsOuter}`}>
-        <div className={`${navDrawerContentsInner}`}>
-          <button
-            className={`${navDrawerButton}`}
-            onClick={() => toggleSelected(!isSelected)}
-          >
-            {isSelected ? (
-              <MenuCloseSvg fill="var(--dark-grey)" />
-            ) : (
-              <MenuBurgerSvg />
+    <>
+      <div
+        className={`${navDrawer}`}
+        style={Object.assign(
+          {
+            backgroundColor:
+              isSelected && isSmallScreen
+                ? 'var(--background-grey)'
+                : 'var(--light-blue)',
+          },
+          {
+            display: isSmallScreen && !isSelected ? 'none' : 'flex',
+          },
+          style
+        )}
+      >
+        <div className={`${navDrawerContentsOuter}`}>
+          <div className={`${navDrawerContentsInner}`}>
+            {isSmallScreen && (
+              <button
+                className={`${smallScreenMenuIcon}`}
+                onClick={() => toggleSelected(!isSelected)}
+              >
+                <MenuCloseSvg fill="var(--dark-grey)" />
+              </button>
             )}
-          </button>
-          <MenuItems visible={isSelected} />
+            <MenuItems visible={true} />
+          </div>
+          <StaticImage
+            alt="SkillsMap logo"
+            placeholder="none"
+            src="../assets/icons/skillsMapLogo.png"
+          />
         </div>
-        <StaticImage
-          placeholder="none"
-          src="../assets/icons/skillsMapLogo.png"
-        />
       </div>
-    </div>
+
+      {isSmallScreen && !isSelected && (
+        <MenuBurgerSvg
+          className={`${smallScreenMenuIcon}`}
+          onClick={() => toggleSelected(!isSelected)}
+        />
+      )}
+    </>
   )
 }

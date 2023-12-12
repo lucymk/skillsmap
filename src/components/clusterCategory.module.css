@@ -38,6 +38,11 @@
 .what-does-this-mean-link {
   font: var(--font-caption);
   text-decoration: underline;
+  color: var(--black);
+
+  > svg {
+    height: 12px;
+  }
 }
 
 .more-skills-link {
@@ -60,6 +65,7 @@
 
 .cluster-category-definition-card {
   display: flex;
+  flex-direction: column;
   gap: var(--spacing-xs);
   justify-content: center;
   align-items: center;
@@ -67,4 +73,16 @@
   padding: var(--spacing-s);
   margin: var(--spacing-m) 0 var(--spacing-l) 0;
   max-width: 700px;
+}
+
+.cluster-category-def-and-workplace {
+  display: grid;
+  grid-template-columns: 35px 1fr;
+  grid-template-rows: auto;
+  gap: 10px;
+  padding: var(--spacing-s) 0;
+}
+
+.cluster-category-def-and-workplace:first-child {
+  border-bottom: var(--border-black);
 }
