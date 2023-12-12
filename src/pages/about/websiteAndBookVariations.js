@@ -2,7 +2,13 @@
 import * as React from 'react'
 import Breadcrumbs from '../../components/breadcrumbs'
 import Layout from '../../components/layout'
-import { H1, Copy, Contact, FurtherLinks } from '../../components/shared'
+import {
+  H1,
+  Copy,
+  Contact,
+  FurtherLinks,
+  InternalLink,
+} from '../../components/shared'
 
 const WebsiteAndBookVariations = () => {
   return (
@@ -19,9 +25,11 @@ const WebsiteAndBookVariations = () => {
           If you read the peer-reviewed journal article by Kate Daubney which
           describes and contextualises her curriculum analysis on which
           SkillsMap® is based, you may notice some differences between how the
-          skills are defined and categorised compared to the Categories and
-          Clusters map available in the Resources section of this website. That
-          will also be true if you read Kate’s book Careers Education to
+          skills are defined and categorised compared to the{' '}
+          <InternalLink to="../categoriesAndClusters">
+            Categories and Clusters map
+          </InternalLink>
+          . That will also be true if you read Kate’s book Careers Education to
           Demystify Employability.
         </p>
         <p>
@@ -85,6 +93,14 @@ const WebsiteAndBookVariations = () => {
         <Contact />
         <FurtherLinks
           links={[
+            {
+              link: '../whySkillsmap',
+              text: 'Why SkillsMap®',
+            },
+            {
+              link: '../whatsInSkillsmap',
+              text: "What's in SkillsMap®",
+            },
             {
               link: '../researchAndPublications',
               text: 'Research and Publications',

@@ -82,6 +82,14 @@ const ResearchAndPublications = () => {
         <FurtherLinks
           links={[
             {
+              link: '../whySkillsmap',
+              text: 'Why SkillsMap®',
+            },
+            {
+              link: '../whatsInSkillsmap',
+              text: "What's in SkillsMap®",
+            },
+            {
               link: '../websiteAndBookVariations',
               text: 'Website and Book Variations',
             },

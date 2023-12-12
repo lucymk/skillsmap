@@ -40,7 +40,7 @@ const WhatsInSkillsmap = () => {
             subjects have in common will be shown
           </li>
         </BulletList>
-        <H3>FAQs</H3>
+        <H3>You may also be wondering:</H3>
         <Details>
           <summary>Why are you only showing 15 transferable skills?</summary>
           <p>
@@ -75,7 +75,7 @@ const WhatsInSkillsmap = () => {
             discovering. Definitions help simplify what the skills are and give
             an indication of why and how they are important and useful. If you
             explore the{' '}
-            <InternalLink to="../about/categoriesAndClusters">
+            <InternalLink to="../categoriesAndClusters">
               Categories and Clusters map
             </InternalLink>{' '}
             which shows how SkillsMap® is constructed, you’ll find some
@@ -144,11 +144,19 @@ const WhatsInSkillsmap = () => {
         links={[
           {
             link: '../whySkillsmap',
-            text: 'Why was SkillsMap® created?',
+            text: 'Why SkillsMap®',
           },
           {
-            link: '../../forEducators/usingSkillsmapWithLearners',
-            text: 'How can I use SkillsMap® with my learners?',
+            link: '../researchAndPublications',
+            text: 'Research and Publications',
+          },
+          {
+            link: '../websiteAndBookVariations',
+            text: 'Website and Book Variations',
+          },
+          {
+            link: '../resources',
+            text: 'Resources',
           },
         ]}
       />

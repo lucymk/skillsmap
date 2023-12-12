@@ -8,7 +8,7 @@ import { H1, Copy, BulletList, InternalLink } from '../components/shared'
 const IndexPage = () => {
   return (
     <Layout>
-      <H1>Welcome to SkillsMap®</H1>
+      <H1>Welcome to SkillsMap®!</H1>
       <Copy>
         <BulletList>
           <li>
@@ -24,7 +24,7 @@ const IndexPage = () => {
             employers?
           </li>
         </BulletList>
-        <p style={{ margin: 'var(--spacing-m) 0 var(--spacing-m) 0' }}>
+        <p style={{ margin: 'var(--spacing-m) 0 0 0' }}>
           If you have ever asked yourself any of these questions, then
           SkillsMap&#174; is here to help you.
         </p>
@@ -32,10 +32,16 @@ const IndexPage = () => {
           {' '}
           SkillsMap&#174; shows you a selection of the transferable skills
           developed in each of 35 different academic subjects typically taught
-          in pre-18 education. These are the skills that employers are looking
-          for. You can also find the skills that different subjects have in
-          common. Try searching your favourite subjects and see what skills you
-          are building.
+          in pre-18 education.{' '}
+        </p>
+        <p>These are the skills that employers are looking for. </p>
+        <p>
+          You can also find the skills that different subjects have in common.
+        </p>
+        <p>
+          {' '}
+          Try searching your favourite subjects and see what skills you are
+          developing.
         </p>
         <div
           style={{
@@ -48,9 +54,20 @@ const IndexPage = () => {
         </div>
         <p>
           If you want to learn more about SkillsMap® first, visit{' '}
-          <InternalLink to="../forLearners">For learners</InternalLink>. If you
-          are an educator, you can find out more about using SkillsMap® on our{' '}
-          <InternalLink to="../forEducators">For Educators</InternalLink> page.
+          <InternalLink to="../forLearners">For learners</InternalLink>.{' '}
+        </p>
+        <p>
+          If you are an educator, you can find out more about using SkillsMap®
+          on our <InternalLink to="../forEducators">For Educators</InternalLink>{' '}
+          page.
+        </p>{' '}
+        <p>
+          If you are a Careers Professional, you can find out more about using
+          SkillsMap® on our{' '}
+          <InternalLink to="../forCareersProfessionals">
+            For Careers Professionals
+          </InternalLink>{' '}
+          page.
         </p>
       </Copy>
     </Layout>

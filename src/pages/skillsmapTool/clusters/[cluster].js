@@ -28,7 +28,11 @@ const ClusterPage = ({
   }
 
   const {
-    data: { Cluster: clusterMatch, ClusterDefinition: clusterDefinition },
+    data: {
+      Cluster: clusterMatch,
+      ClusterDefinition: clusterDefinition,
+      ClusterWorkplaceUse: clusterWorkplaceUse,
+    },
   } = clusterMatches[0]
 
   const associatedSkills = skills
@@ -54,6 +58,7 @@ const ClusterPage = ({
           cluster={true}
           category={false}
           definition={clusterDefinition}
+          workplaceUse={clusterWorkplaceUse}
           style={{ backgroundColor: 'var(--light-green-faint)' }}
         />
         <h3>
@@ -79,6 +84,7 @@ export const query = graphql`
         data {
           Cluster
           ClusterDefinition
+          ClusterWorkplaceUse
         }
       }
     }

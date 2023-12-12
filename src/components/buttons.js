@@ -6,12 +6,17 @@ import {
   skillsButton,
   skillIcon,
   subjectTag,
-  subjectButtonIcon,
+  subjectTagContainer,
+  subjectTagSelected,
+  subjectTagUnselected,
+  // subjectButtonIcon,
   subjectButtonName,
   subjectButtonSelected,
   actionButton,
   skillsMapButton,
   subjectButton,
+  subjectGridAndButton,
+  subjectGrid,
 } from './buttons.module.css'
 import SkillIconSvg from '../assets/icons/skillIcon.svg'
 import ChevronLeftSvg from '../assets/icons/chevronLeft.svg'
@@ -35,12 +40,32 @@ export function SkillsButton({ skill, originPath }) {
   )
 }
 
-export function SubjectTag({ children }) {
-  return <span className={`${subjectTag}`}>{children}</span>
+export function SubjectTag({
+  setInactivatedSubjects,
+  inactivatedSubjects,
+  subject,
+  children,
+}) {
+  return (
+    <span
+      onClick={() => {
+        setInactivatedSubjects((prevSubjects) => {
+          return { ...prevSubjects, [subject]: !prevSubjects[subject] }
+        })
+      }}
+      className={
+        inactivatedSubjects[subject]
+          ? `${subjectTag} ${subjectTagUnselected}`
+          : `${subjectTag} ${subjectTagSelected}`
+      }
+    >
+      {children}
+    </span>
+  )
 }
 
 export function SubjectButton({
-  subjectIcon,
+  // subjectIcon,
   subjectName,
   setSelectedSubjects,
   selectedSubjects,
@@ -61,7 +86,11 @@ export function SubjectButton({
   }
   return (
     <button
-      className={`${subjectButton}`}
+      className={
+        selectedSubjects[subjectName]
+          ? `${subjectButton} ${subjectButtonSelected}`
+          : `${subjectButton}`
+      }
       style={{
         cursor:
           selectedSubjectCount < 3 ||
@@ -73,16 +102,8 @@ export function SubjectButton({
         subjectButtonOnClick()
       }}
     >
-      <img src={subjectIcon} className={`${subjectButtonIcon}`} />
-      <div
-        className={
-          selectedSubjects[subjectName]
-            ? `${subjectButtonName} ${subjectButtonSelected}`
-            : `${subjectButtonName}`
-        }
-      >
-        {subjectName}
-      </div>
+      {/* <img src={subjectIcon} className={`${subjectButtonIcon}`} /> */}
+      <div className={`${subjectButtonName}`}>{subjectName}</div>
     </button>
   )
 }
@@ -106,23 +127,30 @@ export function SkillsMapButton() {
           width={100}
           src="../assets/icons/skillsMapSimpleLogo.png"
         />
-        Search skills and subjects
+        Search subjects
       </button>
     </Link>
   )
 }
 
-export function SubjectTags({ subjectsArray }) {
+export function SubjectTags({
+  setInactivatedSubjects,
+  inactivatedSubjects,
+  subjectsArray,
+}) {
   return (
-    <div
-      style={{
-        display: 'flex',
-        gap: 'var(--spacing-m)',
-        padding: 'var(--spacing-s) 0',
-      }}
-    >
+    <div className={`${subjectTagContainer}`}>
       {subjectsArray.map((subject) => {
-        return <SubjectTag key={subject}>{subject}</SubjectTag>
+        return (
+          <SubjectTag
+            setInactivatedSubjects={setInactivatedSubjects}
+            inactivatedSubjects={inactivatedSubjects}
+            subject={subject}
+            key={subject}
+          >
+            {subject}
+          </SubjectTag>
+        )
       })}
     </div>
   )
@@ -145,4 +173,12 @@ export function SkillsButtons({ skillsArray, originPath }) {
       })}
     </div>
   )
+}
+
+export function SubjectGridAndButton({ children }) {
+  return <div className={`${subjectGridAndButton}`}>{children}</div>
+}
+
+export function SubjectGrid({ children }) {
+  return <div className={`${subjectGrid}`}>{children}</div>
 }

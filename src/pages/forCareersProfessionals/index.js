@@ -14,7 +14,7 @@ import { SkillsMapButton } from '../../components/buttons'
 const ForCareersProfessionals = () => {
   return (
     <Layout>
-      <H1>For careers professionals</H1>
+      <H1>For Careers Professionals</H1>
       <Copy>
         <p>
           The{' '}
@@ -36,16 +36,27 @@ const ForCareersProfessionals = () => {
           You can use this video with your learners to introduce them to
           SkillsMap®
         </p>
-        <iframe
-          src="https://player.vimeo.com/video/887947787?h=d0cf4d85bf"
-          width="700"
-          height="450"
-          frameBorder="0"
-          allow="autoplay; fullscreen"
-          allowfullscreen
-        ></iframe>
+        <div
+          className="video"
+          style={{ position: 'relative', width: '100%', paddingTop: '56.25%' }}
+        >
+          <iframe
+            src="https://player.vimeo.com/video/887947787?h=d0cf4d85bf"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              zIndex: '1',
+            }}
+            frameBorder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+          ></iframe>
+        </div>
         <SkillsMapButton />
-        <H3>FAQs</H3>
+        <H3>You may also be wondering:</H3>
         <Details>
           <summary>What’s the employer point of view?</summary>
           <p>
@@ -141,11 +152,11 @@ const ForCareersProfessionals = () => {
       </Copy>
       <FurtherLinks
         links={[
-          { link: './about', text: 'About SkillsMap®' },
           {
             link: './skillsmapAndCareersEducation',
             text: 'SkillsMap® and Careers Education',
           },
+          { link: './about', text: 'About SkillsMap®' },
         ]}
       />
     </Layout>

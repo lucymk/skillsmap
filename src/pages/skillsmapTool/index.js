@@ -2,7 +2,11 @@
 import * as React from 'react'
 import { useState, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
-import { SubjectButton } from '../../components/buttons'
+import {
+  SubjectButton,
+  SubjectGridAndButton,
+  SubjectGrid,
+} from '../../components/buttons'
 import Layout from '../../components/layout'
 import { H1, Copy } from '../../components/shared'
 import NextIconSvg from '../../assets/icons/nextActive.svg'
@@ -42,32 +46,19 @@ const SkillsmapSearchPage = ({
     return subjectNames.join().replace(/\s/g, '+')
   }
 
-  const SubjectGrid = ({ children }) => (
-    <div
-      style={{
-        width: '100%',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, var(--skills-button-width))',
-        gridGap: 'var(--spacing-m)',
-        paddingTop: 'var(--spacing-m)',
-        paddingBottom: 'var(--spacing-m)',
-        maxWidth: '800px',
-      }}
-    >
-      {children}
-    </div>
-  )
-
   return (
     <Layout>
       <H1>Choose your subjects</H1>
       <Copy>
         <p>
-          Pick 1, 2 or 3 subjects that you are already studying, or would like
-          to study, to see the skills you build in them. If you choose more than
-          1 subject you will be shown the overlapping skills between them.
+          Choose subjects you are studying or want to study to see the
+          transferable skills you are developing.{' '}
         </p>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
+        <p>
+          Choose 1 subject, or choose 2 or 3 subjects to see the skills they
+          have in common with each other.
+        </p>
+        <SubjectGridAndButton>
           <SubjectGrid>
             {subjects.map(
               ({
@@ -96,7 +87,7 @@ const SkillsmapSearchPage = ({
           ) : (
             <NextIconDisabledSvg />
           )}
-        </div>
+        </SubjectGridAndButton>
       </Copy>
     </Layout>
   )
@@ -107,7 +98,10 @@ export default SkillsmapSearchPage
 // queryName filters by table, see gatsby-config
 export const query = graphql`
   query {
-    subjects: allAirtable(filter: { queryName: { eq: "Subjects" } }) {
+    subjects: allAirtable(
+      filter: { queryName: { eq: "Subjects" } }
+      sort: { data: { Subject: ASC } }
+    ) {
       nodes {
         data {
           Subject

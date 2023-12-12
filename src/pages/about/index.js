@@ -1,7 +1,13 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
 import Layout from '../../components/layout'
-import { H1, Copy, Contact, FurtherLinks } from '../../components/shared'
+import {
+  H1,
+  Copy,
+  Contact,
+  FurtherLinks,
+  InternalLink,
+} from '../../components/shared'
 import { SkillsMapButton } from '../../components/buttons'
 
 const AboutPage = () => {
@@ -20,8 +26,11 @@ const AboutPage = () => {
           that shows you the skills that learners already develop through
           academic curriculum Subjects, and how those same skills might be used
           in the workplace. You can find out more about the peer-reviewed
-          research Kate has published on this work here [link to Research &
-          Publications].
+          research Kate has published on this work on the{' '}
+          <InternalLink to="./researchAndPublications">
+            Research and Publications
+          </InternalLink>{' '}
+          page.
         </p>
         <p>
           SkillsMap® is different to other skills frameworks and tools, because

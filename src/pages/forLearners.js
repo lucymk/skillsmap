@@ -7,23 +7,35 @@ import { SkillsMapButton } from '../components/buttons'
 const forLearners = () => {
   return (
     <Layout>
-      <H1>For learners</H1>
+      <H1>For Learners</H1>
       <Copy>
         <p>
           Watch this video to find out more about what the subjects you study at
           school have to do with work and your future career.
         </p>
-        <iframe
-          src="https://player.vimeo.com/video/887947787?h=d0cf4d85bf"
-          width="700"
-          height="450"
-          frameBorder="0"
-          allow="autoplay; fullscreen"
-          allowfullscreen
-        ></iframe>
+
+        <div
+          className="video"
+          style={{ position: 'relative', width: '100%', paddingTop: '56.25%' }}
+        >
+          <iframe
+            src="https://player.vimeo.com/video/887947787?h=d0cf4d85bf"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              zIndex: '1',
+            }}
+            frameBorder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+          ></iframe>
+        </div>
       </Copy>
       <SkillsMapButton />
-      <H3>FAQs</H3>
+      <H3>Want to know more about transferable skills?</H3>
       <Details>
         <summary>Understanding transferable skills</summary>
         <p>
@@ -37,7 +49,7 @@ const forLearners = () => {
         <p>
           You can find examples of some of the transferable skills you are
           developing in each of your subjects by using the{' '}
-          <InternalLink to="/skillsmapSearch">
+          <InternalLink to="../skillsmapTool">
             SkillsMap® search tool
           </InternalLink>{' '}
           on this website.

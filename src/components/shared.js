@@ -52,7 +52,7 @@ export function BulletList({ children }) {
 
 export function ExternalLink({ src, children }) {
   return (
-    <a target="_blank" className={`${link}`} rel="noreferrer" src={src}>
+    <a target="_blank" className={`${link}`} rel="noreferrer" href={src}>
       {children}
     </a>
   )

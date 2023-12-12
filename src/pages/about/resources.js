@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react'
+import { graphql } from 'gatsby'
 import Breadcrumbs from '../../components/breadcrumbs'
 import Layout from '../../components/layout'
 import {
@@ -11,7 +12,14 @@ import {
   FurtherLinks,
 } from '../../components/shared'
 
-const Resources = () => {
+const Resources = ({
+  data: {
+    pdfs: { edges: pdfEdges },
+    jpg: { edges: jpgEdges },
+  },
+}) => {
+  console.log({ pdfEdges, jpgEdges })
+
   return (
     <Layout>
       <Breadcrumbs
@@ -40,49 +48,59 @@ const Resources = () => {
           original graphics and do not breach copyright in your usage. Thank
           you!{' '}
         </p>
+        <BulletList>
+          {pdfEdges.map((file, index) => {
+            return (
+              <li key={`pdf-${index}`}>
+                <a
+                  style={{ color: 'var(--blue)' }}
+                  href={file.node.publicURL}
+                  download
+                >
+                  {file.node.name}
+                </a>
+              </li>
+            )
+          })}
+        </BulletList>
+        <H3>SkillsMap® Categories and Clusters </H3>
         <p>
-          <BulletList>
-            <li>
-              Figure 8 (p.36): Explore Encounter Embark: The complete journey{' '}
-            </li>
-            <li>
-              Figure 9 (p.37): Explore Encounter Embark: The Careers statements{' '}
-            </li>
-            <li>
-              Figure 10 (p.37): Explore Encounter Embark: The combined
-              statements{' '}
-            </li>
-            <li>
-              Figure 12 (p.44): Explore Encounter Embark: Sample learning gains
-              for a guidance appointment{' '}
-            </li>
-            <li>
-              Figure 13 (p.44): Explore Encounter Embark: Sample learning gains
-              for information resources{' '}
-            </li>
-            <li>
-              Figure 16 (p.91): Explore and Encounter: Mapping GCSE choices{' '}
-            </li>
-            <li>Figure 18 (p.103): Employability</li>
-            <li>Figure 19 (p.118): Knowledge, qualifications and learning </li>
-            <li>Figure 20 (p.123): Attributes </li>
-            <li>
-              Figure 24 (p.154): Applying Knowledge, learning, Attributes and
-              Skills to In Around Beyond{' '}
-            </li>
-          </BulletList>
-          <H3>SkillsMap® Categories and Clusters </H3>
-          <p>
-            {' '}
-            Figures 22 and 23 in Careers Education to Demystify Employability
-            were updated as part of the revision of the SkillsMap® taxonomy for
-            building the tool. You can download the updated version of those
-            figures for using with your learners here.
-          </p>
+          Figures 22 and 23 in Careers Education to Demystify Employability were
+          updated as part of the revision of the SkillsMap® taxonomy for
+          building the tool. You can download the updated version of those
+          figures for using with your learners{' '}
+          {/* <a
+            style={{ color: 'var(--blue)' }}
+            href={file.node.publicURL}
+            download
+          >
+            here.
+          </a> */}
+          {jpgEdges.map((file, index) => {
+            return (
+              <a
+                key={`jpg-${index}`}
+                style={{ color: 'var(--blue)' }}
+                href={file.node.publicURL}
+                download
+              >
+                here
+              </a>
+            )
+          })}
+          .
         </p>
         <Contact />
         <FurtherLinks
           links={[
+            {
+              link: '../whySkillsmap',
+              text: 'Why SkillsMap®',
+            },
+            {
+              link: '../whatsInSkillsmap',
+              text: "What's in SkillsMap®",
+            },
             {
               link: '../researchAndPublications',
               text: 'Research and Publications',
@@ -99,3 +117,24 @@ const Resources = () => {
 }
 
 export default Resources
+
+export const query = graphql`
+  query {
+    pdfs: allFile(filter: { extension: { eq: "pdf" } }) {
+      edges {
+        node {
+          publicURL
+          name
+        }
+      }
+    }
+    jpg: allFile(filter: { extension: { eq: "jpg" } }) {
+      edges {
+        node {
+          publicURL
+          name
+        }
+      }
+    }
+  }
+`

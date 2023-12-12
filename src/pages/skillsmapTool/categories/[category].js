@@ -28,7 +28,11 @@ const CategoryPage = ({
   }
 
   const {
-    data: { Category: categoryMatch, CategoryDefinition: categoryDefinition },
+    data: {
+      Category: categoryMatch,
+      CategoryDefinition: categoryDefinition,
+      CategoryWorkplaceUse: categoryWorkplaceUse,
+    },
   } = categoryMatches[0]
 
   const associatedSkills = skills
@@ -53,6 +57,7 @@ const CategoryPage = ({
           category={true}
           definition={categoryDefinition}
           style={{ backgroundColor: 'var(--light-purple-faint)' }}
+          workplaceUse={categoryWorkplaceUse}
         />
         <h3>
           Skills in the{' '}
@@ -77,6 +82,7 @@ export const query = graphql`
         data {
           Category
           CategoryDefinition
+          CategoryWorkplaceUse
         }
       }
     }

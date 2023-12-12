@@ -9,6 +9,10 @@
   font-weight: bold;
   margin: 0;
   max-width: 700px;
+
+  @media screen and (max-width: 1000px) {
+    padding-top: 40px;
+  }
 }
 
 .h2 {
@@ -36,6 +40,10 @@
   }
 
   > h3 {
+    max-width: 700px;
+  }
+
+  > div:has(> iframe) {
     max-width: 700px;
   }
 

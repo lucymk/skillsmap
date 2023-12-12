@@ -7,7 +7,7 @@ import NavDrawer from './navDrawer.js'
 export default function Layout({ children }) {
   return (
     <main className={`${layout}`}>
-      <NavDrawer style={{ position: 'sticky', top: '0' }} />
+      <NavDrawer style={{ top: '0' }} />
       <div className={`${contentsStyle}`}>{children}</div>
     </main>
   )
