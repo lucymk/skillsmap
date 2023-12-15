@@ -35,7 +35,7 @@ const UsingSkillsmapWithLearners = () => {
           subject. It will also give you some richer language for describing
           groups of skills that often get bundled together, such as ‘analytical’
           or ‘communication’ skills. SkillsMap® has been built with{' '}
-          <InternalLink to="/about/categoriesAndClusters">
+          <InternalLink to="../../about/categoriesAndClusters">
             Categories and Clusters
           </InternalLink>
           . While we don’t use that structure directly with learners, it is
@@ -45,7 +45,7 @@ const UsingSkillsmapWithLearners = () => {
         <p>
           If you are considering using SkillsMap® directly with learners, it
           may also help to read the guidance in the{' '}
-          <InternalLink to="../forCareersProfessionals/usingSkillsMapInACareersSession">
+          <InternalLink to="../../forCareersProfessionals/skillsmapAndCareersEducation">
             Careers Professionals section
           </InternalLink>{' '}
           on how to use it for the first time in a classroom setting. Though the
@@ -54,7 +54,7 @@ const UsingSkillsmapWithLearners = () => {
         </p>
         <p>
           As part of that or any other learner interaction with SkillsMap® you
-          can use<InternalLink to="../forLearners">this video</InternalLink>{' '}
+          can use <InternalLink to="../../forLearners">this video</InternalLink>{' '}
           with your learners to introduce them to SkillsMap®.
         </p>
         <p>
@@ -95,8 +95,8 @@ const UsingSkillsmapWithLearners = () => {
         <p>
           We will be sharing resources for you to use through the site and you
           can also{' '}
-          <InternalLink to="../about">contact SkillsMap®</InternalLink> for an
-          INSET day event for your school or college.
+          <InternalLink to="../../about">contact SkillsMap®</InternalLink> for
+          an INSET day event for your school or college.
         </p>
         <H3>Centralising the learner</H3>
         <p>

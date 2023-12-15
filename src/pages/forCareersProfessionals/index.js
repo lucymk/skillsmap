@@ -156,7 +156,7 @@ const ForCareersProfessionals = () => {
             link: './skillsmapAndCareersEducation',
             text: 'SkillsMap® and Careers Education',
           },
-          { link: './about', text: 'About SkillsMap®' },
+          { link: '../about', text: 'About SkillsMap®' },
         ]}
       />
     </Layout>

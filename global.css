@@ -89,23 +89,23 @@
 
   --dark-grey: #585858;
   --grey: #7f7f7f;
-  --light-grey: #989898;
+  --light-grey: #bfbfbf;
 
   --dark-yellow: #a59935;
-  --yellow: #eddb4c;
-  --light-yellow: #f0e26f;
+  --yellow: #f0e68c;
+  --light-yellow: #f0e68c80;
 
   --dark-purple: #5e2860;
-  --purple: #800080;
-  --light-purple: #9f61a1;
+  --purple: #8b008b;
+  --light-purple: #873a8a80;
 
   --dark-green: #74965d;
-  --green: #a6d785;
-  --light-green: #b7df9d;
+  --green: #90ee90;
+  --light-green: #d2ebc2;
 
   --dark-blue: #5168a5;
-  --blue: #7495ed;
-  --light-blue: #7495ed80;
+  --blue: #6495ed;
+  --light-blue: #b1caf6;
 
   /* sizes - not sure yet */
   --measure: 30em;
