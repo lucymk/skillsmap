@@ -128,9 +128,7 @@ const SkillsmapAndCareersEducation = () => {
           </BulletList>
         </Details>
         <Details>
-          <summary>
-            Benchmark 4: Linking Curriculum to Careers [dropdown]
-          </summary>
+          <summary>Benchmark 4: Linking Curriculum to Careers</summary>
           <p>
             The majority of schools in England are required to meet the
             government’s statutory guidance about careers education, including
@@ -160,7 +158,10 @@ const SkillsmapAndCareersEducation = () => {
           </summary>
           <p>
             So how do we answer those{' '}
-            <InternalLink to="../">three big questions?</InternalLink>
+            <InternalLink to="../">
+              three big questions we ask on the Homepage{' '}
+            </InternalLink>
+            and at the start of the learner video?
           </p>
           <p>
             Have you ever wondered how to explain to learners what the subjects
@@ -369,7 +370,7 @@ const SkillsmapAndCareersEducation = () => {
             use the{' '}
             <InternalLink to="../about/categoriesAndClusters">
               Categories and Clusters map
-            </InternalLink>
+            </InternalLink>{' '}
             as a different way of introducing learners to the idea of different
             types of transferable skills that span different subjects. This map
             is based on the SkillsMap® taxonomy from which the 15 skills for
