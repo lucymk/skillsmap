@@ -46,7 +46,7 @@ function Panel({ icon, title, clusterOrCategory, style }) {
           style={{
             color: style.panelColor,
             textDecoration: 'underline',
-            textDecorationColour: style.panelColor,
+            textDecorationColor: style.panelColor,
             marginTop: 'var(--spacing-m)',
           }}
         >
@@ -96,7 +96,7 @@ export default function ClusterCategory({ cluster, category }) {
         clusterOrCategory={category}
         style={{
           backgroundColor: 'var(--light-purple-faint)',
-          panelColor: 'var(--light-purple)',
+          panelColor: 'var(--purple)',
           borderLeft: 'var(--border-black)',
           borderTop: 'var(--border-black)',
           borderBottom: 'var(--border-black)',

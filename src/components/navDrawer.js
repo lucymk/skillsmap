@@ -61,7 +61,7 @@ export default function NavDrawer({ style }) {
     }
 
     return () => {
-      document.body.style.overflow = 'auto'
+      document.body.style.overflow = 'visible'
     }
   }, [isSelected, isSmallScreen])
 
