@@ -138,6 +138,24 @@ const WhatsInSkillsmap = () => {
             useful to learners and develop huge numbers of skills sought after
             by employers.
           </p>
+          <p>
+            Sometimes, when 2 or 3 subjects are picked, SkillsMap® will show no
+            overlapping skills between those subjects. In the full database of
+            250 skills, that doesn’t happen, but because the search database is
+            so much smaller, and the subject samples are only 15 instead of the
+            50-100 skills they have in full, there are combinations of subjects
+            where no overlapping skills can be shown. The search response
+            explains this to learners, and you can reiterate this when using
+            SkillsMap® with your learners, particularly emphasising that in
+            such cases learners are developing a really wide range of different
+            transferable skills across all those subjects, which is really
+            helpful for their future working lives. You can also explain the
+            broader value to learners of what happens when subjects do have
+            skills in common: it can help them recognise why they might enjoy
+            different subjects that might otherwise not seem very similar, or
+            emphasise why subjects in the same discipline seem to go well
+            together.
+          </p>
         </Details>
       </Copy>
       <FurtherLinks
