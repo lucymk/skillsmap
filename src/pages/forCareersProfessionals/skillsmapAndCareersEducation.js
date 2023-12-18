@@ -158,7 +158,7 @@ const SkillsmapAndCareersEducation = () => {
           </summary>
           <p>
             So how do we answer those{' '}
-            <InternalLink to="../">
+            <InternalLink to="../../">
               three big questions we ask on the Homepage{' '}
             </InternalLink>
             and at the start of the learner video?
