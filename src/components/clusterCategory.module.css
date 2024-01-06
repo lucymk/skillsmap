@@ -59,7 +59,7 @@
   width: 100%;
   border-radius: var(--br-card);
   box-shadow: var(--shadow-1);
-  margin: var(--spacing-m) 0;
+  margin: var(--spacing-s) 0;
   max-width: 700px;
 }
 

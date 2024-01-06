@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import Layout from '../../../components/layout'
 import Breadcrumbs from '../../../components/breadcrumbs'
 import WorkplaceExamples from '../../../components/workplaceExamples'
+import { SubjectsList } from '../../../components/workplaceExamples'
 import { H1, Copy } from '../../../components/shared'
 import ClusterCategory from '../../../components/clusterCategory'
 import { navigate } from 'gatsby'
@@ -27,6 +28,7 @@ const SkillOverviewPage = ({
           SkillDefinition,
           Category,
           Cluster,
+          Subjects,
         },
       },
     ],
@@ -42,6 +44,7 @@ const SkillOverviewPage = ({
         SkillDefinition: '',
         Category: '',
         Cluster: '',
+        Subjects: '',
       },
     },
   ])
@@ -86,10 +89,15 @@ const SkillOverviewPage = ({
             WorkplaceExample4,
           ]}
         />
+        <SubjectsList subjects={Subjects} />
         <ClusterCategory cluster={Cluster} category={Category} />
         {state.originPath && state.originPath.includes('skillsmapTool') && (
           <p
-            style={{ cursor: 'pointer', textDecoration: 'underline' }}
+            style={{
+              cursor: 'pointer',
+              textDecoration: 'underline',
+              paddingTop: 'var(--spacing-s)',
+            }}
             onClick={() => navigate(-1)}
           >
             &lt; Back to search results
@@ -116,6 +124,7 @@ export const query = graphql`
           Cluster
           Category
           SkillDefinition
+          Subjects
         }
       }
     }
