@@ -7,6 +7,7 @@ import {
 } from './workplaceExamples.module.css'
 import WorkplaceExamplesIconSvg from '../assets/icons/workplaceExamplesIcon.svg'
 import SubjectIcon from '../assets/icons/skillIcon.svg'
+import { InternalLink } from './shared'
 
 export default function WorkplaceExamples({ examples }) {
   return (
@@ -33,7 +34,13 @@ export function SubjectsList({ subjects }) {
       </div>
       <ul className={`${subjectsList}`}>
         {subjects.map((subject) => (
-          <li key={subject}>{subject}</li>
+          <li key={subject}>
+            <InternalLink
+              to={`../../search/?subjects=${subject.replace(' ', '+')}`}
+            >
+              {subject}
+            </InternalLink>
+          </li>
         ))}
       </ul>
     </div>
