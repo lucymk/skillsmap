@@ -36,7 +36,7 @@ export function SubjectsList({ subjects }) {
         {subjects.map((subject) => (
           <li key={subject}>
             <InternalLink
-              to={`../../search/?subjects=${subject.replace(' ', '+')}`}
+              to={`../../search/?subjects=${subject.replaceAll(' ', '+')}`}
             >
               {subject}
             </InternalLink>
