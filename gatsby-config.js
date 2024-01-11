@@ -49,7 +49,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#7495ED`,
         theme_color: `#fff`,
-        icon: 'src/assets/icons/skillIcon.svg',
+        icon: 'src/assets/icons/skillsIconApp.jpg',
       },
     },
     'gatsby-plugin-sharp',
