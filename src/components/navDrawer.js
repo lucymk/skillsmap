@@ -14,6 +14,7 @@ import {
 } from './navDrawer.module.css'
 import MenuBurgerSvg from '../assets/icons/menuBurger.svg'
 import MenuCloseSvg from '../assets/icons/menuClose.svg'
+import SkillsMapLogo from '../assets/media/skillsMapLogo.svg'
 
 function MenuItems({ visible }) {
   const NavLink = ({ children, to }) => (
@@ -94,11 +95,38 @@ export default function NavDrawer({ style }) {
             )}
             <MenuItems visible={true} />
           </div>
-          <StaticImage
+          <div
+            style={{
+              display: 'flex',
+              font: 'var(--font-caption)',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              gap: 'var(--spacing-xs)',
+              alignItems: 'center',
+            }}
+          >
+            <SkillsMapLogo style={{ width: '100%', height: 'auto' }} />
+            <span>
+              Site by{' '}
+              <a
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  color: 'var(--dark-blue)',
+                  textDecoration: 'underline',
+                }}
+                href="https://lucyking.notion.site/Lucy-King-Research-Product-UX-Design-Development-82c9ac2a0be549c29af394c38efd891e"
+              >
+                Lucy King
+              </a>{' '}
+              🤍
+            </span>
+          </div>
+          {/* <StaticImage
             alt="SkillsMap logo"
             placeholder="none"
             src="../assets/icons/skillsMapLogo.png"
-          />
+          /> */}
         </div>
       </div>
 

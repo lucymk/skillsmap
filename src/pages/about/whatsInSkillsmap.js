@@ -29,7 +29,7 @@ const WhatsInSkillsmap = () => {
         <p>When you explore SkillsMap® you will find:</p>
         <BulletList>
           <li>
-            A search function across 35 subjects. 1, 2 or 3 subjects can be
+            A search function across 36 subjects. 1, 2 or 3 subjects can be
             selected at the same time
           </li>
           <li>A list of 15 transferable skills associated with each subject</li>
@@ -45,7 +45,7 @@ const WhatsInSkillsmap = () => {
           <summary>Why are you only showing 15 transferable skills?</summary>
           <p>
             The research behind SkillsMap® has surfaced over 250 different
-            transferable Skills developed across 35 standard subject areas. But
+            transferable Skills developed across 36 standard subject areas. But
             sharing that number of skills with learners would be overwhelming
             and confusing! Even in its simplest form, SkillsMap® research shows
             that between 50 and 100 of those skills are developed in each

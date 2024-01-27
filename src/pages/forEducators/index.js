@@ -23,7 +23,7 @@ const ForEducators = () => {
           this unless we tell them.
         </p>
         <p>
-          In SkillsMap®, learners can pick any one of 35 subjects commonly
+          In SkillsMap®, learners can pick any one of 36 subjects commonly
           taught in school and college at pre-16 and pre-18 levels, and find out
           about 15 of the transferable skills they develop in that subject.
           Learners can also pick two or three subjects together, and find out
