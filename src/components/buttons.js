@@ -1,5 +1,4 @@
 import React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 import {
   button,
@@ -9,7 +8,6 @@ import {
   subjectTagContainer,
   subjectTagSelected,
   subjectTagUnselected,
-  // subjectButtonIcon,
   subjectButtonName,
   subjectButtonSelected,
   actionButton,
@@ -21,6 +19,7 @@ import {
 import SkillIconSvg from '../assets/icons/skillIcon.svg'
 import ChevronLeftSvg from '../assets/icons/chevronLeft.svg'
 import ChevronRightSvg from '../assets/icons/chevronRight.svg'
+import SkillsMapSimpleLogo from '../assets/icons/skillsMapSimpleLogo.svg'
 
 export function SkillsButton({ skill, originPath }) {
   return (
@@ -65,7 +64,6 @@ export function SubjectTag({
 }
 
 export function SubjectButton({
-  // subjectIcon,
   subjectName,
   setSelectedSubjects,
   selectedSubjects,
@@ -102,7 +100,6 @@ export function SubjectButton({
         subjectButtonOnClick()
       }}
     >
-      {/* <img src={subjectIcon} className={`${subjectButtonIcon}`} /> */}
       <div className={`${subjectButtonName}`}>{subjectName}</div>
     </button>
   )
@@ -122,11 +119,7 @@ export function SkillsMapButton() {
   return (
     <Link to="/skillsmapTool">
       <button className={`${button} ${skillsMapButton}`}>
-        <StaticImage
-          placeholder="none"
-          width={100}
-          src="../assets/icons/skillsMapSimpleLogo.png"
-        />
+        <SkillsMapSimpleLogo width="100px" height="auto" />
         Search subjects
       </button>
     </Link>

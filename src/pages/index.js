@@ -3,35 +3,77 @@ import * as React from 'react'
 import '../../global.css'
 import Layout from '../components/layout'
 import { SkillsMapButton } from '../components/buttons'
-import { H1, Copy, BulletList, InternalLink } from '../components/shared'
+import { H1, Copy } from '../components/shared'
+import LearnerIcon from '../assets/icons/learnerIcon.svg'
+import SubjectIcon from '../assets/icons/subjectIcon.svg'
+import CareerIcon from '../assets/icons/careerProfessionalIcon.svg'
 
 const IndexPage = () => {
   return (
     <Layout>
       <H1>Welcome to SkillsMap®!</H1>
       <Copy>
-        <BulletList>
-          <li>
-            Have you ever wondered what the subjects you study at school or
-            college have to do with work and your career?
-          </li>
-          <li>
-            Have you ever really enjoyed a subject at school or college but
-            wondered if there will be any future use for it in the workplace?
-          </li>
-          <li>
-            Have you ever wondered what value your qualifications have to
-            employers?
-          </li>
-        </BulletList>
-        <p style={{ margin: 'var(--spacing-m) 0 0 0' }}>
+        <div
+          style={{
+            maxWidth: '700px',
+            marginTop: 'var(--spacing-s)',
+            borderRadius: 'var(--br-card)',
+            display: 'grid',
+            gridTemplateRows: 'repeat(3, 1fr)',
+            gridTemplateColumns: '1fr 14fr',
+            gap: '0 var(--spacing-xs)',
+            alignItems: 'center',
+            font: 'var(--font-subheader)',
+          }}
+        >
+          <SubjectIcon width="100%" height="auto" />
+          <span
+            style={{
+              padding: 'var(--spacing-s) 0',
+              borderBottom: 'var(--border-black)',
+            }}
+          >
+            <span
+              style={{ backgroundColor: 'var(--yellow)', fontWeight: 'bold' }}
+            >
+              Have you ever...
+            </span>{' '}
+            wondered what the subjects you study at school or college have to do
+            with work and your career?
+          </span>
+          <CareerIcon width="100%" height="auto" />
+          <span
+            style={{
+              padding: 'var(--spacing-s) 0',
+              borderBottom: 'var(--border-black)',
+            }}
+          >
+            <span
+              style={{ backgroundColor: 'var(--yellow)', fontWeight: 'bold' }}
+            >
+              Have you ever...
+            </span>{' '}
+            really enjoyed a subject at school or college but wondered if there
+            will be any future use for it in the workplace?
+          </span>
+          <LearnerIcon width="100%" height="auto" />
+          <span>
+            <span
+              style={{ backgroundColor: 'var(--yellow)', fontWeight: 'bold' }}
+            >
+              Have you ever...
+            </span>{' '}
+            wondered what value your qualifications have to employers?
+          </span>
+        </div>
+        <p>
           If you have ever asked yourself any of these questions, then
           SkillsMap&#174; is here to help you.
         </p>
         <p>
           {' '}
           SkillsMap&#174; shows you a selection of the transferable skills
-          developed in each of 35 different academic subjects typically taught
+          developed in each of 36 different academic subjects typically taught
           in pre-18 education.{' '}
         </p>
         <p>These are the skills that employers are looking for. </p>
@@ -46,13 +88,13 @@ const IndexPage = () => {
         <div
           style={{
             display: 'flex',
-            justifyContent: 'center',
+            alignItems: 'center',
             maxWidth: '700px',
           }}
         >
           <SkillsMapButton />
         </div>
-        <p>
+        {/* <p>
           If you want to learn more about SkillsMap® first, visit{' '}
           <InternalLink to="../forLearners">For learners</InternalLink>.{' '}
         </p>
@@ -68,7 +110,7 @@ const IndexPage = () => {
             For Careers Professionals
           </InternalLink>{' '}
           page.
-        </p>
+        </p> */}
       </Copy>
     </Layout>
   )

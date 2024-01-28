@@ -6,7 +6,7 @@ import {
   subjectsList,
 } from './workplaceExamples.module.css'
 import WorkplaceExamplesIconSvg from '../assets/icons/workplaceExamplesIcon.svg'
-import SubjectIcon from '../assets/icons/skillIcon.svg'
+import SubjectIcon from '../assets/icons/subjectIcon.svg'
 import { InternalLink } from './shared'
 
 export default function WorkplaceExamples({ examples }) {
@@ -29,7 +29,7 @@ export function SubjectsList({ subjects }) {
   return (
     <div className={`${workplaceExamples}`}>
       <div className={`${workplaceExamplesHeader}`}>
-        <SubjectIcon />
+        <SubjectIcon width="35px" />
         Subjects this skill is used in:
       </div>
       <ul className={`${subjectsList}`}>
