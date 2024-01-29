@@ -116,7 +116,6 @@ module.exports = {
       resolve: `gatsby-plugin-offline`,
       options: {
         debug: true,
-        precachePages: ['/about/*'],
         workboxConfig: {
           globPatterns: ['**/*.{js,jpg,png,html,css}'],
         },

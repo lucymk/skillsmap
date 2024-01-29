@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Link } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
 import {
   navDrawer,
   navDrawerContentsOuter,
@@ -53,7 +52,7 @@ export default function NavDrawer({ style }) {
   const [isSmallScreen, toggleIsSmallScreen] = useState(false)
 
   useEffect(() => {
-    window.screen.width < 1024 && toggleIsSmallScreen(true)
+    window.screen.width < 1000 && toggleIsSmallScreen(true)
   }, [])
 
   useEffect(() => {
