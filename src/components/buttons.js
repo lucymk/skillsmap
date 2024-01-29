@@ -33,7 +33,7 @@ export function SkillsButton({ skill, originPath }) {
     >
       <StaticImage
         style={{
-          margin: 'var(--spacing-m) 0',
+          margin: '0',
           height: '30px',
           maxWidth: '30px',
         }}
