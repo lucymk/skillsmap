@@ -50,7 +50,6 @@ module.exports = {
         background_color: `#7495ED`,
         theme_color: `#fff`,
         icon: 'src/assets/icons/skillsIconApp.jpg',
-        cache_busting_mode: 'none',
       },
     },
     'gatsby-plugin-sharp',
@@ -113,26 +112,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        debug: true,
-        precachePages: [
-          // '/',
-          // '/*/',
-          // '/about/*/',
-          // '/forCareersProfessionals/*/',
-          // '/forEducators/*/',
-          // '/forLearners/*/',
-          // '/skillsmapTool/*',
-          '/skillsmapTool/categories/*',
-          '/skillsmapTool/clusters/*',
-          // '/search/*',
-          // '/skills/*',
-        ],
-        workboxConfig: {
-          globPatterns: ['**/*.{js,jpg,png,html,css}'],
-        },
-      },
+      resolve: `gatsby-plugin-remove-serviceworker`,
     },
   ],
 }
