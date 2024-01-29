@@ -85,7 +85,9 @@ const SkillsmapSearchPage = ({
               <NextIconSvg />
             </Link>
           ) : (
-            <NextIconDisabledSvg />
+            <Link to="">
+              <NextIconDisabledSvg />
+            </Link>
           )}
         </SubjectGridAndButton>
       </Copy>
