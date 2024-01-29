@@ -50,6 +50,7 @@ module.exports = {
         background_color: `#7495ED`,
         theme_color: `#fff`,
         icon: 'src/assets/icons/skillsIconApp.jpg',
+        cache_busting_mode: 'none',
       },
     },
     'gatsby-plugin-sharp',
@@ -116,6 +117,9 @@ module.exports = {
       options: {
         debug: true,
         precachePages: ['/about/*'],
+        workboxConfig: {
+          globPatterns: ['**/*.{js,jpg,png,html,css}'],
+        },
       },
     },
   ],
