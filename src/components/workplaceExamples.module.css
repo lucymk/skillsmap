@@ -30,12 +30,14 @@
   padding-inline-start: 15px;
   column-count: 2;
 
-  > li {
-    padding: var(--spacing-xxs) var(--spacing-s) var(--spacing-xxs) 0;
-  }
-
   @media screen and (max-width: 500px) {
     column-count: 1;
+  }
+}
+
+.subjects-list li {
+  > li {
+    padding: var(--spacing-xxs) var(--spacing-s) var(--spacing-xxs) 0;
   }
 }
 
