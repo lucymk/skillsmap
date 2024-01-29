@@ -114,9 +114,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-offline`,
       options: {
-        precachePages: glob
-          .sync('src/pages/**/*.js')
-          .map((page) => page.replace('src/pages', '').replace('.js', '')),
+        precachePages: [
+          ...glob
+            .sync('src/pages/**/*.js')
+            .map((page) => page.replace('src/pages', '').replace('.js', '')),
+          '/skillsmapTool/skills/*',
+          '/skillsmapTool/search/*',
+          '/skillsmapTool/clusters/*',
+          '/skillsmapTool/categories/*',
+        ],
       },
     },
   ],
