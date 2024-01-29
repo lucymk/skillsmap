@@ -114,19 +114,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-offline`,
       options: {
-        precachePages: [
-          '/about/*',
-          '/forCareersProfessionals/*',
-          '/forEducators/*',
-          '/skillsmapTool/*',
-          '/skillsmapTool/skills/*',
-          '/skillsmapTool/search/*',
-          '/skillsmapTool/clusters/*',
-          '/skillsmapTool/categories/*',
-          '/',
-          '/404/',
-          '/forLearners/',
-        ],
+        debug: true,
+        precachePages: ['/about/*'],
       },
     },
   ],
