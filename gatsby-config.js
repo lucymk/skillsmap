@@ -117,7 +117,20 @@ module.exports = {
       options: {
         debug: true,
         workboxConfig: {
-          globPatterns: ['**/*.{js,jpg,png,html,css}'],
+          precachePages: [
+            '/',
+            '/*/',
+            '/about/*/',
+            '/forCareersProfessionals/*/',
+            '/forEducators/*/',
+            '/forLearners/*/',
+            '/skillsmapTool/*',
+            '/skillsmapTool/categories/*',
+            '/skillsmapTool/clusters/*',
+            '/search/*',
+            '/skills/*',
+          ],
+          // globPatterns: ['**/*.{js,jpg,png,html,css}'],
         },
       },
     },
