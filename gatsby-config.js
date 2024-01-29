@@ -22,8 +22,6 @@ const gatsbyRequiredRules = path.join(
   'eslint-rules'
 )
 
-const glob = require('glob')
-
 module.exports = {
   siteMetadata: {
     title: `SkillsMap®`,
@@ -117,13 +115,17 @@ module.exports = {
       resolve: `gatsby-plugin-offline`,
       options: {
         precachePages: [
-          ...glob
-            .sync('src/pages/**/*.js')
-            .map((page) => page.replace('src/pages', '').replace('.js', '')),
+          '/about/*',
+          '/forCareersProfessionals/*',
+          '/forEducators/*',
+          '/skillsmapTool/*',
           '/skillsmapTool/skills/*',
           '/skillsmapTool/search/*',
           '/skillsmapTool/clusters/*',
           '/skillsmapTool/categories/*',
+          '/',
+          '/404/',
+          '/forLearners/',
         ],
       },
     },
