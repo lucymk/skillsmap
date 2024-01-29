@@ -37,7 +37,7 @@ export function SkillsButton({ skill, originPath }) {
           height: '30px',
           maxWidth: '30px',
         }}
-        src="../assets/icons/skillIcon.png"
+        src="../assets/icons/skillIconPng.png"
         placeholder="none"
       />{' '}
       {skill}
