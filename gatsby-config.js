@@ -22,6 +22,8 @@ const gatsbyRequiredRules = path.join(
   'eslint-rules'
 )
 
+const glob = require('glob')
+
 module.exports = {
   siteMetadata: {
     title: `SkillsMap®`,
