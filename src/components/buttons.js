@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import {
   button,
   skillsButton,
-  skillIcon,
   subjectTag,
   subjectTagContainer,
   subjectTagSelected,
@@ -16,7 +16,6 @@ import {
   subjectGridAndButton,
   subjectGrid,
 } from './buttons.module.css'
-import SkillIconSvg from '../assets/icons/skillIcon.svg'
 import ChevronLeftSvg from '../assets/icons/chevronLeft.svg'
 import ChevronRightSvg from '../assets/icons/chevronRight.svg'
 import SkillsMapSimpleLogo from '../assets/icons/skillsMapSimpleLogo.svg'
@@ -32,7 +31,15 @@ export function SkillsButton({ skill, originPath }) {
       state={{ originPath: originPath }}
       className={`${button} ${skillsButton}`}
     >
-      <SkillIconSvg className={`${skillIcon}`} />
+      <StaticImage
+        style={{
+          margin: '0',
+          height: '30px',
+          maxWidth: '30px',
+        }}
+        src="../assets/icons/skillIconPng.png"
+        placeholder="none"
+      />{' '}
       {skill}
       <ChevronRightSvg height="20px" />
     </Link>
