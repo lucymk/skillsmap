@@ -114,7 +114,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-offline`,
       options: {
-        precachePages: [`/about`, '/'],
+        precachePages: glob
+          .sync('src/pages/**/*.js')
+          .map((page) => page.replace('src/pages', '').replace('.js', '')),
       },
     },
   ],
