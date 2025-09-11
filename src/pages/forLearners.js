@@ -44,7 +44,7 @@ const forLearners = () => {
           other situations – like the workplace. Whatever subjects you study and
           whatever job or career you choose, many of the transferable skills you
           develop at school and college will be used in your future work. They
-          might be used in different ways, but they are exactly the same skills.{' '}
+          might be used in different ways, but they are exactly the same skills.
         </p>
         <p>
           You can find examples of some of the transferable skills you are
