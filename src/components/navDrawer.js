@@ -14,6 +14,7 @@ import {
 import MenuBurgerSvg from '../assets/icons/menuBurger.svg'
 import MenuCloseSvg from '../assets/icons/menuClose.svg'
 import SkillsMapLogo from '../assets/media/skillsMapLogo.svg'
+import { DarkBlueInternalLink } from './shared'
 
 function MenuItems({ visible }) {
   const NavLink = ({ children, to }) => (
@@ -120,6 +121,9 @@ export default function NavDrawer({ style }) {
               </a>{' '}
               🤍
             </span>
+            <DarkBlueInternalLink to="../termsAndConditions">
+              Terms and Conditions
+            </DarkBlueInternalLink>{' '}
           </div>
         </div>
       </div>

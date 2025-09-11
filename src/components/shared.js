@@ -16,6 +16,7 @@ import {
   list,
   link,
   details,
+  darkBlueLink,
 } from './shared.module.css'
 
 export function Headline({ children }) {
@@ -61,6 +62,14 @@ export function ExternalLink({ src, children }) {
 export function InternalLink({ to, children }) {
   return (
     <Link className={`${link}`} to={to}>
+      {children}
+    </Link>
+  )
+}
+
+export function DarkBlueInternalLink({ to, children }) {
+  return (
+    <Link className={`${darkBlueLink}`} to={to}>
       {children}
     </Link>
   )

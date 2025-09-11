@@ -72,6 +72,13 @@
   font-weight: bold;
 }
 
+.darkBlueLink {
+  color: var(--dark-blue) !important;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}
+
 .details {
   margin-top: var(--spacing-xs);
 
