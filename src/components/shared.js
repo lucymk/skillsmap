@@ -88,6 +88,7 @@ export function Contact() {
         </li>
         <li>training and development on careers education</li>
         <li>designing careers and employability strategy</li>
+        <li>permissions regarding use of the SkillsMap® website</li>
       </ul>
       <p>
         Please visit Kate’s website at{' '}
