@@ -33,7 +33,7 @@ User-agent: Meta-ExternalAgent
 Disallow: /
 
 User-agent: FacebookBot
-Allow: /
+Disallow: /
 
 User-agent: Diffbot
 Disallow: /
@@ -54,21 +54,21 @@ Allow: /
 User-agent: Slurp
 Allow: /
 
-# Allow social media crawlers
+# Block social media crawlers
 User-agent: facebookexternalhit
-Allow: /
+Disallow: /
 
 User-agent: Twitterbot
-Allow: /
+Disallow: /
 
 User-agent: LinkedInBot
-Allow: /
+Disallow: /
 
 User-agent: WhatsApp
-Allow: /
+Disallow: /
 
 User-agent: Applebot
-Allow: /
+Disallow: /
 
 # Block everything else by default
 User-agent: *
