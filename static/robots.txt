@@ -33,19 +33,43 @@ User-agent: Meta-ExternalAgent
 Disallow: /
 
 User-agent: FacebookBot
-Disallow: /
+Allow: /
 
 User-agent: Diffbot
 Disallow: /
 
-# Allow legitimate search bots
+# Allow search engine bots
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-# Block everything else by default from sensitive areas
-User-agent: *
+User-agent: DuckDuckBot
 Allow: /
-Disallow: /terms
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Block everything else by default
+User-agent: *
+Disallow: /
